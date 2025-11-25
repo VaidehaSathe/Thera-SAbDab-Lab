@@ -12,6 +12,10 @@ import layoutparser as lp
 # Uncomment only if tesseract is in a non-standard location:
 # pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
+'''
+USEAGE: python src/images_layout_ocr_pipeline.py data/inputfolder --json-out data/outputs/outputfile.json --txt-out data/outputs/outputfile.txt
+'''
+
 
 def ocr_image_to_layout(image: Image.Image, page_id: str) -> lp.Layout:
     """
@@ -210,3 +214,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
