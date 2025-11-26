@@ -2,7 +2,7 @@
 ILESLA Team Project Sandpit 2025-2026
 
 ## Pipeline
-PDF -> Image Folder -> Textfile -> Dataframe (tsv) 
+PDF --(pdf2image)--> Image Folder --(pytesseract, layoutparser)--> Textfile --(string comprehension)--> Dataframe 
 
 ## Modules
 ### PDF Converter
