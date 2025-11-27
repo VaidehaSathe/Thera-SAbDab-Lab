@@ -11,17 +11,16 @@ PDF --(pdf2image)--> Image Folder --(pytesseract, layoutparser)--> Textfile --(s
 - Example Useage:
 
 ```
-python src/pdf_converter.py input.pdf output_folder --first-page 1 --last-page 5 --dpi 300
+python src/pdf2image.py inputfile.pdf outputfolder --first-page 1 --last-page 5 --dpi 300
 ```
 
 ### OCR Pipeline
 - Takes in the image folder
-- Uses pytesseract and layoutparser to extract text information from the images
-- Extracts layout information (stored as a .json) to infrom text layout
+- Uses pytesseract to extract layout-aware text from the images
 - Example Useage:
 
 ```
-python src/images_layout_ocr_pipeline.py data/inputfolder --json-out data/outputs/outputfile.json --txt-out data/outputs/outputfile.txt
+python src/image2text.py inputfolder -o outputfile.txt
 ```
 
 ### Text Parser
@@ -33,5 +32,5 @@ python src/images_layout_ocr_pipeline.py data/inputfolder --json-out data/output
 - Example Useage
 
 ```
-python src/parse_antibody_inn_v3.py data/outputs/inputfile.txt --out-tsv data/outputs/outputfile.tsv
+python src/text2df.py data/inputfile.txt --out-tsv data/outputfile.tsv
 ```
