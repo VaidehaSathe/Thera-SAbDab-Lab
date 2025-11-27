@@ -2,6 +2,7 @@
 .venv/
 
 ## Data Folders
-data/**
+data/**/*
+!data/**/
 !data/**/*.ph
 
