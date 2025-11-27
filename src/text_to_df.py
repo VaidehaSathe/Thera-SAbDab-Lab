@@ -8,11 +8,13 @@ Pipeline:
    - Page numbers at the bottom: lines that are just digits (e.g. '535')
 
 2) Mark INN entries:
-   - Insert '#=========INN Entry Found========#' above any line that contains
+   - Insert '#=========INN Entry========#' above any line that contains
      at least one word ending in 'um' (e.g. 'gaspantatugum #',
      'grebenmotidum simoleninum alfa #').
 
-3) Keep only antibody entries (based on INN stems) and structure them:
+3) Strip everything before the first INN entry marker.
+
+4) Keep only antibody entries (based on INN stems) and structure them:
    - For each entry:
      * Keep only those whose INN name (without 'um') ends with one of:
          -mab, -bart, -rac, -ment, -mig, -umab, -zumab, -ximab, -tug, -fusp
@@ -92,10 +94,28 @@ def mark_inn_entries(text: str) -> str:
 
     for line in lines:
         if pattern.search(line):
-            marked_lines.append("#=========INN Entry Found========#")
+            marked_lines.append("#=========INN Entry========#")
         marked_lines.append(line)
 
     return "\n".join(marked_lines)
+
+
+def strip_before_first_entry(text: str) -> str:
+    """
+    Remove any content before the first INN entry marker.
+
+    Keeps everything from the first line equal to
+    '#=========INN Entry========#' onwards.
+    If no marker is found, returns an empty string.
+    """
+    marker = "#=========INN Entry========#"
+    lines = text.splitlines()
+    for i, line in enumerate(lines):
+        if line.strip() == marker:
+            # Rebuild text starting from the first marker
+            return "\n".join(lines[i:]).lstrip("\n") + "\n"
+    # No entry detected
+    return ""
 
 
 def segment_entry(entry_lines):
@@ -103,7 +123,7 @@ def segment_entry(entry_lines):
     For a single INN entry (list of lines, including the marker as [0]),
     structure it as:
 
-      #=========INN Entry Found========#
+      #=========INN Entry========#
       <INN name line>
       #=======Description=======#
       <first language block (assumed English)>
@@ -269,7 +289,7 @@ def filter_antibody_entries(text: str) -> str:
     structure each kept entry into Description / Sequence / Modifications.
 
     Entry definition:
-    - Starts at a line equal to '#=========INN Entry Found========#'
+    - Starts at a line equal to '#=========INN Entry========#'
       and continues up to (but not including) the next such marker.
 
     Classification:
@@ -281,12 +301,12 @@ def filter_antibody_entries(text: str) -> str:
     - If any token matches, keep & segment the entry.
     - Otherwise, drop the entry and record the *first* INN token found.
     """
-    marker = "#=========INN Entry Found========#"
+    marker = "#=========INN Entry========#"
     stems = ["mab", "bart", "rac", "ment", "mig", "umab", "zumab", "ximab", "tug", "fusp"]
 
     lines = text.splitlines()
 
-    # Split into preamble and entries
+    # Split into (potentially empty) preamble and entries
     preamble = []
     entries = []
 
@@ -354,13 +374,11 @@ def filter_antibody_entries(text: str) -> str:
         else:
             removed_inns.append(inn_tokens[0])
 
-    # Rebuild output
+    # Rebuild output (preamble is now expected to be empty if strip_before_first_entry used)
     out_lines = []
 
-    # Preamble
-    out_lines.extend(preamble)
-    if preamble and preamble[-1].strip() != "":
-        out_lines.append("")
+    # We intentionally do NOT re-add preamble here since we've already
+    # stripped anything before the first entry earlier in the pipeline.
 
     # Kept entries
     for entry in kept_entries:
@@ -384,7 +402,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
             "Process OCR'd INN text: remove metadata, mark entries, "
-            "keep only antibody entries, structure them, and list removed INNs."
+            "strip preamble, keep only antibody entries, structure them, "
+            "and list removed INNs."
         )
     )
 
@@ -402,7 +421,8 @@ def main() -> None:
     raw_text = read_text(args.input)
     no_meta = remove_metadata(raw_text)
     marked = mark_inn_entries(no_meta)
-    processed = filter_antibody_entries(marked)
+    entries_only = strip_before_first_entry(marked)
+    processed = filter_antibody_entries(entries_only)
 
     if args.output == "-":
         sys.stdout.write(processed)
@@ -412,6 +432,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 

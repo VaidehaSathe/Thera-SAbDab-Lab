@@ -1,6 +1,7 @@
 import argparse
 import statistics
 from pathlib import Path
+import re
 
 
 def ocr_image_left_to_right(img_path, lang="eng"):
@@ -78,6 +79,22 @@ def ocr_image_left_to_right(img_path, lang="eng"):
     return "\n".join(final_lines)
 
 
+def page_sort_key(path: Path):
+    """
+    Sort key that extracts the first integer from the filename stem.
+    For example:
+      'page-1.png'  -> 1
+      'page-02.png' -> 2
+      'page-10.png' -> 10
+    Files without a number are placed at the end, ordered by name.
+    """
+    m = re.search(r"(\d+)", path.stem)
+    if m:
+        return (0, int(m.group(1)))  # 0 = "has number"
+    else:
+        return (1, path.stem.lower())  # 1 = "no number", sort by name
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Run left→right OCR over all images in a folder and combine to one text output."
@@ -105,12 +122,15 @@ def main():
 
     # Collect image files
     exts = {".png", ".jpg", ".jpeg", ".tif", ".tiff"}
-    image_paths = sorted(
+    image_paths = [
         p for p in folder.iterdir() if p.suffix.lower() in exts and p.is_file()
-    )
+    ]
 
     if not image_paths:
         raise SystemExit(f"No image files found in folder: {folder}")
+
+    # Sort by page number extracted from filename
+    image_paths = sorted(image_paths, key=page_sort_key)
 
     chunks = []
     for img_path in image_paths:

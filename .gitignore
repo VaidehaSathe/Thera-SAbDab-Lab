@@ -2,6 +2,6 @@
 .venv/
 
 ## Data Folders
-data/inputs/
-data/outputs/
+data/**
+!data/**/*.ph ## Keep placeholder files to retain folder structure
 

@@ -2,7 +2,7 @@
 ILESLA Team Project Sandpit 2025-2026
 
 ## Pipeline
-PDF --(pdf2image)--> Image Folder --(pytesseract, layoutparser)--> Textfile --(string comprehension)--> Dataframe 
+PDF --(pdf2image)--> Image Folder --(pytesseract)--> Textfile --(string comprehension)--> Dataframe 
 
 ## Modules
 ### PDF Converter
@@ -11,7 +11,7 @@ PDF --(pdf2image)--> Image Folder --(pytesseract, layoutparser)--> Textfile --(s
 - Example Useage:
 
 ```
-python src/pdf2image.py inputfile.pdf outputfolder --first-page 1 --last-page 5 --dpi 300
+python src/pdf_to_image.py inputfile.pdf outputfolder -f 1 -l 5 --dpi 300
 ```
 
 ### OCR Pipeline
@@ -20,7 +20,7 @@ python src/pdf2image.py inputfile.pdf outputfolder --first-page 1 --last-page 5 
 - Example Useage:
 
 ```
-python src/image2text.py inputfolder -o outputfile.txt
+python src/image_to_text.py inputfolder -o outputfile.txt
 ```
 
 ### Text Parser
@@ -32,5 +32,5 @@ python src/image2text.py inputfolder -o outputfile.txt
 - Example Useage
 
 ```
-python src/text2df.py data/inputfile.txt --out-tsv data/outputfile.tsv
+python src/text_to_df.py data/inputfile.txt -o data/outputfile.tsv
 ```

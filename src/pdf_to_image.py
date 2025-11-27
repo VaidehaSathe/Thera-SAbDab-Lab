@@ -1,10 +1,6 @@
 from pathlib import Path
-from pdf2image import convert_from_path
+from pdf_to_image import convert_from_path
 import argparse
-
-'''
-USEAGE: python src/pdf_converter.py input.pdf output_folder --first-page 1 --last-page 5 --dpi 300
-'''
 
 def pdf_to_png_folder(
     pdf_path: str,
