@@ -3,5 +3,5 @@
 
 ## Data Folders
 data/**
-!data/**/*.ph ## Keep placeholder files to retain folder structure
+!data/**/*.ph
 
