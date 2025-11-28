@@ -7,11 +7,11 @@ PDF --(pdf2image)--> Image Folder --(pytesseract)--> Textfile --(string comprehe
 ## Modules
 ### PDF Converter
 - Takes in a PDF file
-- Converts a specified page range into a folder of images at as specific DPI
+- Converts a specified page range into a folder of images at a specific DPI
 - Example Useage:
 
 ```
-python src/pdf_to_image.py data/pdfs/inputfile.pdf data/images/outputfolder -f 1 -l 5 --dpi 300
+python src/pdf_to_image.py data/pdfs/inputfile.pdf -o data/images/outputfolder -f 1 -l 5 --dpi 300
 ```
 
 ### OCR Pipeline

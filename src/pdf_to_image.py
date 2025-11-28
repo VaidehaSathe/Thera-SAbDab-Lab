@@ -1,5 +1,5 @@
 from pathlib import Path
-from pdf_to_image import convert_from_path
+from pdf2image import convert_from_path
 import argparse
 
 def pdf_to_png_folder(
