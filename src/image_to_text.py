@@ -104,8 +104,8 @@ def main():
         help="Path to folder containing images (e.g. .png, .jpg, .jpeg, .tif, .tiff)",
     )
     parser.add_argument(
-        "-o",
-        "--output",
+        "output",
+        nargs="?",
         help="Output .txt file path (if omitted, prints to stdout)",
     )
     parser.add_argument(

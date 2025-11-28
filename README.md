@@ -11,7 +11,7 @@ PDF --(pdf2image)--> Image Folder --(pytesseract)--> Textfile --(string comprehe
 - Example Useage:
 
 ```
-python src/pdf_to_image.py data/pdfs/inputfile.pdf -o data/images/outputfolder -f 1 -l 5 --dpi 300
+python src/pdf_to_image.py data/pdfs/inputfile.pdf data/images/outputfolder -f 1 -l 5 --dpi 300
 ```
 
 ### OCR Pipeline
@@ -20,7 +20,7 @@ python src/pdf_to_image.py data/pdfs/inputfile.pdf -o data/images/outputfolder -
 - Example Useage:
 
 ```
-python src/image_to_text.py data/images/inputfolder -o data/ocr_text/outputfile.txt
+python src/image_to_text.py data/images/inputfolder data/ocr_text/outputfile.txt
 ```
 
 ### Text Parser
@@ -35,10 +35,10 @@ python src/image_to_text.py data/images/inputfolder -o data/ocr_text/outputfile.
 - Example Useage:
 
 ```
-python src/text_parser.py data/ocr_text/inputfile.txt -o data/segmented_text/outputfile.txt
+python src/text_parser.py data/ocr_text/inputfile.txt data/segmented_text/outputfile.txt
 ```
 
-### Text Cleaner
+### Text Cleaner (TO BE MADE)
 - Takes in a textfile
 - Cleans INN entries and subfields:
   - Parses chemical description (TBD)
@@ -48,5 +48,5 @@ python src/text_parser.py data/ocr_text/inputfile.txt -o data/segmented_text/out
 -  Example Useage:
 
 ```
-python src/text_to_df.py data/segmented_text/inputfile.txt -o data/dataframes/outputfile.tsv
+python src/text_to_df.py data/segmented_text/inputfile.txt data/dataframes/outputfile.tsv
 ```
