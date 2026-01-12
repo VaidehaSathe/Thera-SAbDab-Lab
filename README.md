@@ -1,8 +1,8 @@
 # Thera-SAbDab-Lab
 ILESLA Team Project Sandpit 2025-2026
 
-## Pipeline
-PDF --(pdf2image)--> Image Folder --(pytesseract)--> Textfile --(string comprehension)--> Segmented Textfile --(string comprehension and PANDAS)--> Dataframe 
+## PDF Parsing Pipeline
+PDF --(pdf2image)--> Image Folder --(pytesseract)--> Textfile --(string comprehension)--> Segmented Textfile --(string comprehension and SQLite)--> Database
 
 ## Modules
 ### PDF Converter
@@ -50,3 +50,10 @@ python src/text_parser.py data/ocr_text/inputfile.txt data/segmented_text/output
 ```
 python src/text_to_df.py data/segmented_text/inputfile.txt data/dataframes/outputfile.tsv
 ```
+
+### Converion to Database
+- Uses SQLite and string comprehension to transform the segmented text into a usable relational database.
+- Needs Development
+
+## Scraping additional information (NEEDS TO BE BUILT)``
+Database --(LLM API + Query)--> Find alternate names --(LLM API + Query)--> Extract ADA/Immunogenicity data from preclinical studies/databases --(SQLite + String Comprehension)--> Updated Database
