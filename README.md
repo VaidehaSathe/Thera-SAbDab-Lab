@@ -55,5 +55,5 @@ python src/text_to_df.py data/segmented_text/inputfile.txt data/dataframes/outpu
 - Uses SQLite and string comprehension to transform the segmented text into a usable relational database.
 - Needs Development
 
-## Scraping additional information (NEEDS TO BE BUILT)`
+## Scraping additional information (NEEDS TO BE BUILT)
 Database --(LLM API + Query)--> Find alternate names --(LLM API + Query)--> Extract ADA/Immunogenicity data from preclinical studies/databases --(SQLite + String Comprehension)--> Updated Database
