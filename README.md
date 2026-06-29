@@ -1,6 +1,7 @@
 # Thera-SAbDab-Lab
 ILESLA Team Project Sandpit 2025-2026
-Slides Link: https://docs.google.com/presentation/d/1SfcI3YbkLiXAKqoT47O9uEk3hII394qrYrZna_ksBcY/edit?usp=sharing
+Slides Link: https://docs.google.com/presentation/d/1SfcI3YbkLiXAKqoT47O9uEk3hII394qrYrZna_ksBcY
+Docs Link: https://docs.google.com/document/d/1VORiMe32QgQLAp3IR_BG0rquLOw2-_LF6qwUFqIdPr8
 
 ## PDF Parsing Pipeline
 PDF --(pdf2image)--> Image Folder --(pytesseract)--> Textfile --(string comprehension)--> Segmented Textfile --(string comprehension and SQLite)--> Database
