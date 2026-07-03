@@ -456,7 +456,7 @@ UNIQUE (inn_name)
 
 ### Store IMGT identifiers as an identity and annotation layer
 
-IMGT nomenclature should not replace the internal database key. Instead, IMGT-compatible information should be stored in dedicated identifier and annotation tables:
+IMGT-compatible information can be stored in dedicated identifier and annotation tables:
 
 - `ANTIBODY_IDENTIFIER`
 - `IMGT_MOLECULAR_ANNOTATION`
