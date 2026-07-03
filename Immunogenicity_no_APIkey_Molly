@@ -1,0 +1,290 @@
+from google.colab import files
+from openpyxl import load_workbook
+
+uploaded = files.upload()
+
+INPUT_XLSX = list(uploaded.keys())[0]
+print(f"Loaded workbook: {INPUT_XLSX}")
+
+wb = load_workbook(INPUT_XLSX)
+ws = wb.worksheets[0]
+
+# Read antibody names from column 1
+antibodies = []
+for row_idx in range(2, ws.max_row + 1):
+    value = ws.cell(row=row_idx, column=1).value
+    if value is None:
+        continue
+    name = str(value).strip()
+    if name:
+        antibodies.append((row_idx, name))
+
+print(f"Found {len(antibodies)} antibodies\n")
+for row_idx, name in antibodies[:10]:
+    print(row_idx, name)
+
+
+
+
+
+
+import re
+
+# keep responses across cells
+try:
+    TRIAL_BLOCKS_BY_ANTIBODY
+except NameError:
+    TRIAL_BLOCKS_BY_ANTIBODY = {}
+
+def build_prompt(antibody_name):
+    return f"""
+You are performing structured scientific data extraction.
+
+Extract all publicly available clinical immunogenicity data for the therapeutic antibody "{antibody_name}".
+
+Search the following sources in order of preference:
+
+1. Peer-reviewed publications
+2. FDA or EMA regulatory documents
+3. Prescribing information
+4. ClinicalTrials.gov results
+5. Conference abstracts only if no peer-reviewed publication exists
+
+Include only studies with at least one publicly reported immunogenicity result.
+
+Exclude studies containing only:
+- protocol descriptions
+- planned ADA testing
+- ADA sampling schedules
+- immunogenicity endpoints without published results
+
+For every eligible clinical trial produce ONE structured summary using this format:
+
+Study:
+NCT:
+Study design:
+Disease:
+Dose:
+Patients:
+
+Baseline ADA:
+Treatment-emergent ADA:
+Treatment-boosted ADA:
+Overall ADA prevalence:
+Neutralizing antibodies:
+Main adverse effects:
+
+Study conclusion:
+Quote or accurately summarize the authors' conclusion regarding whether the study achieved its primary objective.
+Do not infer the outcome from statistical tables.
+If the publication does not explicitly state whether the primary endpoint was met, write:
+Not explicitly stated.
+
+
+Primary source:
+Provide the complete source(s) used for this clinical trial.
+
+For each source include:
+• Source title
+• Source type (Peer-reviewed publication, FDA label, EMA assessment report, ClinicalTrials.gov, Prescribing information, Conference abstract)
+• Direct URL
+
+List multiple sources on separate lines.
+
+Example:
+
+Primary source:
+
+FDA Prescribing Information (2022)
+https://www.accessdata.fda.gov/...
+
+ClinicalTrials.gov
+https://clinicaltrials.gov/study/NCT00848926
+
+
+Rules
+
+- Use only explicitly reported information.
+- Never infer missing values.
+- If a field is unavailable write exactly:
+Not publicly available.
+- If no clinical consequences are discussed write:
+Not publicly discussed.
+- If no clinically meaningful association is reported write:
+No clinically meaningful association was reported.
+- Separate each clinical trial summary using exactly this line:
+
+=================================================
+
+Reference formatting
+
+- Do NOT use numbered references such as [1], [2], [3], etc.
+- Do NOT use footnotes.
+- Do NOT place references at the end of the response.
+- Every clinical trial summary must contain its own Primary source section.
+- Every Primary source section must contain the complete source title together with the direct URL.
+- All URLs must appear only within the Primary source section.
+- Do not reference sources elsewhere in the response.
+- Do not use markdown reference syntax.
+- Produce plain text only.
+- The Primary source section must always be the final section of each clinical trial summary.
+
+Nothing should appear after the Primary source section except the separator line:
+
+=================================================
+"""
+
+CURRENT_ANTIBODY = "Brenetafusp"  # change this manually each time
+
+print("=" * 80)
+print(f"Prompt for: {CURRENT_ANTIBODY}")
+print("=" * 80)
+print(build_prompt(CURRENT_ANTIBODY))
+
+
+
+
+
+
+
+
+import re
+
+RAW_RESPONSE = r"""
+Paste ChatGPT reponse here
+"""
+
+def clean_block_for_cell(text):
+    lines = []
+    for line in text.replace("\r\n", "\n").splitlines():
+        if re.match(r"^\[\d+\]:\s", line.strip()):
+            continue
+        lines.append(line)
+    text = "\n".join(lines).strip()
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text
+
+def split_trial_blocks_from_response(raw_response):
+    raw_response = raw_response.replace("\r\n", "\n").strip()
+
+    if not raw_response:
+        return []
+
+    lowered = raw_response.lower()
+
+    no_evidence_markers = [
+        "i did not find any publicly reported clinical immunogenicity results",
+        "no eligible clinical trial summaries",
+        "no publicly available clinical immunogenicity results",
+        "no relevant trials found"
+    ]
+
+    if any(marker in lowered for marker in no_evidence_markers):
+        return ["No relevant trials found."]
+
+    # Preferred separator if present
+    if re.search(r"(?m)^\s*={5,}\s*$", raw_response):
+        parts = [p.strip() for p in re.split(r"(?m)^\s*={5,}\s*$", raw_response) if p.strip()]
+        blocks = [clean_block_for_cell(p) for p in parts]
+        return [b for b in blocks if b]
+
+    # Fallback: split on bold headings like **C25002**
+    pattern = re.compile(r"(?ms)^\*\*(.+?)\*\*\s*\n(.*?)(?=^\*\*.+?\*\*\s*$|\Z)")
+    blocks = []
+    for match in pattern.finditer(raw_response):
+        body = match.group(2).strip()
+        if body:
+            blocks.append(clean_block_for_cell(body))
+
+    if blocks:
+        return blocks
+
+    # Final fallback: keep the whole response as one block
+    return [clean_block_for_cell(raw_response)]
+
+trial_blocks = split_trial_blocks_from_response(RAW_RESPONSE)
+TRIAL_BLOCKS_BY_ANTIBODY[CURRENT_ANTIBODY] = trial_blocks
+
+print(f"Saved {len(trial_blocks)} trial block(s) for {CURRENT_ANTIBODY}")
+
+
+
+
+
+
+
+
+from openpyxl.styles import Alignment
+from openpyxl.utils import get_column_letter
+
+NOTE_HEADER_PREFIX = "Immunological Notes from Clinical Trial "
+NO_TRIALS_TEXT = "No relevant clinical immunogenicity trials found."
+
+def get_existing_note_columns(ws):
+    cols = []
+    for col_idx in range(1, ws.max_column + 1):
+        header = ws.cell(row=1, column=col_idx).value
+        if isinstance(header, str) and header.startswith(NOTE_HEADER_PREFIX):
+            try:
+                n = int(header.replace(NOTE_HEADER_PREFIX, "").strip())
+                cols.append((n, col_idx))
+            except ValueError:
+                pass
+    cols.sort(key=lambda x: x[0])
+    return cols
+
+def ensure_note_columns(ws, required_count):
+    cols = get_existing_note_columns(ws)
+    existing_count = len(cols)
+
+    for n in range(existing_count + 1, required_count + 1):
+        new_col = ws.max_column + 1
+        ws.cell(row=1, column=new_col, value=f"{NOTE_HEADER_PREFIX}{n}")
+        ws.column_dimensions[get_column_letter(new_col)].width = 70
+        cols.append((n, new_col))
+
+    cols.sort(key=lambda x: x[0])
+    return [col_idx for _, col_idx in cols]
+
+# figure out how many trial-note columns are needed
+max_trials = max((len(v) for v in TRIAL_BLOCKS_BY_ANTIBODY.values()), default=1)
+note_columns = ensure_note_columns(ws, max_trials)
+
+# write trial blocks into the matching antibody row
+for row_idx, antibody_name in antibodies:
+    blocks = TRIAL_BLOCKS_BY_ANTIBODY.get(antibody_name, [])
+
+    # clear old values in the note area for this row before writing updated blocks
+    for col_idx in note_columns:
+        ws.cell(row=row_idx, column=col_idx).value = None
+
+    # If no usable trial blocks, write the short fallback text in the first note column
+    if not blocks or blocks == ["No relevant trials found."]:
+        cell = ws.cell(row=row_idx, column=note_columns[0], value=NO_TRIALS_TEXT)
+        cell.alignment = Alignment(wrap_text=True, vertical="top")
+        ws.row_dimensions[row_idx].height = 30
+        continue
+
+    for i, block in enumerate(blocks):
+        if i >= len(note_columns):
+            break
+        cell = ws.cell(row=row_idx, column=note_columns[i], value=block)
+        cell.alignment = Alignment(wrap_text=True, vertical="top")
+
+    ws.row_dimensions[row_idx].height = max(90, 22 * len(blocks))
+
+print(f"Wrote notes for {len(TRIAL_BLOCKS_BY_ANTIBODY)} antibody/antibody group(s).")
+
+
+
+
+
+
+from pathlib import Path
+from google.colab import files
+
+OUTPUT_XLSX = f"{Path(INPUT_XLSX).stem}_immunogenicity_updated.xlsx"
+wb.save(OUTPUT_XLSX)
+
+print(f"Saved to {OUTPUT_XLSX}")
+files.download(OUTPUT_XLSX)
