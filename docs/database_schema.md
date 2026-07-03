@@ -1097,18 +1097,14 @@ Stores field-level changes to curated database values.
 
 This table answers:
 
-- What changed?
-- When did it change?
-- Which run caused the change?
-- Which source supported the change?
-- What was the old value?
-- What is the new value?
+- What changed
+- When did it change
+- Which run caused the change
+- Which source supported the change
+- What was the old value
+- What is the new value
 
-This is essential for repeated automated updates.
-
-## Recommended ingestion workflow
-
-The intended workflow is:
+## Potential ingestion workflow
 
 ```text
 WHO INN PDF
@@ -1189,28 +1185,6 @@ Add:
 
 - `LITERATURE_SOURCE`
 - `LITERATURE_REFERENCE`
-
-## Notes for SQLite and SQLAlchemy implementation
-
-The diagram is conceptual. The actual implementation should define:
-
-- integer primary keys for each table;
-- foreign key constraints between related tables;
-- `UNIQUE (inn_name)` on `ANTIBODY`;
-- uniqueness constraints on key lookup tables such as `ANTIBODY_FORMAT.format_name`, `GENETIC_SOURCE.source_name`, `USAGE_STATUS.status_name`, and `MANUFACTURER.manufacturer_name`;
-- indexes on frequently queried fields such as `inn_name`, `target_name`, `registry_trial_id`, `pmid`, `doi`, and `identifier_value`;
-- timestamps for record creation and update;
-- optional soft-delete or active flags if records will be deprecated rather than removed.
-
-Recommended key constraints include:
-
-```sql
-UNIQUE (inn_name)
-UNIQUE (identifier_scheme, identifier_value)
-UNIQUE (format_name)
-UNIQUE (target_name, gene_symbol)
-UNIQUE (source_name)
-UNIQUE (manufacturer_name)
 UNIQUE (status_name)
 UNIQUE (registry, registry_trial_id)
 UNIQUE (doi)
