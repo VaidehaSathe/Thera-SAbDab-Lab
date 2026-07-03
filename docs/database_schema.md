@@ -1,10 +1,10 @@
 # Antibody Database Schema
 
-This database is designed to support an automated, evidence-tracked antibody data curation workflow. Its primary function is to store structured information extracted from WHO INN documents, web scrapers, clinical trial registries, literature repositories, and LLM-assisted extraction pipelines. The database is intended to improve and extend antibody resources such as Thera-SAbDab by making data ingestion, updating, provenance tracking, manual review, and downstream analysis more systematic. This document describes the proposed SQLite-compatible relational schema, including how each table contributes to storing antibody identity, molecular structure, sequence data, IMGT-based annotations, clinical use, clinical trial results, literature links, and evidence/change tracking.
+This database is designed to support an automated, evidence-tracked antibody data curation workflow. Its primary function is to store structured information extracted from WHO INN documents, web scrapers, clinical trial registries, literature repositories, and LLM-assisted extraction pipelines. The database is intended to improve the Thera-SAbDab resource by making data ingestion, updating, provenance tracking, manual review, and downstream analysis more systematic. This document describes the proposed SQLite-compatible relational schema, including how each table contributes to storing antibody identity, molecular structure, sequence data, IMGT-based annotations, clinical use, clinical trial results, literature links, and evidence/change tracking.
 
 ## Schema diagram
 
-The diagram below is written in GitHub-compatible Mermaid syntax. It deliberately avoids Mermaid `PK` and `FK` field markers because those markers can render inconsistently across Mermaid versions. Primary keys, foreign keys, unique constraints, and indexes should still be implemented in the actual SQLite or SQLAlchemy schema.
+The diagram below is a visualisation of the database architecture. Each component of the database will be described in the following section.
 
 ```mermaid
 erDiagram
@@ -444,7 +444,7 @@ erDiagram
 
 ### Use an internal database key and a public antibody identifier
 
-The database should use `antibody_id` as the internal primary key for joins. This is efficient, stable, and robust to name normalization or future corrections.
+The database uses `antibody_id` as the internal primary key for joins. This is efficient, stable, and robust to name normalization or future corrections.
 
 The `inn_name` should be unique and should remain the main public-facing identifier because it is the name that curators, users, and WHO INN-derived workflows will most often use.
 
