@@ -1,61 +1,122 @@
-# Thera-SAbDab-Lab
-ILESLA Team Project Sandpit 2025-2026
-Slides Link: https://docs.google.com/presentation/d/1SfcI3YbkLiXAKqoT47O9uEk3hII394qrYrZna_ksBcY
-Docs Link: https://docs.google.com/document/d/1VORiMe32QgQLAp3IR_BG0rquLOw2-_LF6qwUFqIdPr8
+**PubMedCrawl**
 
-## PDF Parsing Pipeline
-PDF --(pdf2image)--> Image Folder --(pytesseract)--> Textfile --(string comprehension)--> Segmented Textfile --(string comprehension and SQLite)--> Database
+A small Python toolkit for searching Europe PMC with therapeutic antibody names and synonyms, scoring relevant literature, and exporting clean CSV results.
 
-## Modules
-### PDF Converter
-- Takes in a PDF file
-- Converts a specified page range into a folder of images at a specific DPI
-- Example Useage:
+**Overview**
 
-```
-python src/pdf_to_image.py data/pdfs/inputfile.pdf data/images/outputfolder -f 1 -l 5 --dpi 300
-```
+This script:
 
-### OCR Pipeline
-- Takes in an image folder
-- Uses pytesseract to extract layout-aware text from the images
-- Example Useage:
+- reads a 2-column CSV of therapeutic names and aliases (can use antibodies.csv as a test),
+- query Europe PMC for matching literature,
+- score each candidate article with a simple relevance heuristic (probably requires more refining but fine for now),
+- deduplicate results by PMID/DOI, and
+- write normalized CSV outputs for further analysis.
 
-```
-python src/image_to_text.py data/images/inputfolder data/ocr_text/outputfile.txt
+**Requirements**
+
+- Python 3.8+
+- Install dependencies:
+
+```bash
+pip install pandas requests certifi
 ```
 
-### Text Parser
-- Takes in a textfile
-- Uses unique markers in the text to split it into INN entries and subfields:
-  - INN
-  - Chemical description
-  - Amino acid sequence
-  - Post-translational modifications
-- Cleans up redunant information (headers/footers, multi-language variations etc.)
-- Filters out the antibody entries (with WHO-defined stems)
-- Example Useage:
+**Input Format**
 
-```
-python src/text_parser.py data/ocr_text/inputfile.txt data/segmented_text/outputfile.txt
-```
+The scraper expects a CSV with two columns and no header row:
 
-### Text Cleaner (TO BE MADE)
-- Takes in a textfile
-- Cleans INN entries and subfields:
-  - Parses chemical description (TBD)
-  - Extracts whole AA sequence and splits it into heavy and light chains
-  -  Sorts PTM into various types (TBD; disulfite-bridges, N-glycosylations etc.)
--  Stores the cleaned data into a dataframe (multiple entries per column converted to dict objects)
--  Example Useage:
+1. Therapeutic name
+2. Synonyms / aliases separated by commas, semicolons, or pipes
 
-```
-python src/text_to_df.py data/segmented_text/inputfile.txt data/dataframes/outputfile.tsv
+Example:
+
+```csv
+trastuzumab,Herceptin;rhuMAb-HER2
+adalimumab,Humira|D2E7
 ```
 
-### Converion to Database
-- Uses SQLite and string comprehension to transform the segmented text into a usable relational database.
-- Needs Development
+This needs to be updates when merged with the main script.
 
-## Scraping additional information (NEEDS TO BE BUILT)
-Database --(LLM API + Query)--> Find alternate names --(LLM API + Query)--> Extract ADA/Immunogenicity data from preclinical studies/databases --(SQLite + String Comprehension)--> Updated Database
+**Usage**
+
+Run the main script like this:
+
+```bash
+python crawlpubmed_europepmc_v2.py --input-csv antibodies.csv
+```
+
+Optional authentication arguments:
+
+```bash
+python crawlpubmed_europepmc.py \
+  --input-csv antibodies.csv \
+  --output-csv literature_results.csv \
+  --ncbi-email you@domain.com \
+  --ncbi-key YOUR_API_KEY
+```
+
+**Available CLI options**
+
+- `--input-csv` — path to the input CSV (default `antibodies.csv`)
+- `--output-csv` — path to the detailed output CSV
+- `--page-size` — Europe PMC page size
+- `--max-pages` — maximum pages per alias search
+- `--sleep` — seconds between requests
+- `--min-year` / `--max-year` — publication year filter
+- `--min-score` — minimum score to keep a result
+- `--ncbi-email` — optional email for request metadata
+- `--ncbi-key` — optional API key/token for request metadata
+- `--top-n` — keep top N scored results per therapeutic
+- `--wide-output-csv` — path for the one-row-per-therapeutic summary CSV
+- `--debug-top-n` — print the top N raw scored candidates before filtering
+
+**Output files**
+
+`crawlpubmed_europepmc.py` writes a detailed CSV with columns such as:
+
+- `therapeutic`
+- `search_term`
+- `score`
+- `match_reason`
+- `source`
+- `id`
+- `pmid`
+- `doi`
+- `title`
+- `abstract`
+- `journal`
+- `year`
+- `month`
+- `first_publication_date`
+- `citedByCount`
+- `pub_types`
+- `is_open_access`
+- `pubmed_url`
+- `europe_pmc_url`
+
+`crawlpubmed_europepmc_v2.py` also writes a wide summary CSV where each therapeutic has a single `top5_papers` string, which is the one to be merged with the main dataframe.
+
+**Scoring System**
+
+The script uses a simple heuristic to rate article relevance, including:
+
+- whether the alias appears in the title or abstract
+- publication recency
+- citation count
+- presence of clinical, biophysical, or preclinical keywords
+- publication type adjustments (e.g. penalties for review articles)
+
+This is designed to surface likely relevant antibody literature, not to replace full manual curation.
+
+**Notes and suggestions**
+
+- Use `--ncbi-email` and `--ncbi-key` when you have API credentials to help providers recognize your requests.
+- Use a lower `--min-score` if too few candidates are returned.
+- For larger datasets, add caching or incremental update logic to avoid repeating past searches.
+
+**Existing files**
+
+- `antibodies.csv` — example input file with therapeutic names and synonyms.
+- `literature_results.csv`, `literature_top5_per_therapeutic.csv` — example output files.
+
+
