@@ -1,0 +1,1 @@
+Place the Windows Poppler distribution here. The builder accepts Library/bin/pdftoppm.exe or bin/pdftoppm.exe, with dependency DLLs and license notices.

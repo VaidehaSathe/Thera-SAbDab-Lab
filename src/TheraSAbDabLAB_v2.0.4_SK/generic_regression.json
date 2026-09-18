@@ -1,0 +1,1560 @@
+{
+  "pdf": "resources/golden/pl135.pdf",
+  "who_list": "Proposed 135",
+  "expected_records": 70,
+  "detected_records": 70,
+  "missing": [],
+  "extra": [],
+  "field_matches": {
+    "drug_name": {
+      "matched": 70,
+      "total": 70
+    },
+    "english_description": {
+      "matched": 0,
+      "total": 70
+    },
+    "cas_registry_number": {
+      "matched": 70,
+      "total": 70
+    },
+    "pdf_pages": {
+      "matched": 69,
+      "total": 70
+    },
+    "heavy_chain_count": {
+      "matched": 70,
+      "total": 70
+    },
+    "light_chain_count": {
+      "matched": 70,
+      "total": 70
+    },
+    "heavy_chain_fasta": {
+      "matched": 14,
+      "total": 70
+    },
+    "light_chain_fasta": {
+      "matched": 13,
+      "total": 70
+    },
+    "non_variable_fasta": {
+      "matched": 0,
+      "total": 70
+    },
+    "ptms": {
+      "matched": 0,
+      "total": 70
+    },
+    "structure_summary": {
+      "matched": 0,
+      "total": 70
+    },
+    "sequence_qc_status": {
+      "matched": 14,
+      "total": 70
+    }
+  },
+  "discrepancies": [
+    {
+      "drug": "afamakitug",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-lambda2, anti-[Homo sapiens CXCL10 (chemokine C-X-C motif ligand 10, 10 kDa interferon gamma- induced protein gamma-IP10, IP-10, INP10, small inducible cytokine B10, SCYB10)], Homo sapiens monoclonal an",
+      "actual": "immunoglobulin G1-lambda2, anti-[ Homo sapiens CXCL10 (chemokine C-X-C motif ligand 10, 10 kDa interferon gamma-induced protein gamma-IP10, IP-10, INP10, small inducible cytokine B10, SCYB10)], Homo sapiens monoclonal an"
+    },
+    {
+      "drug": "agubecimig",
+      "field": "english_description",
+      "expected": "immunoglobulin Fab VH-G1(CH1-10h)_L-kappa, anti-[Homo sapiens VEGFA (vascular endothelial growth factor A, VEGF-A, VEGF)] and anti-[Homo sapiens IL6 (interleukin 6, IL-6), monoclonal antibody Fab humanized, bispecific, b",
+      "actual": "immunoglobulin Fab VH-G1(CH1-10h)_L-kappa, anti-[ Homo sapiens VEGFA (vascular endothelial growth factor A, VEGF-A, VEGF)] and anti-[Homo sapiens IL6 (interleukin 6, IL-6), monoclonal antibody Fab humanized, bispecific, "
+    },
+    {
+      "drug": "avrukibart",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens IL23A (interleukin 23 subunit alpha; IL-23A, IL-23 subunit p19, IL23p19)], humanized monoclonal antibody; gamma1 heavy chain humanized (1-450) [VH (Homo sapiens IGHV3-23*03 (74",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens IL23A (interleukin 23 subunit alpha; IL-23A, IL-23 subunit p19, IL23p19)], humanized monoclonal antibody; gamma1 heavy chain humanized (1-450) [VH (Homo sapiens IGHV3-23*03 (7"
+    },
+    {
+      "drug": "besnotamig",
+      "field": "english_description",
+      "expected": "immunoglobulin (H-gamma4_L-kappa)_(VH-G4(CH1)(_L- kappa)-10mer-VH-TRBC2-G4(9h-CH2-CH3)_V-kappa-TRAC), anti-[Homo sapiens MS4A1 (membrane-spanning 4-domains subfamily A member 1, CD20)] and anti-[Homo sapiens CD3E (CD3 ep",
+      "actual": "immunoglobulin (H-gamma4_L-kappa)_(VH-G4(CH1)(_L-kappa)-10mer-VH-TRBC2-G4(9h-CH2-CH3)_V-kappa-TRAC), anti-[Homo sapiens MS4A1 (membrane-spanning 4-domains subfamily A member 1, CD20)] and anti-[Homo sapiens CD3E (CD3 eps"
+    },
+    {
+      "drug": "birfutamig",
+      "field": "english_description",
+      "expected": "immunoglobulin (H-gamma1_L-kappa)_(VH-G1(CH1-5h)-scFvhl- G1(h-CH2-CH3)_L-kappa), anti-[Homo sapiens GPRC5D (G protein-coupled receptor class C group 5 member D)] and anti- [Homo sapiens CD3E (CD3 epsilon, Leu-4)], monocl",
+      "actual": "immunoglobulin (H-ga mma1_L-kappa)_(VH-G1(CH1-5h)-scFvhl-G1(h-CH2-CH3)_L-kappa), anti-[Homo sapiens GPRC5D (G protein-coupled receptor class C group 5 member D)] and anti-[Homo sapiens CD3E (CD3 epsilon, Leu-4)], monoclo"
+    },
+    {
+      "drug": "blumiciment",
+      "field": "english_description",
+      "expected": "immunoglobulin (H-gamma4_L-kappa)_G4(hCH2CH3), anti- [Homo sapiens VWF (von Willebrand factor) C-terminal cystine knot (CTCK) domain], Homo sapiens monoclonal antibody; H-gamma4 heavy chain anti-VWF Homo sapiens hole (H)",
+      "actual": "immunoglobulin (H-gamma4_L-kappa)_G4(hCH2CH3), ant i-[Homo sapiens VWF (von Willebrand factor) C-terminal cystine knot (CTCK) domain], Homo sapiens monoclonal antibody; H-gamma4 heavy chain anti-VWF Homo sapiens hole (H)"
+    },
+    {
+      "drug": "cesalatamig",
+      "field": "english_description",
+      "expected": "immunoglobulin (H-gamma1-scFvhk_L-kappa) dimer, anti- [Homo sapiens VEGFA (vascular endothelial growth factor A, VEGF-A, VEGF)] and anti-[Homo sapiens PDCD1 (programmed cell death 1, PD-1, PD1, CD279)], monoclonal antibo",
+      "actual": "immunoglobulin (H-ga mma1-scFvhk_L-kappa) dimer, anti-[Homo sapiens VEGFA (vascular endothelial growth factor A, VEGF-A, VEGF)] and anti-[Homo sapiens PDCD1 (programmed cell death 1, PD-1, PD1, CD279)], monoclonal antibo"
+    },
+    {
+      "drug": "clulevibart",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[human respiratory syncytial virus (RSV) fusion glycoprotein F], Homo sapiens monoclonal antibody; H-gamma1 heavy chain Homo sapiens (1-456) [VH (Homo sapiens IGHV3-49*04 (87.0%) -(IGHD) -IG",
+      "actual": "immunoglobulin G1-k appa, anti-[human respiratory syncytial virus (RSV) fusion glycoprotein F], Homo sapiens monoclonal antibody; H-gamma1 heavy chain Homo sapiens (1-456) [VH (Homo sapiens IGHV3-49*04 (87.0%)-(IGHD)-IGH"
+    },
+    {
+      "drug": "crozunafusp alfa",
+      "field": "english_description",
+      "expected": "human alpha-N-acetylglucosaminidase (NAGLU, Uniprot: P54802; EC:3.2.1.50) (1-721 in the current sequence) variant (S45>ins, Q210>R) fused via a peptide linker RSGGGGSGGGGSGGGGS738 to a humanized fragment antigen-binding ",
+      "actual": "human alpha-N-acetylglucosaminidase (NAGLU, Uniprot: P54802; EC:3.2.1.50) (1-721 in the current sequence) variant (S45>ins, Q210>R) fused via a peptide linker 722RSGGGGSGGGGSGGGGS738 to a humanized fragment antigen-bindi"
+    },
+    {
+      "drug": "dalvaprubart",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens MS4A1 (membrane-spanning 4-domains subfamily A member 1, CD20)], Homo sapiens monoclonal antibody; H-gamma1 heavy chain Homo sapiens (1-452) [VH (Homo sapiens IGHV3-9*01 (97.0%",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens MS4A1 (membrane-spanning 4-domains subfamily A member 1, CD20)], Homo sapiens monoclonal antibody; H-gamma1 heavy chain Homo sapiens (1-452) [VH (Homo sapiens IGHV3-9*01 (97.0"
+    },
+    {
+      "drug": "daxokafusp alfa",
+      "field": "english_description",
+      "expected": "human interleukin-15 receptor subunit alpha (IL-15RA, IL-15Rα, CD215; Uniprot Q13261) sushi domain containing fragment (1-77), fused via peptide linker 78SGGSGGGGSGGGSGGGGSLQ97 to human interleukin-15 (IL-15; Uniprot P40",
+      "actual": "human interleuk in-15 receptor subunit alpha (IL-15RA, IL-15Rα, CD215; Uniprot Q13261) sushi domain containing fragment (1-77), fused via peptide linker 78SGGSGGGGSGGGSGGGGSLQ97 to human interleukin-15 (IL-15; Uniprot P4"
+    },
+    {
+      "drug": "dovarafusp alfa",
+      "field": "english_description",
+      "expected": "humanized immunoglobulin G1-kappa anti-[human angiopoietin-1 receptor (endothelial tyrosine kinase, tyrosine-protein kinase receptor TIE-2, hTIE2, CD202b, TEK)) fused at the C-terminus of each heavy chain, via peptide li",
+      "actual": "humanized i mmunoglobulin G1-kappa anti-[human angiopoietin-1 receptor (endothelial tyrosine kinase, tyrosine-protein kinase receptor TIE-2, hTIE2, CD202b, TEK)) fused at the C-terminus of each heavy chain, via peptide l"
+    },
+    {
+      "drug": "ecagitatug",
+      "field": "english_description",
+      "expected": "immunoglobulin G2-kappa, anti-[Homo sapiens MET (met proto-oncogene, hepatocyte growth factor (HGF) receptor, HGFR, scatter factor (SF) receptor, HGF/SF receptor, receptor tyrosine-protein kinase c-met, papillary renal c",
+      "actual": "immunoglobulin G2-kappa, anti-[ Homo sapiens MET (met proto-oncogene, hepatocyte growth factor (HGF) receptor, HGFR, scatter factor (SF) receptor, HGF/SF receptor, receptor tyrosine-protein kinase c-met, papillary renal "
+    },
+    {
+      "drug": "ecagitatug rezetecan",
+      "field": "english_description",
+      "expected": "immunoglobulin G2-kappa, anti-[Homo sapiens MET (met proto-oncogene, hepatocyte growth factor (HGF) receptor, HGFR, scatter factor (SF) receptor, HGF/SF receptor, receptor tyrosine-protein kinase c-met, papillary renal c",
+      "actual": "immunoglobulin G2-kappa, anti-[ Homo sapiens MET (met proto-oncogene, hepatocyte growth factor (HGF) receptor, HGFR, scatter factor (SF) receptor, HGF/SF receptor, receptor tyrosine-protein kinase c-met, papillary renal "
+    },
+    {
+      "drug": "ezlatamig",
+      "field": "english_description",
+      "expected": "immunoglobulin (H-gamma1_L-kappa)_scFvkh-G1(h-CH2- CH3), anti-[Homo sapiens CALR (calreticulin, autoantigen Ro, RO, Sjögren syndrome antigen A, SSA)] and anti-[Homo sapiens CD3E (CD3 epsilon, Leu-4)], humanized and Homo ",
+      "actual": "immunoglobulin (H-ga mma1_L-kappa)_scFvkh-G1(h-CH2-CH3), anti-[Homo sapiens CALR (calreticulin, autoantigen Ro, RO, Sjögren syndrome antigen A, SSA)] and anti-[Homo sapiens CD3E (CD3 epsilon, Leu-4)], humanized and Homo "
+    },
+    {
+      "drug": "figavetbart",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Felis catus NGF (nerve growth factor, NGFB, nerve growth factor beta polypeptide)], felinized monoclonal antibody; H-gamma1 heavy chain felinized (1-458) [VH (Felis catus IGHV3S21 (80.4%) -",
+      "actual": "immunoglobulin G1-kappa, anti-[ Felis catus NGF (nerve growth factor, NGFB, nerve growth factor beta polypeptide)], felinized monoclonal antibody; H-gamma1 heavy chain felinized (1-458) [VH (Felis catus IGHV3S21 (80.4%)-"
+    },
+    {
+      "drug": "getrokitug",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens CCR9 (C-C motif chemokine receptor 9)], monoclonal antibody; H-gamma1 heavy chain (1-453) [VH (Homo sapiens IGHV1-3*01 (87.8%) -(IGHD) -IGHJ4*01 (92.3%) L123>T (118), CDR-IMGT ",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens CCR9 (C-C motif chemokine receptor 9)], monoclonal antibody; H-gamma1 heavy chain (1-453) [VH (Homo sapiens IGHV1-3*01 (87.8%)-(IGHD)-IGHJ4*01 (92.3%) L123>T (118), CDR-IMGT ["
+    },
+    {
+      "drug": "glankibart",
+      "field": "english_description",
+      "expected": "immunoglobulin G4-kappa, anti-[Homo sapiens IL1RL2 (interleukin 1 receptor like 2, IL1 receptor-related protein 2, IL1Rrp2, IL1RRP2, IL-36 receptor, IL-36R))], humanized monoclonal antibody; H-gamma4 heavy chain humanize",
+      "actual": "immunoglobulin G4-kappa, anti-[ Homo sapiens IL1RL2 (interleukin 1 receptor like 2, IL1 receptor-related protein 2, IL1Rrp2, IL1RRP2, IL-36 receptor, IL-36R))], humanized monoclonal antibody; H-gamma4 heavy chain humaniz"
+    },
+    {
+      "drug": "golukibart",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-lambda2, anti-[Homo sapiens TSLP (thymic stromal lymphopoietin)], Homo sapiens monoclonal antibody; H-gamma1 heavy chain Homo sapiens (1-452) [VH (Homo sapiens IGHV3- 33*01 (90.8%) -(IGHD) -IGHJ1*01 (90",
+      "actual": "immunoglobulin G1-lambda2, anti-[ Homo sapiens TSLP (thymic stromal lymphopoietin)], Homo sapiens monoclonal antibody; H-gamma1 heavy chain Homo sapiens (1-452) [VH (Homo sapiens IGHV3-33*01 (90.8%)-(IGHD)-IGHJ1*01 (90.9"
+    },
+    {
+      "drug": "graxutamig",
+      "field": "english_description",
+      "expected": "immunoglobulin V-KAPPA-5mer-scFvhk-5mer-VH-5mer-G4(h- CH2-CH3)_G4(h-CH2-CH3), anti-[Homo sapiens CD3E (CD3 epsilon, Leu-4) and anti-[Homo sapiens TP53 (cellular tumor antigen p53) (R175H) peptide HMTEVVRHC 168-176 bound ",
+      "actual": "immunoglobulin V-KAPPA-5mer-scFvhk-5mer-VH-5mer-G4(h-CH2-CH3)_G4(h-CH2-CH3), anti-[Homo sapiens CD3E (CD3 epsilon, Leu-4) and anti-[Homo sapiens TP53 (cellular tumor antigen p53) (R175H) peptide HMTEVVRHC 168-176 bound t"
+    },
+    {
+      "drug": "infutatug",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens CLDN18 (claudin 18, claudin-18, surfactant associated protein J, SFTPJ) isoform 2)], humanized monoclonal antibody; H-gamma1 heavy chain humanized (1-447) [VH (Homo sapiens IGH",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens CLDN18 (claudin 18, claudin-18, surfactant associated protein J, SFTPJ) isoform 2)], humanized monoclonal antibody; H-gamma1 heavy chain humanized (1-447) [VH (Homo sapiens IG"
+    },
+    {
+      "drug": "infutatug pelitecan",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens CLDN18 (claudin 18, claudin-18, surfactant associated protein J, SFTPJ) isoform 2)], humanized monoclonal antibody; conjugated on eight cysteinyl residues to pelitecan, compris",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens CLDN18 (claudin 18, claudin-18, surfactant associated protein J, SFTPJ) isoform 2)], humanized monoclonal antibody; conjugated on eight cysteinyl residues to pelitecan, compri"
+    },
+    {
+      "drug": "inuxucibart",
+      "field": "english_description",
+      "expected": "immunoglobulin G4-kappa, anti-[Homo sapiens APC (activated protein C)], humanized monoclonal antibody; H-gamma4 heavy chain humanized (1-445) [VH (Homo sapiens IGHV3-72*01 (82.0%) -(IGHD) -IGHJ4*01 (93.3%) L123>T (113), ",
+      "actual": "immunoglobu lin G4-kappa, anti-[Homo sapiens APC (activated protein C)], humanized monoclonal antibody; H-gamma4 heavy chain humanized (1-445) [VH (Homo sapiens IGHV3-72*01 (82.0%)-(IGHD)-IGHJ4*01 (93.3%) L123>T (113), C"
+    },
+    {
+      "drug": "lenovetug",
+      "field": "english_description",
+      "expected": "immunoglobulin A (VH-h-CH2-CH3-CHS) dimer, anti-[F18 enterotoxigenic Escherichia coli (ETEC) FedF (subunit of the major constituent of F18 fimbriae), chimeric camelid-Sus scrofa monoclonal antibody, monospecific, bivalen",
+      "actual": "lenovetugum lenovetug immunoglobulin A (VH-h-CH2-CH3-CHS) dimer, anti-[F18 enterotoxigenic Escherichia coli (ETEC) FedF (subunit of the major constituent of F18 fimbriae), chimeric camelid-Sus scrofa monoclonal antibody,"
+    },
+    {
+      "drug": "lonletamig",
+      "field": "english_description",
+      "expected": "immunoglobulin (H-gamma1_L-lambda2)_scFvhk-G1(h- CH2-CH3), anti-[Homo sapiens FOLH1 (folate hydrolase, prostate specific membrane antigen, PSMA)] and anti- [Homo sapiens CD28 (T cell specific surface glycoprotein CD28, T",
+      "actual": "immunoglobulin (H-gamma1_L-lambda2)_scFvhk-G1(h-CH2-CH3), anti-[Homo sapiens FOLH1 (folate hydrolase, prostate specific membrane antigen, PSMA)] and anti-[Homo sapiens CD28 (T cell specific surface glycoprotein CD28, TP4"
+    },
+    {
+      "drug": "mevegtatug",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens F3 (coagulation factor III (thromboplastin, tissue factor), CD142)], humanized monoclonal antibody; H-gamma1 heavy chain humanized (1-448) [VH (Homo sapiens IGHV1-46*01 (88.8%)",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens F3 (coagulation factor III (thromboplastin, tissue factor), CD142)], humanized monoclonal antibody; H-gamma1 heavy chain humanized (1-448) [VH (Homo sapiens IGHV1-46*01 (88.8%"
+    },
+    {
+      "drug": "mevegtatug pelitecan",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens F3 (coagulation factor III (thromboplastin, tissue factor), CD142)], humanized monoclonal antibody; conjugated on eight cysteinyl residues to pelitecan, comprising a linker and",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens F3 (coagulation factor III (thromboplastin, tissue factor), CD142)], humanized monoclonal antibody; conjugated on eight cysteinyl residues to pelitecan, comprising a linker an"
+    },
+    {
+      "drug": "mosdaprubart",
+      "field": "english_description",
+      "expected": "immunoglobulin G4-kappa, anti-[Homo sapiens CD40LG (CD40 ligand, CD40L, tumor necrosis factor ligand superfamily member 5, TNFSF5, tumor necrosis factor related activation protein, TRAP, CD154)], monoclonal antibody; H-g",
+      "actual": "immunoglobulin G4-kappa, anti-[ Homo sapiens CD40LG (CD40 ligand, CD40L, tumor necrosis factor ligand superfamily member 5, TNFSF5, tumor necrosis factor related activation protein, TRAP, CD154)], monoclonal antibody; H-"
+    },
+    {
+      "drug": "murunprubart",
+      "field": "english_description",
+      "expected": "immunoglobulin G4-lambda2, anti-[Homo sapiens S100A8/S100A9 heterodimer (S100 calcium binding protein A8 and S100 calcium binding protein A9)], Homo sapiens monoclonal antibody; H-gamma4 heavy chain Homo sapiens (1-445) ",
+      "actual": "immunoglobulin G4-lambda2, anti-[ Homo sapiens S100A8/S100A9 heterodimer (S100 calcium binding protein A8 and S100 calcium binding protein A9)], Homo sapiens monoclonal antibody; H-gamma4 heavy chain Homo sapiens (1-445)"
+    },
+    {
+      "drug": "netezenibart",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens PAPPA (pappalysin 1, pregnancy-associated plasma protein A, insulin-like growth factor- dependent IGF binding protein-4 protease, PAPP-A)], Homo sapiens monoclonal antibody; H-",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens PAPPA (pappalysin 1, pregnancy-associated plasma protein A, insulin-like growth factor-dependent IGF binding protein-4 protease, PAPP-A)], Homo sapiens monoclonal antibody; H-"
+    },
+    {
+      "drug": "nilerafusp alfa",
+      "field": "english_description",
+      "expected": "human immunoglobulin G1-kappa anti-[human interferon alpha/beta receptor 1 (IFNAR1, IFN-R-1, cytokine receptor class-II member 1, cytokine receptor family 2 member 1, CRF2-1) fused at the C-terminus of each heavy chain v",
+      "actual": "human immunoglobulin G1-kappa anti-[human interferon alpha/beta receptor 1 (IFNAR1, IFN-R-1, cytokine receptor class-II member 1, cytokine receptor family 2 member 1, CRF2-1) fused at the C-terminus of each heavy chain v"
+    },
+    {
+      "drug": "nimbakibart",
+      "field": "english_description",
+      "expected": "immunoglobulin G4-kappa, anti-[Homo sapiens TNFRSF9 (TNF receptor superfamily member 9, 4-1BB, T cell antigen ILA, CD137)], Homo sapiens monoclonal antibody; H-gamma4 heavy chain Homo sapiens (1-452) [VH (Homo sapiens IG",
+      "actual": "immunoglobulin G4-kappa, anti-[ Homo sapiens TNFRSF9 (TNF receptor superfamily member 9, 4-1BB, T cell antigen ILA, CD137)], Homo sapiens monoclonal antibody; H-gamma4 heavy chain Homo sapiens (1-452) [VH (Homo sapiens I"
+    },
+    {
+      "drug": "ninartatug",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens CDH6 (cadherin 6, K-cadherin)], monoclonal antibody; H-gamma1 heavy chain (1-451) [VH Musmus/Homsap (Mus musculus IGHV10-1*04 (89.0%) -(IGHD) -IGHJ3*01 (85.7%) A128>S (121)/Hom",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens CDH6 (cadherin 6, K-cadherin)], monoclonal antibody; H-gamma1 heavy chain (1-451) [VH Musmus/Homsap (Mus musculus IGHV10-1*04 (89.0%)-(IGHD)-IGHJ3*01 (85.7%) A128>S (121)/Homo"
+    },
+    {
+      "drug": "ninartatug birsatecan",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens CDH6 (cadherin 6, K-cadherin)], monoclonal antibody, conjugated on eight cysteinyl residues to birsatecan, comprising a cleavable linker and a camptothecin derivative (exatecan",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens CDH6 (cadherin 6, K-cadherin)], monoclonal antibody, conjugated on eight cysteinyl residues to birsatecan, comprising a cleavable linker and a camptothecin derivative (exateca"
+    },
+    {
+      "drug": "obinutuzumab beta",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens MS4A1 (membrane- spanning 4-domains subfamily A member 1, CD20)], humanized monoclonal antibody; H-gamma1 heavy chain humanized (1-449) [VH (Homo sapiens IGHV1-69*08 (84.7%) -(",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens MS4A1 (membrane-spanning 4-domains subfamily A member 1, CD20)], humanized monoclonal antibody; H-gamma1 heavy chain humanized (1-449) [VH (Homo sapiens IGHV1-69*08 (84.7%)-(I"
+    },
+    {
+      "drug": "olaviztabart",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens NECTIN4 (nectin-4, nectin cell adhesion molecule 4, PVRL4, poliovirus receptor-related 4, PPR4, LNIR)], humanized monoclonal antibody; H-gamma1 heavy chain humanized (1-449) [V",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens NECTIN4 (nectin-4, nectin cell adhesion molecule 4, PVRL4, poliovirus receptor-related 4, PPR4, LNIR)], humanized monoclonal antibody; H-gamma1 heavy chain humanized (1-449) ["
+    },
+    {
+      "drug": "olaviztabart cilotecan",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens NECTIN4 (nectin- 4, nectin cell adhesion molecule 4, PVRL4, poliovirus receptor- related 4, PPR4, LNIR)], humanized monoclonal antibody; conjugated on eight cysteinyl residues ",
+      "actual": "imm unoglobulin G1-kappa, anti-[Homo sapiens NECTIN4 (nectin-4, nectin cell adhesion molecule 4, PVRL4, poliovirus receptor-related 4, PPR4, LNIR)], humanized monoclonal antibody; conjugated on eight cysteinyl residues t"
+    },
+    {
+      "drug": "olusonkafusp alfa",
+      "field": "english_description",
+      "expected": "human interleukin-2 (IL2, IL-2, Uniprot: P60568) (1-133, 1- 129 in the current sequence) variant (T3>A, 74 QSKNF78>GDASI, 80LRPR83 >del, N88>R84, C125>S121, S130>R126) fused at the C-terminus via a (G4S)2 peptide linker ",
+      "actual": "human interl eukin-2 (IL2, IL-2, Uniprot: P60568) (1-133, 1-129 in the current sequence) variant (T3>A, 74QSKNF78>GDASI, 80LRPR83 >del, N88>R84, C125>S121, S130>R126) fused at the C-terminus via a (G4S)2 peptide linker ("
+    },
+    {
+      "drug": "onvisatabart",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens PTK7 (protein tyrosine kinase 7, colon carcinoma kinase 4, CCK4)], humanized monoclonal antibody; H-gamma1 heavy chain humanized (1-443) [VH (Homo sapiens IGHV1-2*02 (82.7%) -(",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens PTK7 (protein tyrosine kinase 7, colon carcinoma kinase 4, CCK4)], humanized monoclonal antibody; H-gamma1 heavy chain humanized (1-443) [VH (Homo sapiens IGHV1-2*02 (82.7%)-("
+    },
+    {
+      "drug": "onvisatabart birsatecan",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens PTK7 (protein tyrosine kinase 7, colon carcinoma kinase 4, CCK4)], humanized monoclonal antibody; conjugated on eight cysteinyl residues to birsatecan, comprising a cleavable l",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens PTK7 (protein tyrosine kinase 7, colon carcinoma kinase 4, CCK4)], humanized monoclonal antibody; conjugated on eight cysteinyl residues to birsatecan, comprising a cleavable "
+    },
+    {
+      "drug": "opucolimab pelitecan",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-lambda3, anti-[Homo sapiens CD274 (programmed death ligand 1, PDL1, PD-L1, B7 homolog 1, B7H1, B7- H1, PDCD1LG1)], Homo sapiens monoclonal antibody, conjugated on eight cysteinyl residues to pelitecan, ",
+      "actual": "immunoglobulin G1-lambda3, anti-[ Homo sapiens CD274 (programmed death ligand 1, PDL1, PD-L1, B7 homolog 1, B7H1, B7-H1, PDCD1LG1)], Homo sapiens monoclonal antibody, conjugated on eight cysteinyl residues to pelitecan, "
+    },
+    {
+      "drug": "pexigrotug",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens NGF (nerve growth factor, NGFB, nerve growth factor beta polypeptide)], monoclonal antibody; gamma1 heavy chain (1-450) [VH Musmus/Homsap (Mus musculus IGHV2- 6-7*01 (92.8%) -(",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens NGF (nerve growth factor, NGFB, nerve growth factor beta polypeptide)], monoclonal antibody; gamma1 heavy chain (1-450) [VH Musmus/Homsap (Mus musculus IGHV2-6-7*01 (92.8%)-(I"
+    },
+    {
+      "drug": "prinotatug",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens MS4A1 (membrane-spanning 4-domains subfamily A member 1, CD20)], monoclonal antibody; H-gamma1 heavy chain (1-451) [VH (Homo sapiens IGHV1-46*01 (85.7%) -(IGHD) -IGHJ3*01 (85.7",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens MS4A1 (membrane-spanning 4-domains subfamily A member 1, CD20)], monoclonal antibody; H-gamma1 heavy chain (1-451) [VH (Homo sapiens IGHV1-46*01 (85.7%)-(IGHD)-IGHJ3*01 (85.7%"
+    },
+    {
+      "drug": "rebatatug",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens CD79B (B-cell antigen receptor complex-associated protein beta chain, B- cell-specific glycoprotein B29, Immunoglobulin-associated B29 protein)], monoclonal antibody; H-gamma1 ",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens CD79B (B-cell antigen receptor complex-associated protein beta chain, B-cell-specific glycoprotein B29, Immunoglobulin-associated B29 protein)], monoclonal antibody; H-gamma1 "
+    },
+    {
+      "drug": "rebatatug rezetecan",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens CD79B (B-cell antigen receptor complex-associated protein beta chain, B-cell- specific glycoprotein B29, Immunoglobulin-associated B29 protein)], monoclonal antibody; conjugate",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens CD79B (B-cell antigen receptor complex-associated protein beta chain, B-cell-specific glycoprotein B29, Immunoglobulin-associated B29 protein)], monoclonal antibody; conjugate"
+    },
+    {
+      "drug": "relakimig",
+      "field": "english_description",
+      "expected": "immunoglobulin (VH-H-gamma1_L-kappa) dimer, anti-[Homo sapiens IL1RL2 (interleukin 1 receptor like 2, IL1 receptor-related protein 2, IL1Rrp2, IL1RRP2, IL-36 receptor, IL36R)] and anti-[Homo sapiens IL23A (interleukin 23",
+      "actual": "immunoglobulin (VH-H-gamma1_L-kappa) dimer, anti-[ Homo sapiens IL1RL2 (interleukin 1 receptor like 2, IL1 receptor-related protein 2, IL1Rrp2, IL1RRP2, IL-36 receptor, IL36R)] and anti-[Homo sapiens IL23A (interleukin 2"
+    },
+    {
+      "drug": "rimegtamig",
+      "field": "english_description",
+      "expected": "immunoglobulin (VH-H-gamma1_V-kappa-L-kappa)_(VH- TTN(titin)C-like-G1(10h-CH2-CH3)_(V-kappa- OBSCN(obscurin)C-like), anti-[Homo sapiens EGFR (epidermal growth factor receptor, receptor tyrosine- protein kinase erbB-1, ER",
+      "actual": "immunoglobulin (VH-H-gamma1_V-kappa-L-kappa)_(VH-TTN(titin)C-like-G1(10h-CH2-CH3)_(V-kappa-OBSCN(obscurin)C-like), anti-[Homo sapiens EGFR (epidermal growth factor receptor, receptor tyrosine-protein kinase erbB-1, ERBB1"
+    },
+    {
+      "drug": "rimizakibart",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-lambda2, anti-[Homo sapiens TNFSF13B (tumor necrosis factor (TNF) superfamily member 13B, BAFF, THANK, TALL1, TALL-1, BLYS, BLyS, B cell activating factor, B lymphocyte activator, CD257)], Homo sapiens ",
+      "actual": "immunoglobulin G1-lambda2, anti-[ Homo sapiens TNFSF13B (tumor necrosis factor (TNF) superfamily member 13B, BAFF, THANK, TALL1, TALL-1, BLYS, BLyS, B cell activating factor, B lymphocyte activator, CD257)], Homo sapiens"
+    },
+    {
+      "drug": "rituximab vedotin",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens MS4A1 (membrane- spanning 4-domains subfamily A member 1, CD20)], chimeric monoclonal antibody; conjugated on an average of 4.4 cysteinyl residues to vedotin, comprising a clea",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens MS4A1 (membrane-spanning 4-domains subfamily A member 1, CD20)], chimeric monoclonal antibody; conjugated on an average of 4.4 cysteinyl residues to vedotin, comprising a clea"
+    },
+    {
+      "drug": "rivocibart",
+      "field": "english_description",
+      "expected": "immunoglobulin G4-kappa, anti-[Homo sapiens ANGPTL3 (angiopoietin-like 3)], Homo sapiens monoclonal antibody; H-gamma4 heavy chain Homo sapiens (1-451) [VH (Homo sapiens IGHV1-46*01 (89.8%) -(IGHD) -IGHJ6*01 (100%), CDR-",
+      "actual": "immunoglobulin G4-kappa, anti-[Homo sapiens ANGPTL3 (angiopoietin-like 3)], Homo sapiens monoclonal antibody; H-gamma4 heavy chain Homo sapiens (1-451) [VH (Homo sapiens IGHV1-46*01 (89.8%)-(IGHD)-IGHJ6*01 (100%), CDR-IM"
+    },
+    {
+      "drug": "robatocibart",
+      "field": "english_description",
+      "expected": "immunoglobulin G4-kappa, anti-[Homo sapiens F11 (coagulation factor 11, coagulation factor XI, FXI, plasma thromboplastin antecedent, PTA)], humanized monoclonal antibody; H-gamma4 heavy chain humanized (1-444) [VH (Homo",
+      "actual": "immunoglobulin G4-kappa, anti-[ Homo sapiens F11 (coagulation factor 11, coagulation factor XI, FXI, plasma thromboplastin antecedent, PTA)], humanized monoclonal antibody; H-gamma4 heavy chain humanized (1-444) [VH (Hom"
+    },
+    {
+      "drug": "rusubamig",
+      "field": "english_description",
+      "expected": "immunoglobulin (VH-G1(CH1-5h)-scFvhk-G1(10h-CH2-CH3)_L- kappa) dimer, anti-[Pseudomonas aeruginosa type III secretion system (TTSS, T3S) PcrV protein)] and anti-[P. aeruginosa psl (polysaccharide synthesis locus, surface",
+      "actual": "immunoglobulin (VH-G1(CH1-5h)-scFvhk-G1(10h-CH2-CH3) _L-kappa) dimer, anti-[Pseudomonas aeruginosa type III secretion system (TTSS, T3S) PcrV protein)] and anti-[P. aeruginosa psl (polysaccharide synthesis locus, surface"
+    },
+    {
+      "drug": "sevoloprubart",
+      "field": "english_description",
+      "expected": "immunoglobulin G4-kappa, anti-[Homo sapiens CD19 (B lymphocyte surface antigen B4, Leu-12)], Homo sapiens monoclonal antibody; H-gamma4 heavy chain Homo sapiens (1-446) [VH (Homo sapiens IGHV1-69*01 (91.8%) -(IGHD) -IGHJ",
+      "actual": "immunoglobulin G4-kappa, anti-[ Homo sapiens CD19 (B lymphocyte surface antigen B4, Leu-12)], Homo sapiens monoclonal antibody; H-gamma4 heavy chain Homo sapiens (1-446) [VH (Homo sapiens IGHV1-69*01 (91.8%)-(IGHD)-IGHJ1"
+    },
+    {
+      "drug": "sofetabart",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens FOLR1 (folate receptor 1, folate receptor alpha, FR-alpha, adult folate-binding protein, FBP, ovarian tumor-associated antigen MOv18)], humanized monoclonal antibody; H-gamma1 ",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens FOLR1 (folate receptor 1, folate receptor alpha, FR-alpha, adult folate-binding protein, FBP, ovarian tumor-associated antigen MOv18)], humanized monoclonal antibody; H-gamma1"
+    },
+    {
+      "drug": "sofetabart mipitecan",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens FOLR1 (folate receptor 1, folate receptor alpha, FR-alpha, adult folate-binding protein, FBP, ovarian tumor- associated antigen MOv18)], humanized monoclonal antibody; conjugat",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens FOLR1 (folate receptor 1, folate receptor alpha, FR-alpha, adult folate-binding protein, FBP, ovarian tumor-associated antigen MOv18)], humanized monoclonal antibody; conjugat"
+    },
+    {
+      "drug": "solgikibart",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-lambda2, anti-[Homo sapiens IL6 (interleukin 6, IL-6)], monoclonal antibody; H-gamma1 heavy chain (1-451) [VH (Homo sapiens IGHV4- 30-2*07 (86.9%) -(IGHD) -IGHJ3*01 (85.7%), CDR-IMGT [10.7.14] (26-35.53",
+      "actual": "immunoglobulin G1-lambda2, anti-[ Homo sapiens IL6 (interleukin 6, IL-6)], monoclonal antibody; H-gamma1 heavy chain (1-451) [VH (Homo sapiens IGHV4-30-2*07 (86.9%)-(IGHD)-IGHJ3*01 (85.7%), CDR-IMGT [10.7.14] (26-35.53-5"
+    },
+    {
+      "drug": "sunekafusp alfa",
+      "field": "english_description",
+      "expected": "humanized/human immunoglobulin G1-kappa/lambda bispecific monoclonal antibody, anti-[human interleukin-2 (IL2, IL-2, T-cell growth factor, TCGF)] and anti-[human programmed cell death protein 1 (PD-1, PDCD1, programmed c",
+      "actual": "humanized/human immunoglobulin G1-kappa/lambda bispecific monoclonal antibody, anti-[human interleukin-2 (IL2, IL-2, T-cell growth factor, TCGF)] and anti-[human programmed cell death protein 1 (PD-1, PDCD1, programmed c"
+    },
+    {
+      "drug": "susitabart",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens TM4SF1 (transmembrane 4 L6 family member 1)], humanized monoclonal antibody; gamma1 heavy chain humanized (1-450) [VH (Homo sapiens IGHV1- 18*01 (85.7%) -(IGHD) -IGHJ4*01 (93.3",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens TM4SF1 (transmembrane 4 L6 family member 1)], humanized monoclonal antibody; gamma1 heavy chain humanized (1-450) [VH (Homo sapiens IGHV1-18*01 (85.7%)-(IGHD)-IGHJ4*01 (93.3%)"
+    },
+    {
+      "drug": "susitabart ponetansine",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens TM4SF1 (transmembrane 4 L6 family member 1)], humanized monoclonal antibody; conjugated with the tubulin inhibitor N2'-deacetylmaytansine, via a linker, at the two engineered c",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens TM4SF1 (transmembrane 4 L6 family member 1)], humanized monoclonal antibody; conjugated with the tubulin inhibitor N 2'-deacetylmaytansine, via a linker, at the two engineered"
+    },
+    {
+      "drug": "tasafustobart",
+      "field": "english_description",
+      "expected": "immunoglobulin G4-kappa, anti-[Homo sapiens SIGLEC10 (sialic acid binding Ig-like lectin 10)], humanized monoclonal antibody; H-gamma4 heavy chain humanized (1-447) [VH (Homo sapiens IGHV2-5*08 (94.8%) -(IGHD) -IGHJ3*01 ",
+      "actual": "immunoglobulin G4-kappa, anti-[ Homo sapiens SIGLEC10 (sialic acid binding Ig-like lectin 10)], humanized monoclonal antibody; H-gamma4 heavy chain humanized (1-447) [VH (Homo sapiens IGHV2-5*08 (94.8%)-(IGHD)-IGHJ3*01 ("
+    },
+    {
+      "drug": "tesrakitug",
+      "field": "english_description",
+      "expected": "immunoglobulin G2-kappa, anti-[Homo sapiens L1R1 (interleukin1 receptor type 1, IL-1R1, p80, CD121a)], Homo sapiens monoclonal antibody; H-gamma2 heavy chain Homo sapiens (1-444) [VH (Homo sapiens IGHV5-51*01 (87.8%) -(I",
+      "actual": "immunoglobulin G2-kappa, anti-[ Homo sapiens L1R1 (interleukin1 receptor type 1, IL-1R1, p80, CD121a)], Homo sapiens monoclonal antibody; WHO Drug Information, Vol. 40, No. 2, 2026 Proposed INN: List 135 667 H-gamma2 hea"
+    },
+    {
+      "drug": "tigritamig",
+      "field": "english_description",
+      "expected": "immunoglobulin (H-gamma1_L-kappa)_scFvhk-G1(h-CH2-CH3), anti- [Homo sapiens MS4A1 (membrane-spanning 4-domains subfamily A member 1, CD20)] and anti-[Homo sapiens CD28 (T cell specific surface glycoprotein CD28, TP44)], ",
+      "actual": "immunoglobulin (H-ga mma1_L-kappa)_scFvhk-G1(h-CH2-CH3), anti-[Homo sapiens MS4A1 (membrane-spanning 4-domains subfamily A member 1, CD20)] and anti-[Homo sapiens CD28 (T cell specific surface glycoprotein CD28, TP44)], "
+    },
+    {
+      "drug": "tivunatamig",
+      "field": "english_description",
+      "expected": "immunoglobulin [VH-G4(CH1)(_L-kappa)-15mer-H-gamma4_L- kappa]dimer, anti-[Homo sapiens PDCD1 (programmed cell death 1, PD-1, PD1, CD279)] and anti-[Homo sapiens VEGFA (vascular endothelial growth factor A, VEGF-A, VEGF)]",
+      "actual": "immunoglobulin [VH-G4 (CH1)(_L-kappa)-15mer-H-gamma4_L-kappa]dimer, anti-[Homo sapiens PDCD1 (programmed cell death 1, PD-1, PD1, CD279)] and anti-[Homo sapiens VEGFA (vascular endothelial growth factor A, VEGF-A, VEGF)]"
+    },
+    {
+      "drug": "ubivertatug",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens CLDN18 (claudin 18, claudin-18, surfactant associated protein J, SFTPJ) isoform 2)], monoclonal antibody; gamma1 heavy chain (1-450) [VH Musmus/Homsap (Mus musculus IGHV5-9*01 ",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens CLDN18 (claudin 18, claudin-18, surfactant associated protein J, SFTPJ) isoform 2)], monoclonal antibody; gamma1 heavy chain (1-450) [VH Musmus/Homsap (Mus musculus IGHV5-9*01"
+    },
+    {
+      "drug": "ubivertatug vedotin",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens CLDN18 (claudin 18, claudin-18, surfactant associated protein J, SFTPJ) isoform 2)], monoclonal antibody; conjugated on an average of four cysteinyl residues to vedotin, compri",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens CLDN18 (claudin 18, claudin-18, surfactant associated protein J, SFTPJ) isoform 2)], monoclonal antibody; conjugated on an average of four cysteinyl residues to vedotin, compr"
+    },
+    {
+      "drug": "vimziprubart",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-kappa, anti-[Homo sapiens TNFSF4 (TNF superfamily member 4, tumor necrosis factor superfamily member 4, OX40 ligand, OX40L, TAX transcriptionally-activated glycoprotein 1, TXGP1, gp34, CD252)], Homo sap",
+      "actual": "immunoglobulin G1-kappa, anti-[ Homo sapiens TNFSF4 (TNF superfamily member 4, tumor necrosis factor superfamily member 4, OX40 ligand, OX40L, TAX transcriptionally-activated glycoprotein 1, TXGP1, gp34, CD252)], Homo sa"
+    },
+    {
+      "drug": "zalbintamig",
+      "field": "english_description",
+      "expected": "immunoglobulin (H-gamma1-scFvhk_L-kappa) dimer, anti-[Homo sapiens TPBG (trophoblast glycoprotein, 5T4, Wnt-activated inhibitory factor 1, WAIF1) epitopes 1 and 2], humanized and chimeric monoclonal antibody, biparatopic",
+      "actual": "immunoglobulin (H-gamma1-scFvhk_L-kappa) dimer, anti-[Homo sapiens TPBG (trophoblast glycoprotein, 5T4, Wnt-activated inhibitory factor 1, WAIF1) epitopes 1 and 2], humanized and chimeric monoclonal antibody, biparatopic"
+    },
+    {
+      "drug": "zalbintamig vedotin",
+      "field": "english_description",
+      "expected": "immunoglobulin (H-gamma1-scFvhk_L-kappa) dimer, anti-[Homo sapiens TPBG (trophoblast glycoprotein, 5T4, Wnt-activated inhibitory factor 1, WAIF1) epitopes 1 and 2], humanized, Mus musculus and chimeric monoclonal antibod",
+      "actual": "immunoglobu lin (H-gamma1-scFvhk_L-kappa) dimer, anti-[Homo sapiens TPBG (trophoblast glycoprotein, 5T4, Wnt-activated inhibitory factor 1, WAIF1) epitopes 1 and 2], humanized, Mus musculus and chimeric monoclonal antibo"
+    },
+    {
+      "drug": "zetrukibart",
+      "field": "english_description",
+      "expected": "immunoglobulin G4-kappa, anti-[Homo sapiens IL1RAP (interleukin- 1 receptor accessory protein)], humanized monoclonal antibody; H-gamma4 heavy chain humanized (1-446) [VH (Homo sapiens IGHV3-66*01 (81.4%) -(IGHD) -IGHJ1*",
+      "actual": "immunoglobulin G4-kappa, anti-[ Homo sapiens IL1RAP (interleukin-1 receptor accessory protein)], humanized monoclonal antibody; H-gamma4 heavy chain humanized (1-446) [VH (Homo sapiens IGHV3-66*01 (81.4%)-(IGHD)-IGHJ1*01"
+    },
+    {
+      "drug": "zimlekitug",
+      "field": "english_description",
+      "expected": "immunoglobulin G1-lambda2, anti-[Homo sapiens TNFRSF1B (tumor necrosis factor receptor (TNFR) superfamily member 1B, TNFR2, TNFR type II, p75, CD120b)], Homo sapiens monoclonal antibody; H-gamma1 heavy chain Homo sapiens",
+      "actual": "immunoglobulin G1-lambda2, anti-[ Homo sapiens TNFRSF1B (tumor necrosis factor receptor (TNFR) superfamily member 1B, TNFR2, TNFR type II, p75, CD120b)], Homo sapiens monoclonal antibody; H-gamma1 heavy chain Homo sapien"
+    },
+    {
+      "drug": "ecagitatug rezetecan",
+      "field": "pdf_pages",
+      "expected": "59-64",
+      "actual": "59-62"
+    },
+    {
+      "drug": "afamakitug",
+      "field": "heavy_chain_fasta",
+      "expected": ">afamakitug|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVESGGGVVQPGRSLRLSCAASGFTFSNSGIHWVRQAPGKGLEWVAVISYDGSNKYYADSVKGRFTISRDNSKNTLYLQMNSLRAEDTAVYYCARLRDNAEYTDYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPV",
+      "actual": ""
+    },
+    {
+      "drug": "agubecimig",
+      "field": "heavy_chain_fasta",
+      "expected": ">agubecimig|HC1|copy=1/1|sequence_group=HC-A|unique\nYPQLVESGGGLVQPGGSLRLSCEASVLFKHQDMSWVRQAPGKGLEWVGSIDPRGDHKYYNTKFIDRFTISRDNSKNTLYLQMNSLRAEDTAVYYCARDLDFMDEWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTF",
+      "actual": ""
+    },
+    {
+      "drug": "besnotamig",
+      "field": "heavy_chain_fasta",
+      "expected": ">besnotamig|HC1|copy=1/2|sequence_group=HC-A|unique\nQVQLQQPGAELVKPGASVKMSCKASGYTFTSYNMHWVKQTPGRGLEWIGAIYPGNGDTSYNQKFKGKATLTADKSSSTAYMQLSSLTSEDSAVYYCARSTYYGGDWYFNVWGAGTTVTVSAASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVTVSWNSGALT",
+      "actual": ""
+    },
+    {
+      "drug": "birfutamig",
+      "field": "heavy_chain_fasta",
+      "expected": ">birfutamig|HC1|copy=1/2|sequence_group=HC-A|unique\nQVQLVQSGAEVKKPGASVKVSCKASGYTFTTHYMYWVRQAPGQGLEWIGGINPSNEATNENEKFKTKATLTVDKSTSTAYMELSSLRSEDTAVYYCTRVGGLSYTMDYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVIVSWNSGALTSG",
+      "actual": ""
+    },
+    {
+      "drug": "blumiciment",
+      "field": "heavy_chain_fasta",
+      "expected": ">blumiciment|HC1|copy=1/2|sequence_group=HC-A|unique\nQVQLVQSGAEVKKPGASVKVSCKVSGSTFSNYAIHWVRQAPGKGLEWMGGIVPLSGTAIYAQKFQGRVIMTEDTSTDTAYMELSSLKSEDTAVYYCARDQGESSGWYAIYEGMDVWGQGTTVTVSSASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVTVSW",
+      "actual": ""
+    },
+    {
+      "drug": "cesalatamig",
+      "field": "heavy_chain_fasta",
+      "expected": ">cesalatamig|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nDVQLVQSGVEVKNPGASVKVSCRASGYSFTNSGINWVKQAPGKGLKWMGWINTYTGEPTYADDFKGRFAFSLETSASSAYLQINNLKNEDTATYFCARFGDGYYWEFDVWGAGTTVIVSSASTKGPSVEPLAPSSKSTSGGTAALGCLVKDYFPE",
+      "actual": ""
+    },
+    {
+      "drug": "clulevibart",
+      "field": "heavy_chain_fasta",
+      "expected": ">clulevibart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVESGGGLVQPGRSLRLSCTASGFTFADYSMTWVRQAPGKGLEWVGLIKRNAYGGTTEYAASVRGRFTISRDDSRSIAYLQMHSLKSEDTAVYFCLRGYSGYDWEGLDAFEVWGQGTMVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLV",
+      "actual": ""
+    },
+    {
+      "drug": "crozunafusp alfa",
+      "field": "heavy_chain_fasta",
+      "expected": ">crozunafusp alfa|HC1|copy=1/3|sequence_group=HC-A|identical_copies=3\nDEAREAAAVRALVARLLGPGPAADFSVSVERALAAKPGLDTYSLSGGGGAARVRVRGSTGVAAAAGLHRYLRDFCGCHVAWSGSQLRLPRPLPAVPGELTEATPNRYRYYQNVCTQSYSFVWHDWARWEREIDWMALNGINLALAWSGQE",
+      "actual": ""
+    },
+    {
+      "drug": "dalvaprubart",
+      "field": "heavy_chain_fasta",
+      "expected": ">dalvaprubart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVESGGGLVQPGRSLRLSCAASGFTFNDYAMHWVRQAPGKGLEWVSTISWNSGSIGYADSVKGRFTISRDNAKKSLYLQMNSLRAEDTALYYCAKDIQYGNYYYGMDVWGQGTTVTVSSASTKGPSVFPLAPGSSKSTSGTAALGCLVKDY",
+      "actual": ""
+    },
+    {
+      "drug": "daxokafusp alfa",
+      "field": "heavy_chain_fasta",
+      "expected": ">daxokafusp alfa|HC1|copy=1/2|sequence_group=HC-A|unique\nITCPPPMSVEHADIWVKSYSLYSRERYICNSGFKRKAGTSSLTECVLNKATNVAHWITPSLKCIRDPALVHQRPAPPSGGSGGGGSGGGSGGGGSLENWVNVISDLKKIEDLIQSMHIDATLYTESDVHPSCKVTAMKCFLLELQVISLESGDASIHDTVESL",
+      "actual": ""
+    },
+    {
+      "drug": "dovarafusp alfa",
+      "field": "heavy_chain_fasta",
+      "expected": ">dovarafusp alfa|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVQSGAEVKKPGASVKVSCKASGYSFTSYWMNWVRQAPGQGLEWMGMIHPSDSETRLNQKFMDRVTMTRDTSTSTVYMELSSLRSEDTAVYYCARGLYGNSWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEP",
+      "actual": ""
+    },
+    {
+      "drug": "ecagitatug",
+      "field": "heavy_chain_fasta",
+      "expected": ">ecagitatug|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVESGGGVVQPGRSLRLSCAASGFSLSNYGVHWVRQAPGKGLEWLAVIWSGGSTNYAAAFVSRLTISKDNSKNTVYLQMNSLRAEDTAVYYCARNHDNPYNYAMDYWGQGTTVIVSSASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEP",
+      "actual": ""
+    },
+    {
+      "drug": "ecagitatug rezetecan",
+      "field": "heavy_chain_fasta",
+      "expected": ">ecagitatug rezetecan|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVESGGGVVQPGRSLRLSCAASGFSLSNYGVHWVRQAPGKGLEWLAVIWSGGSTNYAAAFVSRLTISKDNSKNTVYLQMNSLRAEDTAVYYCARNHDNPYNYAMDYWGQGTTVIVSSASTKGPSVFPLAPCSRSTSESTAALG",
+      "actual": ""
+    },
+    {
+      "drug": "ezlatamig",
+      "field": "heavy_chain_fasta",
+      "expected": ">ezlatamig|HC1|copy=1/2|sequence_group=HC-A|unique\nEVQLLESGGGLVQPGGSLRLSCAVSGIDLSNNAISWVRQAPGKGLEYVGVIGNTGDTYYADSAKGRFTISRDSSKTTLYLQMNSLRAEDTAVYFCVRGPPSYSSSVKNIWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVIVSWNSGALTSG",
+      "actual": ""
+    },
+    {
+      "drug": "figavetbart",
+      "field": "heavy_chain_fasta",
+      "expected": ">figavetbart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nDVQLVESGGDLVKPGGSLRLTCVASGLSLTSDSMSWVRQAPGKGLQWVSTLWSNRGTYYTDSVKGRFTISKDNAENTLYLQMNNLKTEDTATYYCASIYYYEADYLHWYFDFWGQGALVTVSSASTTAPSVFPLAPSCGTTSGATVALACLVLGY",
+      "actual": ""
+    },
+    {
+      "drug": "getrokitug",
+      "field": "heavy_chain_fasta",
+      "expected": ">getrokitug|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVQSGAEVKKPGASVKVSCKASGYTFTSYWMHWVRQAPGQGLEWIGVIYPGNSDTRYNQKFKGRVTITRDTSASTAYMELSSLRSEDTAVYYCTRDYYSNYVYYYAMDYWGQGTTVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYF",
+      "actual": ""
+    },
+    {
+      "drug": "glankibart",
+      "field": "heavy_chain_fasta",
+      "expected": ">glankibart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLQESGPGLVKPSQTLSLTCTVSGASITSGYWNWIRNHPGKGLEYIGYISYSGYTYYNPSLKSRVTISRDTSKNQFSLKLSSVTAADTAVYYCATGGYDYVEDALYYWGQGTLVTVSSASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEP",
+      "actual": ""
+    },
+    {
+      "drug": "graxutamig",
+      "field": "heavy_chain_fasta",
+      "expected": ">graxutamig|HC1|copy=1/2|sequence_group=HC-A|unique\nDIQMTQSPSSLSASVGDRVTITCRASQDIRNYLNWYQQKPGKAPKLLIYYTSRLESGVPSRFSGSGSGTDYTLTISSLQPEDFATYYCQQGNTLPWTFGQGTKVEIKGGGGSEVQLVESGGGLVQPGGSLRLSCAASGFNVYASGMHWVRQAPGKGLEWVAKIYPDSD",
+      "actual": ""
+    },
+    {
+      "drug": "infutatug",
+      "field": "heavy_chain_fasta",
+      "expected": ">infutatug|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVQSGAEVKKPGSSVKVSCKASGYTFTNYWLHWVRQAPGQGLEWMGMMHPISGSSNYAQKFQGRATLTVDKSTSTAYMELSSLRSEDTAVYYCARGLLSAMDYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVIVS",
+      "actual": ""
+    },
+    {
+      "drug": "infutatug pelitecan",
+      "field": "heavy_chain_fasta",
+      "expected": ">infutatug pelitecan|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVQSGAEVKKPGSSVKVSCKASGYTFTNYWLHWVRQAPGQGLEWMGMMHPISGSSNYAQKFQGRATLTVDKSTSTAYMELSSLRSEDTAVYYCARGLLSAMDYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVK",
+      "actual": ""
+    },
+    {
+      "drug": "inuxucibart",
+      "field": "heavy_chain_fasta",
+      "expected": ">inuxucibart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVESGGGLVQPGGSLRLSCAASGFTFSFYYLNWVRQAPGKGLEWVGDIRLKKNNYEKHYAESVKGRFTISRDDSKSITYLQMNSLRAEDTAVYYCAREGDYFDYWGQGTTVTVSSASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPV",
+      "actual": ""
+    },
+    {
+      "drug": "lenovetug",
+      "field": "heavy_chain_fasta",
+      "expected": ">lenovetug|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLQESGGGSVQAGGSLRLSCAASGYISGRDSMGWFRQAPGKEREGVACIDTSGIVNYADSVKGRFTISQDSAKKTLYLEMNSLKPEDTALYSCATGPFVYGRGCLGQAFYSYWGQGTQVTVSSDPCPQCCKPSLSLQPPALADLLLGSNASLTCT",
+      "actual": ""
+    },
+    {
+      "drug": "lonletamig",
+      "field": "heavy_chain_fasta",
+      "expected": ">lonletamig|HC1|copy=1/2|sequence_group=HC-A|unique\nQVQLVESGGGVVQPGRSLRLSCAASGFTFSSYNMNWVRQAPGKGLEWVAIIYYDESNKYYADSVKGRFTISRDISKNTLYLQMNSLRAEDTAVYYCARERGRDYYGMDVWGQGTTVTVSSASTKGPSVEPLAPSSKSTSGGTAALGCLVKDYFPEPVIVSWNSGALTS",
+      "actual": ""
+    },
+    {
+      "drug": "mevegtatug",
+      "field": "heavy_chain_fasta",
+      "expected": ">mevegtatug|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVQSGAEVKKPGASVKVSCKASGYTFTTYWMHWVRQAPGQGLEWMGMIDPSDSYTSYAQKFQGRVTLTVDTSTSTAYMELSSLRSEDTAVYYCTRGSGPGLFAYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVT",
+      "actual": ""
+    },
+    {
+      "drug": "mevegtatug pelitecan",
+      "field": "heavy_chain_fasta",
+      "expected": ">mevegtatug pelitecan|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVQSGAEVKKPGASVKVSCKASGYTFTTYWMHWVRQAPGQGLEWMGMIDPSDSYTSYAQKFQGRVTLTVDTSTSTAYMELSSLRSEDTAVYYCTRGSGPGLFAYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCL",
+      "actual": ""
+    },
+    {
+      "drug": "mosdaprubart",
+      "field": "heavy_chain_fasta",
+      "expected": ">mosdaprubart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVQSGAEVVKPGASVKLSCKASGYIFTSYYMYWVKQAPGQGLEWIGEINPSNGDTNFNEKFKSKATLTVDKSASTAYMELSSLRSEDTAVYYCTRSDGRNDMDSWGQGTLVTVSSASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEP",
+      "actual": ""
+    },
+    {
+      "drug": "murunprubart",
+      "field": "heavy_chain_fasta",
+      "expected": ">murunprubart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVESGGGLVQPGGSLRLSCAASGFTFSSYAMSWVRQAPGKGLEWVSAISGSGGSTYYAASVKGRFTISRDNSKNTLYLQMNSLRAEDTAVYYCARKYRPSRVFDAWGQGTLVTVSSASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPE",
+      "actual": ""
+    },
+    {
+      "drug": "nilerafusp alfa",
+      "field": "heavy_chain_fasta",
+      "expected": ">nilerafusp alfa|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVQSGAEVKKPGESLKISCKGSGYIFTNYWIAWVRQMPGKGLESMGIIYPGDSDIRYSPSFQGQVTISADKSITTAYLQWSSLKASDTAMYYCARHDIEGFDYWGRGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFP",
+      "actual": ""
+    },
+    {
+      "drug": "nimbakibart",
+      "field": "heavy_chain_fasta",
+      "expected": ">nimbakibart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLLESGGGLVQPGGSLRLSCAASGFTFSSYAMSWVRQAPGKGLEWVSAISGSGGSTYYADSVKGRETISRDNSKNTLYLQMNSLRAEDTAVYYCAKDSPELLDDYYYYYYMDVWGKGTTVIVSSASTKGPSVFPLAPCSRSTSESTAALGCLV",
+      "actual": ""
+    },
+    {
+      "drug": "ninartatug",
+      "field": "heavy_chain_fasta",
+      "expected": ">ninartatug|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVESGGGLVQPGGSLRLSCAASGFTFTTYAMNWVRQAPGKGLEWVARIRIKNNNYATYYADSVTDRFTISRDDSKNSLYLQMNSLKTEDTAVYYCVRPDYGNYGLAYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPE",
+      "actual": ""
+    },
+    {
+      "drug": "ninartatug birsatecan",
+      "field": "heavy_chain_fasta",
+      "expected": ">ninartatug birsatecan|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVESGGGLVQPGGSLRLSCAASGFTFTTYAMNWVRQAPGKGLEWVARIRIKNNNYATYYADSVTDRFTISRDDSKNSLYLQMNSLKTEDTAVYYCVRPDYGNYGLAYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAA",
+      "actual": ""
+    },
+    {
+      "drug": "obinutuzumab beta",
+      "field": "heavy_chain_fasta",
+      "expected": ">obinutuzumab beta|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVQSGAEVKKPGSSVKVSCKASGYAFSYSWINWVRQAPGQGLEWMGRIFPGDGDTDYNGKFKGRVTITADKSTSTAYMELSSLRSEDTAVYYCARNVFDGYWLVYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVK",
+      "actual": ""
+    },
+    {
+      "drug": "olaviztabart cilotecan",
+      "field": "heavy_chain_fasta",
+      "expected": ">olaviztabart cilotecan|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVESGGGLVQPGGSLRLSCAASGFTFSNYGMAWVRQAPGKGLEWVSFISNLAYGINYADTVTGRFTISRDNAKNSLYLQMNSLRAEDTAVYYCARGARATGWFAYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAAL",
+      "actual": ""
+    },
+    {
+      "drug": "olusonkafusp alfa",
+      "field": "heavy_chain_fasta",
+      "expected": ">olusonkafusp alfa|HC1|copy=1/2|sequence_group=HC-A|unique\nAPASSSTKKTQLQLEHLLLDLQMILNGINNYKNPKLTRMLTFKFYMPKKATELKHLQCLEEELKPLEEVLNLAGDASIHDLISRINVIVLELKGSETTFMCEYADETATIVEFLNRWITFSQSIIRTLTGGGGSGGGGSDKTHTCPPCPAPEAAGGPSVFL",
+      "actual": ""
+    },
+    {
+      "drug": "onvisatabart",
+      "field": "heavy_chain_fasta",
+      "expected": ">onvisatabart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVQSGAEVKKPGASVKISCKGSGYTFTDYGMHWLKQAPGQGLEWIGVISPYYGDVNYNQKFQGRATMTVDKSISTAYMELSRLRSDDTAVYYCARGMGYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSW",
+      "actual": ""
+    },
+    {
+      "drug": "opucolimab pelitecan",
+      "field": "heavy_chain_fasta",
+      "expected": ">opucolimab pelitecan|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVQSGGGLVKPGGSLRLSCAASGFTFSSYTMNWVRQAPGKGLEWVSSISSGSDYLYYADSVKGRFTISRDNAKNSLYLQMNSLRAEDTAVYYCARNELRWYPQAGAFDRWGQGTMVTVSSASTKGPSVFPLAPSSKSTSGGTA",
+      "actual": ""
+    },
+    {
+      "drug": "pexigrotug",
+      "field": "heavy_chain_fasta",
+      "expected": ">pexigrotug|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLKESGPGLVAPSETLSITCTVSGFSLTGYGVNWVRQPPGKGLEWLGMIWADGDTDYNSALKSRLTISKDNSKSQVFLKVNNLQTDDTARYYCARDSYYYGYNFFDVWGAGTTVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLYKDYFPEP",
+      "actual": ""
+    },
+    {
+      "drug": "prinotatug",
+      "field": "heavy_chain_fasta",
+      "expected": ">prinotatug|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVQSGAEVKKPGASVKVSCKASGYTFTSYNMHWVRQAPGKGLEWIGAIYPGNGDTSYNQKFKGRVTITADKSTSTAYMELSSLRSEDTAVYYCARSTYYGGDWYFNVWGQGTTVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPE",
+      "actual": ""
+    },
+    {
+      "drug": "rebatatug rezetecan",
+      "field": "heavy_chain_fasta",
+      "expected": ">rebatatug rezetecan|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVQSGAEVKKPGSSVKVSCKASGSSFSSYGINWVKQAPGQGLEWIGEIFPRSGNTYYNEKFEGRATLTADKSTSTAYMELRSLRSEDTAVYYCAKGDLGDFDYWGQGTTVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVK",
+      "actual": ""
+    },
+    {
+      "drug": "rimizakibart",
+      "field": "heavy_chain_fasta",
+      "expected": ">rimizakibart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLQQSGAEVKKPGSSVRVSCKASGGTFNNDAINWVRQAPGQGLEWMGGIFPMFGTAKYSQNFQGRVAITADESTGTASMELSSLRSEDTAVYYCARSRDPLLYPHHALSPWGRGTMVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKD",
+      "actual": ""
+    },
+    {
+      "drug": "rituximab vedotin",
+      "field": "heavy_chain_fasta",
+      "expected": ">rituximab vedotin|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLQQPGAELVKPGASVKMSCKASGYTFTSYNMHWVKQTPGRGLEWIGAIYPGNGDTSYNQKFKGKATLTADKSSSTAYMQLSSLTSEDSAVYYCARSTYYGGDWYFNVWGAGTTVTVSAASTKGPSVFPLAPSSKSTSGGTAALGCL",
+      "actual": ""
+    },
+    {
+      "drug": "rivocibart",
+      "field": "heavy_chain_fasta",
+      "expected": ">rivocibart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVQSGAEVKKPGASVKVSCKASGYTFISYDINWVRQAPGQGLEWVGLINPREDSTSYAQKFQGRVIMTRDTSTSTMYMELSSLRSEDTAVYFCARDLGSIREVLYYGMDVWGQGTTVTVSSASTKGPSVFPLAPCSRSTSESTAALGCLVKDY",
+      "actual": ""
+    },
+    {
+      "drug": "robatocibart",
+      "field": "heavy_chain_fasta",
+      "expected": ">robatocibart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVQSGAEVKKPGSSVKVSCKASGGTFSDDYMHWVRQAPGQGLEWMGWIDPENGDTEYASKFQGRVTITADESTSTAYMELSSLRSEDTAVYYCLYGNFYYFDYWGQGTTVTVSSASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPV",
+      "actual": ""
+    },
+    {
+      "drug": "sevoloprubart",
+      "field": "heavy_chain_fasta",
+      "expected": ">sevoloprubart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVQSGAEVKKPGSSVKVSCKASGHTISSYAYSWVRQAPGQGLEWMGDIIPAYGSPNYAQKFQGRVTITADESTSTAYMELSSLRSEDTAVYYCAREDFGKNYAMDVWGQGTLVTVSSASTKGPSVFPLAPCSRSTSESTAALGCLVKDYF",
+      "actual": ""
+    },
+    {
+      "drug": "sofetabart mipitecan",
+      "field": "heavy_chain_fasta",
+      "expected": ">sofetabart mipitecan|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVESGGGVVQPGRSLRLSCSASGFTFSGYGLSWVRQAPGKGLEWVAMISSGGSYTYYADSVKGRFAISRDNAKNTLFLQMDSLRPEDTGVYFCARHGDDPAWFAYWGQGTPVTVSSASTKGPSVFPLAPSSKSTSGGTAALGC",
+      "actual": ""
+    },
+    {
+      "drug": "solgikibart",
+      "field": "heavy_chain_fasta",
+      "expected": ">solgikibart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLQESGPGLVKPSQTLSLTCTVSGGSITSRYYAWSWIRQPPGKGLEWIGVIDYDGDTYYSPSLKSRVSISWDTSKNQFSLKLSSVTPADTAVYYCARDPDVVTGFHYDYWGQGTMVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYF",
+      "actual": ""
+    },
+    {
+      "drug": "sunekafusp alfa",
+      "field": "heavy_chain_fasta",
+      "expected": ">sunekafusp alfa|HC1|copy=1/2|sequence_group=HC-A|unique\nEVQLVQSGAEVKKPGESLKISCKGSGYAFTNYLIEWVRQMPGKGLEWMGVINPGSGGTNYNEKFKGQVTISADKSISTAYLQWSSLKASDTAMYYCARWRGEGYYAYFDVWGQGTTVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWN",
+      "actual": ">sunekafusp alfa|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVQSGAEVKKPGESLKISCKGSGYAFTNYLIEWVRQMPGKGLEWMGVINPGSGGTNYNEKFKGQVTISADKSISTAYLQWSSLKASDTAMYYCARWRGEGYYAYFDVWGQGTTVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVK"
+    },
+    {
+      "drug": "susitabart",
+      "field": "heavy_chain_fasta",
+      "expected": ">susitabart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVQSGAEVKKPGASVKVSCKASGYTFTNYGVKWVRQAPGQGLEWMGWINTYTGNPIYAADFKGRVTMTTDTSTSTAYMELRSLRSDDTAVYYCVRFQYGDYRYFDVWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEP",
+      "actual": ""
+    },
+    {
+      "drug": "tasafustobart",
+      "field": "heavy_chain_fasta",
+      "expected": ">tasafustobart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVTLKESGPALVKPTQTLTLTCTFSGFSLSTSGMGLSWIRQPPGKALEWLAHIYWDDDKRYNPSLKSRLTISKDTSKNQVVLTMTNMDPVDTATYYCVRGLYGNWFFDVWGQGTTVTVSSASTKGPSVEPLAPCSRSTSESTAALGCLVKDYF",
+      "actual": ""
+    },
+    {
+      "drug": "tesrakitug",
+      "field": "heavy_chain_fasta",
+      "expected": ">tesrakitug|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLMQSGAEVKKPGESLKISCKGSGYSFSFHWIAWVRQMPGKGLEWMGIIHPGASDTRYSPSFQGQVTISADNSNSATYLQWSSLKASDTAMYFCARQRELDYFDYWGQGTLVTVSSASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVT",
+      "actual": ""
+    },
+    {
+      "drug": "tivunatamig",
+      "field": "heavy_chain_fasta",
+      "expected": ">tivunatamig|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLVESGGGLVQPGGSLRLSCAASGFVFSNYDMSWVRQAPGKRLEWVATISGGGGYTYYSDSVKGRFTISRDNAKNSLYLQMNSLRAEDTAVYYCASPYGHYGFEYWGQGTLVTVSSASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPV",
+      "actual": ""
+    },
+    {
+      "drug": "ubivertatug",
+      "field": "heavy_chain_fasta",
+      "expected": ">ubivertatug|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVMLVESGGGLVQPGGSLRLSCAASGFTFSTYTMSWVRQTPGKRLEWVATIVGGGGYTYYLDSVKGRFTISRDNSKNTLYLQMNSLRAEDTAVYYCARMGLTQRNALDYWGQGTSITVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPE",
+      "actual": ""
+    },
+    {
+      "drug": "ubivertatug vedotin",
+      "field": "heavy_chain_fasta",
+      "expected": ">ubivertatug vedotin|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVMLVESGGGLVQPGGSLRLSCAASGFTFSTYTMSWVRQTPGKRLEWVATIVGGGGYTYYLDSVKGRFTISRDNSKNTLYLQMNSLRAEDTAVYYCARMGLTQRNALDYWGQGTSITVSSASTKGPSVFPLAPSSKSTSGGTAALGC",
+      "actual": ""
+    },
+    {
+      "drug": "vimziprubart",
+      "field": "heavy_chain_fasta",
+      "expected": ">vimziprubart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQVVESGGGLVQPGGSLRLSCAASGFTFSNYAMTWVRQSPGKGLEWVSLISGSGGLTKYADSVKGRFTISRDNSKKTLFLQMNSLRAEDTAAYYCVKDEGLTTGEYWGQGTQVIVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEP",
+      "actual": ""
+    },
+    {
+      "drug": "zalbintamig vedotin",
+      "field": "heavy_chain_fasta",
+      "expected": ">zalbintamig vedotin|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nQVQLVQSGAEVKKPGASVKVSCKASGYSFTDYYMHWVRQAPGQGLEWMGRVSPNNGATNTNQKFKDRVTMTRDTSISTAYMELRSLRSEDTAVYYCARSTMITSYYFDYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGC",
+      "actual": ""
+    },
+    {
+      "drug": "zetrukibart",
+      "field": "heavy_chain_fasta",
+      "expected": ">zetrukibart|HC1|copy=1/2|sequence_group=HC-A|identical_copies=2\nEVQLEESGGRLVQPGTSLRLSCAVSGFSLSSYDMSWVRQAPGKGLEWVSTIYIGGTTAYASWPKGRFTISKTNSKNTLYLQMNSLRAEDTAVYFCARLQGANYYNSLALWGQGTLVTVSSASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPE",
+      "actual": ""
+    },
+    {
+      "drug": "afamakitug",
+      "field": "light_chain_fasta",
+      "expected": ">afamakitug|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nNFMLTQPHSVSESPGKTVTISCTGSGGSIASNYVQWYQQRPGSSPTTVIYEDNQRPSGVPDRFSGSIDSSSNSASLTISGLKTEDEADYYCQSYDPLPVWVFGGGTKLTVLGQPKAAPSVTLFPPSSEELQANKATLVCLISDFYPGAVTVAWKAD",
+      "actual": ""
+    },
+    {
+      "drug": "agubecimig",
+      "field": "light_chain_fasta",
+      "expected": ">agubecimig|LC1|copy=1/1|sequence_group=LC-A|unique\nAIYMHQEPSSLSASVGDRVTITCQASYWLNSELAWYQQKPGKAPKLLIYDGDDRYPEVPSRFSGSGSHEDYTLTISSLQPEDFATYYCQQYRYTPYTFGQGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDS",
+      "actual": ""
+    },
+    {
+      "drug": "besnotamig",
+      "field": "light_chain_fasta",
+      "expected": ">besnotamig|LC1|copy=1/3|sequence_group=LC-A|identical_copies=2\nQIVLSQSPAILSASPGEKVTMTCRASSSVSYIHWFQQKPGSSPKPWIYATSNLASGVPVRFSGSGSGTSYSLTISRVEAEDAATYYCQQWTSNPPTFGGGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSG",
+      "actual": ""
+    },
+    {
+      "drug": "birfutamig",
+      "field": "light_chain_fasta",
+      "expected": ">birfutamig|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIVMTQSPDSLAVSLGERVTMNCKSSQSLLYSSNQKNYLAWYQQKPGQPPKLLIYWASTRESGVPDRFSGSGYGTDFTLTISSLQAEDVAVYYCQQYYSYPRTFGGGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKV",
+      "actual": ""
+    },
+    {
+      "drug": "blumiciment",
+      "field": "light_chain_fasta",
+      "expected": ">blumiciment|LC1|copy=1/1|sequence_group=LC-A|unique\nDIQMTQSPSSVSASVGDRVTITCRASQGIGTYLAWYQQKPGKAPKLLIYGASTRATGVPSRFSGSGSGTDFTLTISSLQPEDFANYYCQQSYSKVTFGGGTKVEIKRIVAAPSVFIFPPSDEQLKSGTASVYCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDS",
+      "actual": ""
+    },
+    {
+      "drug": "cesalatamig",
+      "field": "light_chain_fasta",
+      "expected": ">cesalatamig|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIVMTQSPDSLAVSLGERATINCKSSQSLLNSRTRKNFLAWYQQKPGQSPKLLIYWASTRESGVPDRFTGSGSGTDFTLTISSVQAEDLAVYYCKQSYNLYTFGGGTNLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKV",
+      "actual": ""
+    },
+    {
+      "drug": "clulevibart",
+      "field": "light_chain_fasta",
+      "expected": ">clulevibart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQMTQSPSAMSASVGDRVTITCRASQGSSTYLAWFQQKPGKVPKRLIYAVSSLQSGVPSRFSGSGSGTEFTLTISSLQPEDSATYYCLQHNSFPLTFGQGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQ",
+      "actual": ""
+    },
+    {
+      "drug": "crozunafusp alfa",
+      "field": "light_chain_fasta",
+      "expected": ">crozunafusp alfa|LC1|copy=1/3|sequence_group=LC-A|identical_copies=3\nDIVMTQSPSSLSVTPGQRATISCRSSQSLVHSNGNTYLHWYLQKPGQSPQLLIYKVSNRFSGVPDRFSGSGSGTDFTLKISRVEAEDVGVYYCSQSTHYPWIFGQGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAK",
+      "actual": ""
+    },
+    {
+      "drug": "dalvaprubart",
+      "field": "light_chain_fasta",
+      "expected": ">dalvaprubart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nEIVLTQSPATLSLSPGERATLSCRASQSVSSYLAWYQQKPGQAPRLLIYDASNRATGIPARFSGSGSGTDFTLTISSLEPEDFAVYYCQQRSNWPITFGQGTRLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNAL",
+      "actual": ""
+    },
+    {
+      "drug": "daxokafusp alfa",
+      "field": "light_chain_fasta",
+      "expected": ">daxokafusp alfa|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQMTQSPSSLSASVGDRVTITCRASESISSWLAWYQQKPGKAPKLLIYDASSLESGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQGDSFPFTFGQGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVD",
+      "actual": ""
+    },
+    {
+      "drug": "dovarafusp alfa",
+      "field": "light_chain_fasta",
+      "expected": ">dovarafusp alfa|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQMTQSPSSLSASVGDRVTITCRASQDIGISLNWYQQEPGKAIKRLIYATSSLDSGVPKRFSGSRSGTEYTLTISSLESEDFADYYCLQYASSPYTFGGGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVD",
+      "actual": ""
+    },
+    {
+      "drug": "ecagitatug",
+      "field": "light_chain_fasta",
+      "expected": ">ecagitatug|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIVLTQSPDSLAVSLGERATINCRADKSVSTSTYNYLHWYQQKPGQPPKLLIYLASNLASGVPDRFSGSGSGTDFTLTISSLQAEDVAVYYCQHSRDLPPTFGQGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDN",
+      "actual": ""
+    },
+    {
+      "drug": "ecagitatug rezetecan",
+      "field": "light_chain_fasta",
+      "expected": ">ecagitatug rezetecan|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIVLTQSPDSLAVSLGERATINCRADKSVSTSTYNYLHWYQQKPGQPPKLLIYLASNLASGVPDRFSGSGSGTDFTLTISSLQAEDVAVYYCQHSRDLPPTFGQGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPR",
+      "actual": ""
+    },
+    {
+      "drug": "ezlatamig",
+      "field": "light_chain_fasta",
+      "expected": ">ezlatamig|LC1|copy=1/1|sequence_group=LC-A|unique\nDIQMTQSPSSVSASVGDRVTITCQSSQSVYNNNWLSWLQQKPGKAPKRLIYDASKLESGVPSRFSGSGSGTDFTLTISSVQPEDAATYYCAGGFTGNVYTFGGGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQ",
+      "actual": ""
+    },
+    {
+      "drug": "figavetbart",
+      "field": "light_chain_fasta",
+      "expected": ">figavetbart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nEIQMTQSPTSLSASVGDRVTITCRASEGIANNLSWYQQTPGKAPKLLIYATSNLHSGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQGFKWPLTFGGGTKLEITRSDAQPSVFLFQPSLDELHTGSASIVCILNDFYPKEVNVKWKVDGVVQ",
+      "actual": ""
+    },
+    {
+      "drug": "getrokitug",
+      "field": "light_chain_fasta",
+      "expected": ">getrokitug|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIVMTQTPLSLPVTPGEPASISCRSSQSLVHPNRNTYLHWYLQKPGQSPQLLIYKVSNRFSGVPDRFSGSGSGTDFTLKISRVEAEDVGVYYCSQSTHVPWTFGQGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVD",
+      "actual": ""
+    },
+    {
+      "drug": "glankibart",
+      "field": "light_chain_fasta",
+      "expected": ">glankibart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQMTQSPSSLSASVGDRVTITCRASSNVRYMYWYQQKPGKAPKLWIYLTSNLASGVPSRFSGSGSGTSYTLTISSLQPEDFATYYCQQFTTSPYTFGQGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSG",
+      "actual": ""
+    },
+    {
+      "drug": "graxutamig",
+      "field": "light_chain_fasta",
+      "expected": "None",
+      "actual": ""
+    },
+    {
+      "drug": "infutatug",
+      "field": "light_chain_fasta",
+      "expected": ">infutatug|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nEIVLTQSPATLSLSPGERATLSCKASENVKTYVSWYQQKPGQSPRLLIYEASNRYTGVPARFSGSGSATDFTLTISSLEPEDFAVYFCGQTYSFPPTFGQGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSG",
+      "actual": ""
+    },
+    {
+      "drug": "infutatug pelitecan",
+      "field": "light_chain_fasta",
+      "expected": ">infutatug pelitecan|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nEIVLTQSPATLSLSPGERATLSCKASENVKTYVSWYQQKPGQSPRLLIYEASNRYTGVPARFSGSGSATDFTLTISSLEPEDFAVYFCGQTYSFPPTFGQGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQ",
+      "actual": ""
+    },
+    {
+      "drug": "inuxucibart",
+      "field": "light_chain_fasta",
+      "expected": ">inuxucibart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQLTQSPSSLSASVGDRVTITCRASESVDSFGATFMHWYQQKPGKAPKLLIYLASRLGSGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQNNEDPYTFGQGTKLELKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVD",
+      "actual": ""
+    },
+    {
+      "drug": "lenovetug",
+      "field": "light_chain_fasta",
+      "expected": "None",
+      "actual": ""
+    },
+    {
+      "drug": "lonletamig",
+      "field": "light_chain_fasta",
+      "expected": ">lonletamig|LC1|copy=1/1|sequence_group=LC-A|unique\nSYELMQPPSVSVSPGQTARITCSGDALPKQYAYWYQQKPGQAPVLVIYKDSERPSGIPVRFSGSSSGTTVTLTITGVQAEDEADYYCQSADSSGTYVFGTGTKVTVLGQPKAAPSVTLFPPSSEELQANKATLVCLISDFYPGAVTVAWKADSSPVKAGVETTTPSKQ",
+      "actual": ""
+    },
+    {
+      "drug": "mevegtatug",
+      "field": "light_chain_fasta",
+      "expected": ">mevegtatug|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQETQSPSSLSASVGDRVTITCRASQGISNYLNWYQQKPGKAPKLLIYHTSRLHSGVPSRFSGSVSGTDFTLTISSLQPEDFATYFCQQGNTLPYTFGQGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQS",
+      "actual": ""
+    },
+    {
+      "drug": "mevegtatug pelitecan",
+      "field": "light_chain_fasta",
+      "expected": ">mevegtatug pelitecan|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQETQSPSSLSASVGDRVTITCRASQGISNYLNWYQQKPGKAPKLLIYHTSRLHSGVPSRFSGSVSGTDFTLTISSLQPEDFATYFCQQGNTLPYTFGQGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKV",
+      "actual": ""
+    },
+    {
+      "drug": "mosdaprubart",
+      "field": "light_chain_fasta",
+      "expected": ">mosdaprubart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIVLTQSPATLSVSPGERATISCRASQRVSSSTYSYMHWYQQKPGQPPKLLIKYASNLESGVPARFSGSGSGTDFTLTISSVEPEDFATYYCQHSWEIPPTFGGGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKV",
+      "actual": ""
+    },
+    {
+      "drug": "murunprubart",
+      "field": "light_chain_fasta",
+      "expected": ">murunprubart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nSYELTQPPSVSVAPGQTARITCSGDALGDKYASWYQQKPGQAPVLVIYEDAKRPSGIPERFSGSNSGNTATLTISGTQAEDEADYYCQSNDADAVWVFGGGIKLTVLGQPKAAPSVTLFPPSSEELQANKATLVCLISDFYPGAVTVAWKADSS",
+      "actual": ""
+    },
+    {
+      "drug": "nilerafusp alfa",
+      "field": "light_chain_fasta",
+      "expected": ">nilerafusp alfa|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nEIVLTQSPGTLSLSPGERATLSCRASQSVSSSFFAWYQQKPGQAPRLLIYGASSRATGIPDRLSGSGSGTDFTLTITRLEPEDFAVYYCQQYDSSAITFGQGTRLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKV",
+      "actual": ""
+    },
+    {
+      "drug": "nimbakibart",
+      "field": "light_chain_fasta",
+      "expected": ">nimbakibart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQMTQSPSSVSASVGDRVTITCRASQGISSWLAWYQQKPGKAPKLLIYAASSLQSGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQGHLFPITFGGGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQ",
+      "actual": ""
+    },
+    {
+      "drug": "ninartatug",
+      "field": "light_chain_fasta",
+      "expected": ">ninartatug|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQLTQSPSSLSASVGDRVTITCSASSSISSHYLHWYQQKPGKSPKLLIYRSFYLASGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQDIVPLTFGQGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQS",
+      "actual": ""
+    },
+    {
+      "drug": "ninartatug birsatecan",
+      "field": "light_chain_fasta",
+      "expected": ">ninartatug birsatecan|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQLTQSPSSLSASVGDRVTITCSASSSISSHYLHWYQQKPGKSPKLLIYRSFYLASGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQDIVPLTFGQGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAK",
+      "actual": ""
+    },
+    {
+      "drug": "obinutuzumab beta",
+      "field": "light_chain_fasta",
+      "expected": ">obinutuzumab beta|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIVMTQTPLSLPVTPGEPASISCRSSKSLLHSNGITYLYWYLQKPGQSPQLLIYQMSNLVSGVPDRFSGSGSGTDFTLKISRVEAEDVGVYYCAQNLELPYTFGGGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREA",
+      "actual": ""
+    },
+    {
+      "drug": "olaviztabart cilotecan",
+      "field": "light_chain_fasta",
+      "expected": ">olaviztabart cilotecan|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQMTQSPSSLSASVGDRVTITCKASQNVDTHVAWYQQKPGKAPKALIYSASYRYSGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQYNSYPLTFGGGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREA",
+      "actual": ""
+    },
+    {
+      "drug": "olusonkafusp alfa",
+      "field": "light_chain_fasta",
+      "expected": ">olusonkafusp alfa|LC1|copy=1/1|sequence_group=LC-A|unique\nDIQMTQSPSSVSASVGDRVTITCRASQGISSWLAWYQQKPGKAPKLLISAASSLQSGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQANHLPFTFGGGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQE",
+      "actual": ""
+    },
+    {
+      "drug": "onvisatabart",
+      "field": "light_chain_fasta",
+      "expected": ">onvisatabart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQLTQSPSFLSASVGDRVTITCRASQSISKYLAWYQQKPGKAPKLLIYSGSTLQSGVPSRFSGSGSGTEFTLTISSLQPEDFATYYCQQHNEYPWTFGQGTKVEIKRTVRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVD",
+      "actual": ""
+    },
+    {
+      "drug": "opucolimab pelitecan",
+      "field": "light_chain_fasta",
+      "expected": ">opucolimab pelitecan|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nQSVVTQPPSMSAAPGQRVTISCSGSSSYIESSYVGWYQQLPGTAPRLLIYDDDMRPSGIPDRFSGSKSGTSATLAITGLQTGDEADYYCEIWRSGLGGVFGGGTKLTVLSQPKAAPSVTLFPPSSEELQANKATLVCLISDFYPGA",
+      "actual": ""
+    },
+    {
+      "drug": "pexigrotug",
+      "field": "light_chain_fasta",
+      "expected": ">pexigrotug|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQMTQSPSSLSASVGDRVTISCRASQDISNYLNWYQQKPEGTLKLLIYYTSRLHSGVPSRFSGSGSGTDYSLTISSLQQEDIATYFCQQGNTLPRTFGGGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQS",
+      "actual": ""
+    },
+    {
+      "drug": "prinotatug",
+      "field": "light_chain_fasta",
+      "expected": ">prinotatug|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDVVMTQSPAFLSVTPGEKVTITCRASSSVSYIHWFQQKPGKAPKPLIYATSNLASGVPSRFSGSGSGTDFTLTINSLEAEDAATYYCQQWTSNPPTFGGGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSG",
+      "actual": ""
+    },
+    {
+      "drug": "rebatatug rezetecan",
+      "field": "light_chain_fasta",
+      "expected": ">rebatatug rezetecan|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDFVMTQTPLSLPVTPGEPASISCRSSQSIVHSDGNTYFEWYLQKPGQSPKLLIYKVSNRFSGVPDRFSGSGSGTDFTLKISRVEAEDVGVYYCFQGSHVPWTFGGGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPR",
+      "actual": ""
+    },
+    {
+      "drug": "rimizakibart",
+      "field": "light_chain_fasta",
+      "expected": ">rimizakibart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nSSELTQDPAVSVALGQTVRVTCQGDSLRYYYASWYQQKPGQAPVLVIYGKNNRPSGIPDRFSGSSSGNTASLTITGAQAKDEADYYCSSRDSSGNNWVFGGGTELTVLGQPKAAPSVTLFPPSSEELQANKATLVCLISDFYPGAVIVAWKADS",
+      "actual": ""
+    },
+    {
+      "drug": "rituximab vedotin",
+      "field": "light_chain_fasta",
+      "expected": ">rituximab vedotin|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nQIVLSQSPAILSASPGEKVTMTCRASSSVSYIHWFQQKPGSSPKPWIYATSNLASGVPVRFSGSGSGTSYSLTISRVEAEDAATYYCQQWTSNPPTFGGGTKLEIKRIVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKV",
+      "actual": ""
+    },
+    {
+      "drug": "rivocibart",
+      "field": "light_chain_fasta",
+      "expected": ">rivocibart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDVVMTQSPLSLPVTPGEPASISCRSSQSLLHSNVYTYLDWYLQKPGQSPQLLIYLGSNRASGVPDRFSGSGSGTDFTLKISRVEAEDVGVYYCMQALQTPLTFGQGTRLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVD",
+      "actual": ""
+    },
+    {
+      "drug": "robatocibart",
+      "field": "light_chain_fasta",
+      "expected": ">robatocibart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nEIVLTQSPATLSLSPGERATLSCSASSSINYMHWYQQKPGQAPKRWIYDTSKLASGVPARFSGSGSGTDFTLTISSLEPEDFAVYYCHQRSFSPLTFGQGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQ",
+      "actual": ""
+    },
+    {
+      "drug": "sevoloprubart",
+      "field": "light_chain_fasta",
+      "expected": ">sevoloprubart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nEIVLTQSPGTLSLSPGERATLSCRASQHVSSHYLAWYQQKPGQAPRLLIYGASSRATGIPDRFSGSGSGTDFTLTISRLEPEDFAVYYCQHYGQSQFTFGQGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDN",
+      "actual": ""
+    },
+    {
+      "drug": "sofetabart mipitecan",
+      "field": "light_chain_fasta",
+      "expected": ">sofetabart mipitecan|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQLTQSPSSLSASVGDRVTITCSVSSSISSNNLHWYQQKPGKAPKPWIYGTSNLASGVPSRFSGSGSGTDYTFTISSLQPEDIATYYCQQWSSYPYMYTFGQGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPRE",
+      "actual": ""
+    },
+    {
+      "drug": "solgikibart",
+      "field": "light_chain_fasta",
+      "expected": ">solgikibart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nQSALTQPPSVSGTPGQSVTISCAGANNDIGTYAYVSWYQQLPGTAPKLMIYKVTTRASGIPDRFSGSKSGNTASLTISGLQAEDEADYYCASYRNFNNAVFGTGTKLTVLGQPKAAPSVTLFPPSSEELQANKATLVCLISDFYPGAVTVAWKAD",
+      "actual": ""
+    },
+    {
+      "drug": "sunekafusp alfa",
+      "field": "light_chain_fasta",
+      "expected": ">sunekafusp alfa|LC1|copy=1/2|sequence_group=LC-A|unique\nAIRLTQSPSSFSASTGDRVTITCKASQSVDYGGGNFHLRPRDLISNINVIVLELKGSETTFMCEYADETATIVEFLNRWITFSQSIISTLTPTSSSTKKTQLQLEHLLLDLQMILNGINNYKNPKLTRMLTFKFYMPKKATELKHLQCLEEELKPLEEVLNLA",
+      "actual": ">sunekafusp alfa|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nAIRLTQSPSSFSASTGDRVTITCKASQSVDYGGGNFHLRPRDLISNINVIVLELKGSETTFMCEYADETATIVEFLNRWITFSQSIISTLTPTSSSTKKTQLQLEHLLLDLQMILNGINNYKNPKLTRMLTFKFYMPKKATELKHLQCLEE"
+    },
+    {
+      "drug": "susitabart",
+      "field": "light_chain_fasta",
+      "expected": ">susitabart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nEIVLTQSPATLSLSPGERATLSCRAQSGISFINWYQQKPGQAPRLLIYGTANLASGIPARFSGSGSGRDFTLTISSLEPEDFAVYYCQQWSSNPLTFGGGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSG",
+      "actual": ""
+    },
+    {
+      "drug": "tasafustobart",
+      "field": "light_chain_fasta",
+      "expected": ">tasafustobart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIVMTQSPATLSVSPGERATLSCKASQNVGTAVAWYQQKPGQAPRLLIYSASNRYTGVPARFSGSGSGTEFTLTISSLQSEDFAVYFCQQYSSYPLTFGGGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNA",
+      "actual": ""
+    },
+    {
+      "drug": "tesrakitug",
+      "field": "light_chain_fasta",
+      "expected": ">tesrakitug|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nEIVLTQSPDFQSVTPKEKVTITCRASQSIGSSLHWYQQKPDQSPKLLIKYASQSFSGVPSRFSGSGSGTDFTLTINSLEAEDAAAYYCHQSSSLPLTFGGGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQS",
+      "actual": ""
+    },
+    {
+      "drug": "tigritamig",
+      "field": "light_chain_fasta",
+      "expected": ">tigritamig|LC1|copy=1/1|sequence_group=LC-A\nEIVLTQSPATLSLSPGERATLSCRASLSVSSMHWYQQKPGQAPRLLIYATSNLASGIPARFSGSGSGTDFTLTISSLEPEDFAVYYCQQWIFNPPTFGGGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSKDSTYSLS",
+      "actual": ">tigritamig|LC1|copy=1/1|sequence_group=LC-A|unique\nEIVLTQSPATLSLSPGERATLSCRASLSVSSMHWYQQKPGQAPRLLIYATSNLASGIPARFSGSGSGTDFTLTISSLEPEDFAVYYCQQWIFNPPTFGGGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSK"
+    },
+    {
+      "drug": "tivunatamig",
+      "field": "light_chain_fasta",
+      "expected": ">tivunatamig|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQMTQSPSSLSASVGDRVTITCSASQDISNYLNWYQQKPGKAPKVLIYFTSSLHSGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQQYSTLPWTFGQGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQ",
+      "actual": ""
+    },
+    {
+      "drug": "ubivertatug",
+      "field": "light_chain_fasta",
+      "expected": ">ubivertatug|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIVMTQSPLSLPVTPGEPASISCKSSQSLFNSGNQKNYLAWYLQKPGQPPKLLIYGASTRESGVPDRFTGSGFGTDFTLKISRVEAEDVGVYYCQNDHTYPLTFGAGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWK",
+      "actual": ""
+    },
+    {
+      "drug": "ubivertatug vedotin",
+      "field": "light_chain_fasta",
+      "expected": ">ubivertatug vedotin|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIVMTQSPLSLPVTPGEPASISCKSSQSLFNSGNQKNYLAWYLQKPGQPPKLLIYGASTRESGVPDRFTGSGFGTDFTLKISRVEAEDVGVYYCQNDHTYPLTFGAGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYP",
+      "actual": ""
+    },
+    {
+      "drug": "vimziprubart",
+      "field": "light_chain_fasta",
+      "expected": ">vimziprubart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIQMTQSPSSLSASVGDRVTITCRASQDIRNDLAWYQQKPGKAPKRLIYASSSLQSGVPSRFSGSGSGTEFTLTISSLQPEDFATYYCLQHNNYPFTFGPGTKVDIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNAL",
+      "actual": ""
+    },
+    {
+      "drug": "zalbintamig vedotin",
+      "field": "light_chain_fasta",
+      "expected": ">zalbintamig vedotin|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDIVMTQSPSFLSVSVGDRVTITCKASQSVSTDVAWYQQKPGQAPKLLIYFASDRYTGVPDRFSGSGSGTDFTFTISSLQAEDVAVYYCQQDYSSPPTFGGGTKLEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQ",
+      "actual": ""
+    },
+    {
+      "drug": "zetrukibart",
+      "field": "light_chain_fasta",
+      "expected": ">zetrukibart|LC1|copy=1/2|sequence_group=LC-A|identical_copies=2\nDVQMTQSPSSLSASVGDRVTITCQASQSIYSFLSWYQQKPGQAPKLLIYAASDLESGVPSRFSGSGSGTDFTLTISSLQPEDFATYYCQSNYIIDYGAFGQGTKVVIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNAL",
+      "actual": ""
+    },
+    {
+      "drug": "afamakitug",
+      "field": "non_variable_fasta",
+      "expected": ">afamakitug|HC1_nonvar_segment1|source=HC1|coords=120-449\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKRVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVICVVVDVSHEDPEVKFNWYV",
+      "actual": ""
+    },
+    {
+      "drug": "agubecimig",
+      "field": "non_variable_fasta",
+      "expected": ">agubecimig|HC1_nonvar_segment1|source=HC1|coords=116-223\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHT\n\n>agubecimig|LC1_nonvar_segment1|source=LC1|coords=10",
+      "actual": ""
+    },
+    {
+      "drug": "avrukibart",
+      "field": "non_variable_fasta",
+      "expected": ">avrukibart|HC1_nonvar_segment1|source=HC1|coords=121-450\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPEAAGGPSVFLFPPKPKDTLYITREPEVTCVVVDVSHEDPEVKFNWYV",
+      "actual": ">avrukibart|HC1_nonvar_segment1|source=HC1|coords=121-450\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPEAAGGPSVFLFPPKPKDTLYITREPEVTCVVVDVSHEDPEVKFNWYV"
+    },
+    {
+      "drug": "besnotamig",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ""
+    },
+    {
+      "drug": "birfutamig",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ""
+    },
+    {
+      "drug": "blumiciment",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ""
+    },
+    {
+      "drug": "cesalatamig",
+      "field": "non_variable_fasta",
+      "expected": ">cesalatamig|HC1_nonvar_segment1|source=HC1|coords=121-711\nASTKGPSVEPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKRVEPKSCDKTHTCPPCPAPEAAGAPSVFLFPPKPKDTLMISRIPEVTCVVVDVSHEDPEVKFNWY",
+      "actual": ""
+    },
+    {
+      "drug": "clulevibart",
+      "field": "non_variable_fasta",
+      "expected": ">clulevibart|HC1_nonvar_segment1|source=HC1|coords=127-456\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKRVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLYITREPEVTCVVVDVSHEDPEVKFNWY",
+      "actual": ""
+    },
+    {
+      "drug": "crozunafusp alfa",
+      "field": "non_variable_fasta",
+      "expected": ">crozunafusp alfa|HC1_nonvar_segment1|source=HC1|coords=113-964\nVCTQSYSFVWHDWARWEREIDWMALNGINLALAWSGQEAIWQRVYLALGLTQAEINEFFTGPAFLAWGRMGNLHTWDGPLPPSWHIKQLYLQHRVLDRMRSFGMTPVLPAFAGHVPEAVTRVFPQVNVTKMGSWGHFNCSYSCSFLLAPEDPIFPI",
+      "actual": ""
+    },
+    {
+      "drug": "dalvaprubart",
+      "field": "non_variable_fasta",
+      "expected": ">dalvaprubart|HC1_nonvar_segment1|source=HC1|coords=123-452\nASTKGPSVFPLAPGSSKSTSGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVIVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNW",
+      "actual": ""
+    },
+    {
+      "drug": "daxokafusp alfa",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ""
+    },
+    {
+      "drug": "dovarafusp alfa",
+      "field": "non_variable_fasta",
+      "expected": ">dovarafusp alfa|HC1_nonvar_segment1|source=HC1|coords=116-670\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPEAAGGPSVFLFPPKPKDTIMISRTPEVICVVVDVSHEDPEVK",
+      "actual": ""
+    },
+    {
+      "drug": "ecagitatug",
+      "field": "non_variable_fasta",
+      "expected": ">ecagitatug|HC1_nonvar_segment1|source=HC1|coords=121-446\nASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSNFGTQTYTCNVDHKPSNTKVDKTVERKCCVECPPCPAPPVAGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVQFNWYVDGVE",
+      "actual": ""
+    },
+    {
+      "drug": "ecagitatug rezetecan",
+      "field": "non_variable_fasta",
+      "expected": ">ecagitatug rezetecan|HC1_nonvar_segment1|source=HC1|coords=121-446\nASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSNFGTQTYTCNVDHKPSNTKVDKTVERKCCVECPPCPAPPVAGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEV",
+      "actual": ""
+    },
+    {
+      "drug": "ezlatamig",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ""
+    },
+    {
+      "drug": "figavetbart",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ""
+    },
+    {
+      "drug": "getrokitug",
+      "field": "non_variable_fasta",
+      "expected": ">getrokitug|HC1_nonvar_segment1|source=HC1|coords=124-453\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKRVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWYV",
+      "actual": ""
+    },
+    {
+      "drug": "glankibart",
+      "field": "non_variable_fasta",
+      "expected": ">glankibart|HC1_nonvar_segment1|source=HC1|coords=121-447\nASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTKTYTCNVDHKPSNTKVDKRVESKYGPPCPPCPAPEFLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSQEDPEVQFNWYVDGV",
+      "actual": ""
+    },
+    {
+      "drug": "golukibart",
+      "field": "non_variable_fasta",
+      "expected": ">golukibart|HC1_nonvar_segment1|source=HC1|coords=123-450\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKRVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLYITREPEVTCVVVDVSHEDPEVKFNWYV",
+      "actual": ">golukibart|HC1_nonvar_segment1|source=HC1|coords=123-450\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKRVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLYITREPEVTCVVVDVSHEDPEVKFNWYV"
+    },
+    {
+      "drug": "graxutamig",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ""
+    },
+    {
+      "drug": "infutatug",
+      "field": "non_variable_fasta",
+      "expected": ">infutatug|HC1_nonvar_segment1|source=HC1|coords=118-447\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWYVD",
+      "actual": ""
+    },
+    {
+      "drug": "infutatug pelitecan",
+      "field": "non_variable_fasta",
+      "expected": ">infutatug pelitecan|HC1_nonvar_segment1|source=HC1|coords=118-447\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHED",
+      "actual": ""
+    },
+    {
+      "drug": "inuxucibart",
+      "field": "non_variable_fasta",
+      "expected": ">inuxucibart|HC1_nonvar_segment1|source=HC1|coords=119-445\nASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTKTYTCNVDHKPSNTKVDKRVESKYGPPCPPCPAPEFLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSQEDPEVQFNWYVDG",
+      "actual": ""
+    },
+    {
+      "drug": "lenovetug",
+      "field": "non_variable_fasta",
+      "expected": ">lenovetug|HC1_nonvar_segment1|source=HC1|coords=126-363\nDPCPQCCKPSLSLQPPALADLLLGSNASLTCTLSGLKKSEGVSFTWQPSGGKDAVQASPTRDSCGCYSVSSILPGCADPWNKGETFSCTAAHSELKSALTATITKPKVNTFRPQVHLLPPPSEELALNELVTLTCLVRGFSPKDVLVRWLQGGQELPRDKYLV",
+      "actual": ""
+    },
+    {
+      "drug": "lonletamig",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ""
+    },
+    {
+      "drug": "mevegtatug",
+      "field": "non_variable_fasta",
+      "expected": ">mevegtatug|HC1_nonvar_segment1|source=HC1|coords=119-448\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWYV",
+      "actual": ""
+    },
+    {
+      "drug": "mevegtatug pelitecan",
+      "field": "non_variable_fasta",
+      "expected": ">mevegtatug pelitecan|HC1_nonvar_segment1|source=HC1|coords=119-448\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHE",
+      "actual": ""
+    },
+    {
+      "drug": "mosdaprubart",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ""
+    },
+    {
+      "drug": "murunprubart",
+      "field": "non_variable_fasta",
+      "expected": ">murunprubart|HC1_nonvar_segment1|source=HC1|coords=120-445\nASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTKTYTCNVDHKPSNTKVDKRVESKYGPPCPPCPAPEFLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSQEDPEVQFNWYVD",
+      "actual": ""
+    },
+    {
+      "drug": "netezenibart",
+      "field": "non_variable_fasta",
+      "expected": ">netezenibart|HC1_nonvar_segment1|source=HC1|coords=124-450\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELAGAPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNW",
+      "actual": ">netezenibart|HC1_nonvar_segment1|source=HC1|coords=124-450\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELAGAPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNW"
+    },
+    {
+      "drug": "nilerafusp alfa",
+      "field": "non_variable_fasta",
+      "expected": ">nilerafusp alfa|HC1_nonvar_segment1|source=HC1|coords=118-500\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVIVPSSSLGTQTYICNVNHKPSNTKVDKRVEPKSCDKTHTCPPCPAPEAAGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVK",
+      "actual": ""
+    },
+    {
+      "drug": "nimbakibart",
+      "field": "non_variable_fasta",
+      "expected": ">nimbakibart|HC1_nonvar_segment1|source=HC1|coords=127-452\nASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTKTYTCNVDHKPSNTKVDKRVESKYGPPCPPCPAPEFLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSQEDPEVQFNWYVDG",
+      "actual": ""
+    },
+    {
+      "drug": "ninartatug",
+      "field": "non_variable_fasta",
+      "expected": ">ninartatug|HC1_nonvar_segment1|source=HC1|coords=122-451\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWYV",
+      "actual": ""
+    },
+    {
+      "drug": "ninartatug birsatecan",
+      "field": "non_variable_fasta",
+      "expected": ">ninartatug birsatecan|HC1_nonvar_segment1|source=HC1|coords=122-451\nASTKGPSVFPLAPSSKSTSGGTAALGCLYKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVICVVVDVSH",
+      "actual": ""
+    },
+    {
+      "drug": "obinutuzumab beta",
+      "field": "non_variable_fasta",
+      "expected": ">obinutuzumab beta|HC1_nonvar_segment1|source=HC1|coords=120-449\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVICVVVDVSHEDPE",
+      "actual": ""
+    },
+    {
+      "drug": "olaviztabart",
+      "field": "non_variable_fasta",
+      "expected": ">olaviztabart|HC1_nonvar_segment1|source=HC1|coords=120-449\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKRVEPKSCDKTHTCPPCPAPEFEGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNW",
+      "actual": ">olaviztabart|HC1_nonvar_segment1|source=HC1|coords=120-449\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKRVEPKSCDKTHTCPPCPAPEFEGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNW"
+    },
+    {
+      "drug": "olaviztabart cilotecan",
+      "field": "non_variable_fasta",
+      "expected": ">olaviztabart cilotecan|HC1_nonvar_segment1|source=HC1|coords=120-449\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKRVEPKSCDKTHTCPPCPAPEFEGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVS",
+      "actual": ""
+    },
+    {
+      "drug": "olusonkafusp alfa",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ""
+    },
+    {
+      "drug": "onvisatabart",
+      "field": "non_variable_fasta",
+      "expected": ">onvisatabart|HC1_nonvar_segment1|source=HC1|coords=114-443\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVICVVVDVSHEDPEVKFNW",
+      "actual": ""
+    },
+    {
+      "drug": "onvisatabart birsatecan",
+      "field": "non_variable_fasta",
+      "expected": ">onvisatabart birsatecan|HC1_nonvar_segment1|source=HC1|coords=114-443\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDV",
+      "actual": ">onvisatabart birsatecan|HC1_nonvar_segment1|source=HC1|coords=114-443\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDV"
+    },
+    {
+      "drug": "opucolimab pelitecan",
+      "field": "non_variable_fasta",
+      "expected": ">opucolimab pelitecan|HC1_nonvar_segment1|source=HC1|coords=124-453\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHE",
+      "actual": ""
+    },
+    {
+      "drug": "pexigrotug",
+      "field": "non_variable_fasta",
+      "expected": ">pexigrotug|HC1_nonvar_segment1|source=HC1|coords=121-450\nASTKGPSVFPLAPSSKSTSGGTAALGCLYKDYFPEPVIVSWNSGALTSGYHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWYV",
+      "actual": ""
+    },
+    {
+      "drug": "prinotatug",
+      "field": "non_variable_fasta",
+      "expected": ">prinotatug|HC1_nonvar_segment1|source=HC1|coords=122-451\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKRVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWYV",
+      "actual": ""
+    },
+    {
+      "drug": "rebatatug",
+      "field": "non_variable_fasta",
+      "expected": ">rebatatug|HC1_nonvar_segment1|source=HC1|coords=118-447\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWYVD",
+      "actual": ">rebatatug|HC1_nonvar_segment1|source=HC1|coords=118-447\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWYVD"
+    },
+    {
+      "drug": "rebatatug rezetecan",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ""
+    },
+    {
+      "drug": "relakimig",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ">relakimig|HC2_nonvar_segment1|source=HC2|coords=129-589\nGGGGSGGGGSQVTLKESGPVLVKPTETLTLTCTVSGFSLTNYAISWVRQPPGKGLEWLGVIWTGGGTNYNSGIKSRLTISKDNSKSQVVLTMTNMDPVDTARYYCVREGDYGSYAGAMDYWGQGTTVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDY"
+    },
+    {
+      "drug": "rimegtamig",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ">rimegtamig|HC2_nonvar_segment1|source=HC2|coords=126-449\nIPPKIECLPIDISIDEGKVLTVASAFTGEPTPEVTWSTGGRKIHSQEQGRFHIENTDDSTTLTIKDVQKQDGGLYTLTLRNEFGSDSATVNIHIRSIDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWYVDGVEVH"
+    },
+    {
+      "drug": "rimizakibart",
+      "field": "non_variable_fasta",
+      "expected": ">rimizakibart|HC1_nonvar_segment1|source=HC1|coords=124-453\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLYITREPEVICVVVDVSHEDPEVKFNW",
+      "actual": ""
+    },
+    {
+      "drug": "rituximab vedotin",
+      "field": "non_variable_fasta",
+      "expected": ">rituximab vedotin|HC1_nonvar_segment1|source=HC1|coords=122-451\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKAEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPE",
+      "actual": ""
+    },
+    {
+      "drug": "rivocibart",
+      "field": "non_variable_fasta",
+      "expected": ">rivocibart|HC1_nonvar_segment1|source=HC1|coords=125-451\nASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVIVPSSSLGTKTYTCNVDHKPSNTKVDKRVESKYGPPCPPCPAPEFLGGPSVFLFPPKPKDTLYITREPEVICVVVDVSQEDPEVQENWYVDGV",
+      "actual": ""
+    },
+    {
+      "drug": "robatocibart",
+      "field": "non_variable_fasta",
+      "expected": ">robatocibart|HC1_nonvar_segment1|source=HC1|coords=118-444\nASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTKTYTCNVDHKPSNTKVDKRVESKYGPPCPPCPAPEFLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSQEDPEVQFNWYVD",
+      "actual": ""
+    },
+    {
+      "drug": "rusubamig",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ">rusubamig|HC2_nonvar_segment1|source=HC2|coords=228-720\nGGGGSGGGGSQVQLQESGPGLVKPSETLSLTCTVSGGSISPYYWTWIRQPPGKCLELIGYIHSSGYTDYNPSLKSRVTISGDTSKKQFSLKLSSVTAADTAVYYCARADWDRLRALDIWGQGTMVTVSSGGGGSGGGGSGGGGSGGGGSDIQLTQSPSSLSAS"
+    },
+    {
+      "drug": "sevoloprubart",
+      "field": "non_variable_fasta",
+      "expected": ">sevoloprubart|HC1_nonvar_segment1|source=HC1|coords=121-446\nASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTKTYTCNVDHKPSNTKVDKRVESKYGPPCPPCPAPEFLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSQEDPEVQFNWYV",
+      "actual": ""
+    },
+    {
+      "drug": "sofetabart",
+      "field": "non_variable_fasta",
+      "expected": ">sofetabart|HC1_nonvar_segment1|source=HC1|coords=120-449\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPEAAGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWYV",
+      "actual": ">sofetabart|HC1_nonvar_segment1|source=HC1|coords=120-449\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPEAAGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWYV"
+    },
+    {
+      "drug": "sofetabart mipitecan",
+      "field": "non_variable_fasta",
+      "expected": ">sofetabart mipitecan|HC1_nonvar_segment1|source=HC1|coords=120-449\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPEAAGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHE",
+      "actual": ""
+    },
+    {
+      "drug": "solgikibart",
+      "field": "non_variable_fasta",
+      "expected": ">solgikibart|HC1_nonvar_segment1|source=HC1|coords=123-451\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVIVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWY",
+      "actual": ""
+    },
+    {
+      "drug": "sunekafusp alfa",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ">sunekafusp alfa|HC1_nonvar_segment1|source=HC1|coords=122-763\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWYVDGVEVHNAKTKPREEQYAPIEKTISKAKGQPREP"
+    },
+    {
+      "drug": "susitabart",
+      "field": "non_variable_fasta",
+      "expected": ">susitabart|HC1_nonvar_segment1|source=HC1|coords=121-450\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPEAAGAPSVFLFPPKPKDTLYITREPEVTCVVVDVSHEDPEVKFNWYV",
+      "actual": ""
+    },
+    {
+      "drug": "susitabart ponetansine",
+      "field": "non_variable_fasta",
+      "expected": ">susitabart ponetansine|HC1_nonvar_segment1|source=HC1|coords=121-450\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPEAAGAPSVFLFPPKPKDTLYITREPEVTCVVVDVS",
+      "actual": ">susitabart ponetansine|HC1_nonvar_segment1|source=HC1|coords=121-450\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPEAAGAPSVFLFPPKPKDTLYITREPEVTCVVVDVS"
+    },
+    {
+      "drug": "tasafustobart",
+      "field": "non_variable_fasta",
+      "expected": ">tasafustobart|HC1_nonvar_segment1|source=HC1|coords=121-447\nASTKGPSVEPLAPCSRSTSESTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTKTYTCNVDHKPSNTKVDKRVESKYGPPCPPCPAPEFLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSQEDPEVQFNWYV",
+      "actual": ""
+    },
+    {
+      "drug": "tesrakitug",
+      "field": "non_variable_fasta",
+      "expected": ">tesrakitug|HC1_nonvar_segment1|source=HC1|coords=119-444\nASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSNFGTQTYTCNVDHKPSNTKVDKTVERKCCVECPPCPAPPVAGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVQFNWYVDGVE",
+      "actual": ""
+    },
+    {
+      "drug": "tigritamig",
+      "field": "non_variable_fasta",
+      "expected": "None",
+      "actual": ">tigritamig|HC1_nonvar_segment1|source=HC1|coords=123-450\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPEAAGGPSVFLFPPKPKDTLMISRTPEVTCVVVSVSHEDPEVKFNWYV"
+    },
+    {
+      "drug": "tivunatamig",
+      "field": "non_variable_fasta",
+      "expected": ">tivunatamig|HC1_nonvar_segment1|source=HC1|coords=119-681\nASTKGPSVFPLAPCSRSTSESTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTKTYTCNVDHKPSNTKVDKRVGGGGSGGGGSGGGGSEVQLVESGGGLVQPGGSLRLSCAASGYDFTHYGMNWVRQAPGKGLEWV",
+      "actual": ""
+    },
+    {
+      "drug": "ubivertatug",
+      "field": "non_variable_fasta",
+      "expected": ">ubivertatug|HC1_nonvar_segment1|source=HC1|coords=121-450\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHEDPEVKFNWY",
+      "actual": ""
+    },
+    {
+      "drug": "ubivertatug vedotin",
+      "field": "non_variable_fasta",
+      "expected": ">ubivertatug vedotin|HC1_nonvar_segment1|source=HC1|coords=121-450\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPELLGGPSVFLFPPKPKDTLMISRTPEVTCVVVDVSHED",
+      "actual": ""
+    },
+    {
+      "drug": "vimziprubart",
+      "field": "non_variable_fasta",
+      "expected": ">vimziprubart|HC1_nonvar_segment1|source=HC1|coords=119-448\nASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVIVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHTCPPCPAPEAAGGPSVFLFPPKPKDTLYITREPEVTCVVVDVSHEDPEVKENW",
+      "actual": ""
+    }
+  ]
+}
