@@ -86,11 +86,11 @@ src/
 ├── DatabaseFramework/       # SQLite/relational models, ingestion and audit
 ├── LLMApiModule/            # structured extraction and web-enrichment calls
 └── PipelineOrchestrator/    # end-to-end workflow integration
-
 data/
 ├── raw/                     # source WHO INN PDFs
 ├── intermediate/            # parsing/extraction artifacts
 └── db/                      # local SQLite database
+docs/                        # working information storage including prompt files, schemas, and notes
 ```
 
 ## Workflow
