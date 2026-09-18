@@ -1,0 +1,59 @@
+{
+  "pdf": "resources/golden/pl135.pdf",
+  "who_list": "Proposed 135",
+  "expected_records": 70,
+  "detected_records": 70,
+  "missing": [],
+  "extra": [],
+  "field_matches": {
+    "drug_name": {
+      "matched": 70,
+      "total": 70
+    },
+    "english_description": {
+      "matched": 70,
+      "total": 70
+    },
+    "cas_registry_number": {
+      "matched": 70,
+      "total": 70
+    },
+    "pdf_pages": {
+      "matched": 70,
+      "total": 70
+    },
+    "heavy_chain_count": {
+      "matched": 70,
+      "total": 70
+    },
+    "light_chain_count": {
+      "matched": 70,
+      "total": 70
+    },
+    "heavy_chain_fasta": {
+      "matched": 70,
+      "total": 70
+    },
+    "light_chain_fasta": {
+      "matched": 70,
+      "total": 70
+    },
+    "non_variable_fasta": {
+      "matched": 70,
+      "total": 70
+    },
+    "ptms": {
+      "matched": 70,
+      "total": 70
+    },
+    "structure_summary": {
+      "matched": 70,
+      "total": 70
+    },
+    "sequence_qc_status": {
+      "matched": 70,
+      "total": 70
+    }
+  },
+  "discrepancies": []
+}
