@@ -1,10 +1,28 @@
-# Antibody Database Schema
+# Proposed Antibody Database Schema
 
-This database is designed to support an automated, evidence-tracked antibody data curation workflow. Its primary function is to store structured information extracted from WHO INN documents, web scrapers, clinical trial registries, literature repositories, and LLM-assisted extraction pipelines. The database is intended to improve the Thera-SAbDab resource by making data ingestion, updating, provenance tracking, manual review, and downstream analysis more systematic. This document describes the proposed SQLite-compatible relational schema, including how each table contributes to storing antibody identity, molecular structure, sequence data, IMGT-based annotations, clinical use, clinical trial results, literature links, and evidence/change tracking.
+## Purpose
 
-## Schema diagram
+This document defines the proposed relational database architecture for the automated Thera-SAbDab curation workflow. The database is intended to combine structured information parsed from WHO Proposed INN documents with information obtained from web-based enrichment, including clinical-trial records, literature, patents and immunogenicity data. The design uses a lightweight relational model: information that belongs directly to a therapeutic is retained on the central antibody record, while information that can occur multiple times - such as names, targets, sequences, manufacturers, trials and references - is stored in linked tables.
 
-The diagram below is a visualisation of the database architecture. Each component of the database will be described in the following section.
+A major requirement is the ability to represent antibody formats that cannot be reduced to a single heavy-chain/light-chain pair. The schema therefore separates **physical sequences** from **binding units**. A binding unit represents an antibody arm or other functional binding component, while a many-to-many bridge (`BINDING_UNIT_SEQUENCE`) records which heavy, light or other sequence(s) form that unit. This permits complementary heavy and light chains to be paired explicitly, while also supporting common-light-chain bispecifics, asymmetric antibodies, multivalent therapeutics, scFvs and fusion proteins.
+
+The database should be implemented using SQLite and SQLAlchemy for the initial application. `ANTIBODY.antibody_id` is the internal primary key used for joins, while `ANTIBODY.inn_name` is unique and remains the principal human-readable identifier.
+
+---
+
+## High-level design principles
+
+1. **One central antibody record.** Each therapeutic has one `ANTIBODY` row, identified internally by `antibody_id` and externally by its unique INN name.
+2. **Repeatable information lives in child or link tables.** Alternative names, targets, sequences, manufacturers, indications, trials and references can all occur more than once.
+3. **Sequences are stored independently from structural pairing.** Heavy, light and other chains are stored once in `ANTIBODY_SEQUENCE`; `BINDING_UNIT_SEQUENCE` records how those sequences assemble into antibody arms or functional units.
+4. **Clinical results use one flexible table.** ADA, safety, efficacy, PK/PD and qualitative results are distinguished using `result_category` rather than separate result tables.
+5. **External sources are unified.** WHO records, publications, patents, trial registries and external databases are represented through `REFERENCE`.
+6. **Automated extraction is auditable.** `EVIDENCE`, `INGESTION_RUN` and `CHANGE_LOG` retain source snippets, confidence, review state and database changes.
+7. **The schema is intentionally extensible.** More specialised tables can be introduced later if the accumulated data demonstrate that additional normalization is useful.
+
+---
+
+## Full relational schema
 
 ```mermaid
 erDiagram
@@ -12,23 +30,13 @@ erDiagram
   ANTIBODY {
     int antibody_id
     string inn_name
-    string canonical_name
+    int format_id
     int year_proposed
-    string mode_of_action_summary
+    string mode_of_action
+    string genetic_source
     string structural_summary
-    string structural_identity_note
     string created_at
     string updated_at
-  }
-
-  ANTIBODY_IDENTIFIER {
-    int identifier_id
-    int antibody_id
-    string identifier_scheme
-    string identifier_value
-    string identifier_url
-    boolean is_primary_for_scheme
-    string source_note
   }
 
   ANTIBODY_NAME {
@@ -44,25 +52,17 @@ erDiagram
     string format_name
     string format_category
     boolean is_multispecific
+    boolean is_multivalent
     boolean is_fusion
     string description
   }
 
-  ANTIBODY_FORMAT_ASSIGNMENT {
-    int assignment_id
-    int antibody_id
-    int format_id
-    string evidence_text
-    string source_note
-  }
-
-  BIOCHEMICAL_TARGET {
+  TARGET {
     int target_id
     string target_name
-    string target_type
     string gene_symbol
     string uniprot_id
-    string description
+    string target_type
   }
 
   ANTIBODY_TARGET {
@@ -70,127 +70,61 @@ erDiagram
     int antibody_id
     int target_id
     string target_role
-    string evidence_text
   }
 
-  GENETIC_SOURCE {
-    int genetic_source_id
-    string source_name
-    string species
-    string engineering_type
-    string description
-  }
-
-  ANTIBODY_GENETIC_SOURCE {
-    int antibody_genetic_source_id
+  BINDING_UNIT {
+    int binding_unit_id
     int antibody_id
-    int genetic_source_id
-    string evidence_text
-    string source_note
-  }
-
-  STRUCTURAL_FEATURE {
-    int structural_feature_id
-    int antibody_id
-    string feature_type
-    string feature_name
-    string feature_value
-    string evidence_text
-    string source_note
-  }
-
-  ANTIBODY_COMPONENT {
-    int component_id
-    int antibody_id
-    string component_name
-    string component_type
-    int component_order
-    string role_description
     int target_id
+    string unit_label
+    string unit_type
+    int copy_count
     string notes
   }
 
-  CHAIN {
-    int chain_id
-    int component_id
-    string chain_type
-    string chain_label
-    string chain_role
-    string isotype
-    string notes
-  }
-
-  CHAIN_SEQUENCE {
+  ANTIBODY_SEQUENCE {
     int sequence_id
-    int chain_id
-    string sequence_type
+    int antibody_id
+    string sequence_label
+    string chain_type
+    string sequence_group
+    int copy_count
     string amino_acid_sequence
-    int start_residue
-    int end_residue
+    string isotype
     string numbering_scheme
     string source_note
   }
 
-  CHAIN_DOMAIN {
+  BINDING_UNIT_SEQUENCE {
+    int binding_unit_sequence_id
+    int binding_unit_id
+    int sequence_id
+    string sequence_role
+    int stoichiometry
+    string orientation
+    string notes
+  }
+
+  SEQUENCE_DOMAIN {
     int domain_id
-    int chain_id
     int sequence_id
     string domain_type
-    string domain_label
+    string domain_class
     int start_residue
     int end_residue
     string amino_acid_sequence
     string numbering_scheme
-    string notes
-  }
-
-  IMGT_MOLECULAR_ANNOTATION {
-    int imgt_annotation_id
-    int antibody_id
-    string imgt_molecular_key
-    string imgt_annotation_status
-    string imgt_annotation_source
-    string notes
-  }
-
-  IMGT_CHAIN_ANNOTATION {
-    int imgt_chain_annotation_id
-    int chain_id
-    string imgt_chain_label
-    string imgt_chain_type
-    string v_gene
-    string d_gene
-    string j_gene
-    string c_gene
-    string allele_calls
-    string numbering_scheme
-    string annotation_confidence
-  }
-
-  IMGT_DOMAIN_ANNOTATION {
-    int imgt_domain_annotation_id
-    int domain_id
-    string domain_type
-    string imgt_start_position
-    string imgt_end_position
-    string cdr1_sequence
-    string cdr2_sequence
-    string cdr3_sequence
-    string framework_1_sequence
-    string framework_2_sequence
-    string framework_3_sequence
-    string framework_4_sequence
+    string imgt_annotation
   }
 
   SEQUENCE_IDENTITY_MATCH {
     int identity_match_id
-    int antibody_id
-    int matched_antibody_id
+    int sequence_id_a
+    int sequence_id_b
     string comparison_region
     float identity_percentage
     string identity_bin
     string method
-    string evidence_text
   }
 
   MANUFACTURER {
@@ -198,7 +132,6 @@ erDiagram
     string manufacturer_name
     string country
     string website
-    string notes
   }
 
   ANTIBODY_MANUFACTURER {
@@ -209,47 +142,36 @@ erDiagram
     boolean is_current
     string start_date
     string end_date
-    string source_note
   }
 
   CONDITION {
     int condition_id
     string condition_name
     string ontology_id
-    string description
-  }
-
-  USAGE_STATUS {
-    int usage_status_id
-    string status_name
-    string description
   }
 
   ANTIBODY_USAGE {
-    int antibody_usage_id
+    int usage_id
     int antibody_id
     int condition_id
-    int usage_status_id
+    string status
     string region
     string approval_date
     string discontinuation_date
-    string evidence_text
-    string source_note
   }
 
   CLINICAL_TRIAL {
     int clinical_trial_id
     int antibody_id
+    int reference_id
     string registry
     string registry_trial_id
     string trial_title
     string phase
     string trial_status
+    string sponsor
     string start_date
     string completion_date
-    string sponsor
-    string source_url
-    string notes
   }
 
   CLINICAL_TRIAL_CONDITION {
@@ -262,84 +184,33 @@ erDiagram
     int trial_result_id
     int clinical_trial_id
     string result_category
-    string result_summary
-    string result_date
-    string source_url
-    string confidence_score
-    string notes
-  }
-
-  TRIAL_ADA_RESULT {
-    int ada_result_id
-    int trial_result_id
-    string ada_detected
-    string ada_metric_name
-    float ada_value_numeric
-    string ada_value_text
+    string metric_name
+    float value_numeric
+    string value_text
     string units
-    string assay_type
-    string assay_description
     string timepoint
+    string assay
     string interpretation
   }
 
-  TRIAL_SAFETY_EVENT {
-    int safety_event_id
-    int trial_result_id
-    string event_name
-    string event_type
-    string severity_grade
-    float frequency_numeric
-    string frequency_text
-    string units
-    boolean serious_event
-    string notes
-  }
-
-  TRIAL_QUALITATIVE_RESULT {
-    int qualitative_result_id
-    int trial_result_id
-    string topic
-    string qualitative_text
-    string extracted_symptoms
-    string interpretation
-    string notes
-  }
-
-  LITERATURE_SOURCE {
-    int literature_source_id
-    string source_name
-    string source_type
-    string base_url
-    string notes
-  }
-
-  LITERATURE_REFERENCE {
-    int literature_reference_id
-    int antibody_id
-    int literature_source_id
+  REFERENCE {
+    int reference_id
+    string reference_type
+    string database_name
     string title
-    string authors
-    string journal
-    int publication_year
-    string doi
-    string pmid
+    string external_id
     string url
-    string abstract
-    string relevance_reason
-    float relevance_score
-    string notes
+    string publication_date
+    string accessed_at
+    string source_locator
   }
 
-  DATA_SOURCE {
-    int data_source_id
-    string source_type
-    string source_name
-    string url
-    string citation
-    string accessed_at
-    string version_tag
-    string raw_payload_path
+  ANTIBODY_REFERENCE {
+    int antibody_reference_id
+    int antibody_id
+    int reference_id
+    string relationship_type
+    float relevance_score
     string notes
   }
 
@@ -353,20 +224,19 @@ erDiagram
     string model_name
     string started_at
     string finished_at
-    string notes
   }
 
-  FIELD_EVIDENCE {
+  EVIDENCE {
     int evidence_id
     int antibody_id
-    int data_source_id
+    int reference_id
     int run_id
     string table_name
     string record_id
     string field_name
     string extracted_value
     string evidence_text
-    string confidence_score
+    float confidence
     string review_status
     string reviewer_note
   }
@@ -374,819 +244,456 @@ erDiagram
   CHANGE_LOG {
     int change_id
     int antibody_id
-    int data_source_id
     int run_id
+    int evidence_id
     string table_name
     string record_id
     string field_name
     string old_value
     string new_value
     string changed_at
-    string change_reason
+    string reason
   }
 
-  ANTIBODY ||--o{ ANTIBODY_IDENTIFIER : has_identifier
+  ANTIBODY_FORMAT ||--o{ ANTIBODY : classifies
   ANTIBODY ||--o{ ANTIBODY_NAME : has_name
-  ANTIBODY ||--o{ ANTIBODY_FORMAT_ASSIGNMENT : has_format
-  ANTIBODY_FORMAT ||--o{ ANTIBODY_FORMAT_ASSIGNMENT : assigned_to
 
   ANTIBODY ||--o{ ANTIBODY_TARGET : has_target
-  BIOCHEMICAL_TARGET ||--o{ ANTIBODY_TARGET : targeted_by
+  TARGET ||--o{ ANTIBODY_TARGET : targeted_by
 
-  ANTIBODY ||--o{ ANTIBODY_GENETIC_SOURCE : has_genetic_source
-  GENETIC_SOURCE ||--o{ ANTIBODY_GENETIC_SOURCE : describes_source
+  ANTIBODY ||--o{ BINDING_UNIT : contains_binding_unit
+  TARGET ||--o{ BINDING_UNIT : unit_targets
 
-  ANTIBODY ||--o{ STRUCTURAL_FEATURE : has_structural_feature
-  ANTIBODY ||--o{ ANTIBODY_COMPONENT : has_component
-  BIOCHEMICAL_TARGET ||--o{ ANTIBODY_COMPONENT : component_targets
+  ANTIBODY ||--o{ ANTIBODY_SEQUENCE : contains_sequence
+  BINDING_UNIT ||--o{ BINDING_UNIT_SEQUENCE : assembled_from
+  ANTIBODY_SEQUENCE ||--o{ BINDING_UNIT_SEQUENCE : used_in
+  ANTIBODY_SEQUENCE ||--o{ SEQUENCE_DOMAIN : contains_domain
 
-  ANTIBODY_COMPONENT ||--o{ CHAIN : contains_chain
-  CHAIN ||--o{ CHAIN_SEQUENCE : has_sequence
-  CHAIN ||--o{ CHAIN_DOMAIN : has_domain
-  CHAIN_SEQUENCE ||--o{ CHAIN_DOMAIN : domain_from_sequence
+  ANTIBODY_SEQUENCE ||--o{ SEQUENCE_IDENTITY_MATCH : query_sequence
+  ANTIBODY_SEQUENCE ||--o{ SEQUENCE_IDENTITY_MATCH : matched_sequence
 
-  ANTIBODY ||--o{ IMGT_MOLECULAR_ANNOTATION : has_imgt_annotation
-  CHAIN ||--o{ IMGT_CHAIN_ANNOTATION : has_imgt_chain_annotation
-  CHAIN_DOMAIN ||--o{ IMGT_DOMAIN_ANNOTATION : has_imgt_domain_annotation
-
-  ANTIBODY ||--o{ SEQUENCE_IDENTITY_MATCH : query_antibody
-  ANTIBODY ||--o{ SEQUENCE_IDENTITY_MATCH : matched_antibody
-
-  ANTIBODY ||--o{ ANTIBODY_MANUFACTURER : manufactured_by
-  MANUFACTURER ||--o{ ANTIBODY_MANUFACTURER : manufactures
+  ANTIBODY ||--o{ ANTIBODY_MANUFACTURER : associated_with
+  MANUFACTURER ||--o{ ANTIBODY_MANUFACTURER : manufacturer
 
   ANTIBODY ||--o{ ANTIBODY_USAGE : has_usage
   CONDITION ||--o{ ANTIBODY_USAGE : usage_condition
-  USAGE_STATUS ||--o{ ANTIBODY_USAGE : usage_status
 
   ANTIBODY ||--o{ CLINICAL_TRIAL : studied_in
+  REFERENCE ||--o{ CLINICAL_TRIAL : registry_source
   CLINICAL_TRIAL ||--o{ CLINICAL_TRIAL_CONDITION : studies_condition
   CONDITION ||--o{ CLINICAL_TRIAL_CONDITION : trial_condition
-
   CLINICAL_TRIAL ||--o{ TRIAL_RESULT : has_result
-  TRIAL_RESULT ||--o{ TRIAL_ADA_RESULT : has_ada_result
-  TRIAL_RESULT ||--o{ TRIAL_SAFETY_EVENT : has_safety_event
-  TRIAL_RESULT ||--o{ TRIAL_QUALITATIVE_RESULT : has_qualitative_result
 
-  ANTIBODY ||--o{ LITERATURE_REFERENCE : has_literature
-  LITERATURE_SOURCE ||--o{ LITERATURE_REFERENCE : indexed_by
+  ANTIBODY ||--o{ ANTIBODY_REFERENCE : has_reference
+  REFERENCE ||--o{ ANTIBODY_REFERENCE : linked_reference
 
-  DATA_SOURCE ||--o{ FIELD_EVIDENCE : supports
-  INGESTION_RUN ||--o{ FIELD_EVIDENCE : generated
-  ANTIBODY ||--o{ FIELD_EVIDENCE : has_evidence
+  ANTIBODY ||--o{ EVIDENCE : has_evidence
+  REFERENCE ||--o{ EVIDENCE : evidence_source
+  INGESTION_RUN ||--o{ EVIDENCE : extracted_during
 
-  DATA_SOURCE ||--o{ CHANGE_LOG : source_of_change
-  INGESTION_RUN ||--o{ CHANGE_LOG : change_run
   ANTIBODY ||--o{ CHANGE_LOG : has_change
+  INGESTION_RUN ||--o{ CHANGE_LOG : changed_during
+  EVIDENCE ||--o{ CHANGE_LOG : supports_change
 ```
 
-## Design principles
+> **Mermaid note:** the diagram intentionally omits `PK` and `FK` labels inside entity fields because those markers render inconsistently in some Mermaid versions. The implementation constraints are described below.
 
-### Use an internal database key and a public antibody identifier
+---
 
-The database uses `antibody_id` as the internal primary key for joins. This is efficient, stable, and robust to name normalization or future corrections.
+# Table descriptions
 
-The `inn_name` should be unique and should remain the main public-facing identifier because it is the name that curators, users, and WHO INN-derived workflows will most often use.
-
-Recommended constraints:
-
-```sql
-UNIQUE (inn_name)
-```
-
-### Store IMGT identifiers as an identity and annotation layer
-
-IMGT-compatible information can be stored in dedicated identifier and annotation tables:
-
-- `ANTIBODY_IDENTIFIER`
-- `IMGT_MOLECULAR_ANNOTATION`
-- `IMGT_CHAIN_ANNOTATION`
-- `IMGT_DOMAIN_ANNOTATION`
-
-This allows the database to store official IMGT/mAb-DB links where available and generated IMGT-derived molecular keys where sequence/domain annotation is available.
-
-### Avoid list-like fields in the core antibody table
-
-Properties such as other names, targets, manufacturers, clinical indications, sequences, literature references, and clinical trial results can occur multiple times per antibody. These should be stored as separate related tables rather than comma-separated strings or JSON blobs.
-
-### Separate extracted evidence from curated truth
-
-LLM- and scraper-derived values should be traceable. The `FIELD_EVIDENCE` table allows candidate extracted values to be stored with evidence snippets, source URLs, confidence scores, and manual review status.
-
-The curated tables can then be updated from reviewed evidence.
-
-## Core antibody identity
+## 1. Core identity and classification
 
 ### `ANTIBODY`
 
-Stores one row per antibody or antibody-like therapeutic entity.
+The central record for each therapeutic.
 
-This is the central table to which most other tables connect.
+Key fields:
 
-Main fields:
+- `antibody_id` - internal integer primary key used throughout the database.
+- `inn_name` - WHO International Nonproprietary Name; required and unique.
+- `format_id` - primary antibody-format classification.
+- `year_proposed` - year of the Proposed INN list.
+- `mode_of_action` - concise mechanism or mode-of-action description where available.
+- `genetic_source` - WHO-derived source such as human, humanised, chimeric or animal-derived.
+- `structural_summary` - concise WHO-derived structural description.
 
-| Field | Purpose |
-|---|---|
-| `antibody_id` | Internal stable integer identifier used for joins. |
-| `inn_name` | Unique WHO INN name. |
-| `canonical_name` | Cleaned display name, usually same as INN. |
-| `year_proposed` | Year proposed in the WHO INN list. |
-| `mode_of_action_summary` | Short text summary of mechanism or mode of action. |
-| `structural_summary` | Structural description parsed from the WHO INN source. |
-| `structural_identity_note` | Summary text for structural identity or similarity information. |
-| `created_at` | Record creation timestamp. |
-| `updated_at` | Last update timestamp. |
-
-### `ANTIBODY_IDENTIFIER`
-
-Stores identifiers from external systems and generated identifier schemes.
-
-Examples include:
-
-- INN
-- IMGT/mAb-DB identifier or URL
-- DrugBank ID
-- ChEMBL ID
-- PubMed-linked concept identifiers
-- internally generated IMGT-derived molecular keys
-
-Main fields:
-
-| Field | Purpose |
-|---|---|
-| `identifier_scheme` | Identifier namespace, such as `INN`, `IMGT_MAB_DB`, `DRUGBANK`, `CHEMBL`, or `INTERNAL_IMGT_KEY`. |
-| `identifier_value` | Identifier value. |
-| `identifier_url` | Link to the identifier record, if available. |
-| `is_primary_for_scheme` | Marks the preferred identifier for a specific scheme. |
-| `source_note` | Free-text provenance note. |
-
-This table makes the database extensible without adding a new column for every external database.
+`genetic_source` and `structural_summary` are deliberately retained as text in the first implementation. They can be normalized into additional tables later if the accumulated data justify it.
 
 ### `ANTIBODY_NAME`
 
-Stores synonyms, brand names, development names, and other aliases.
+Stores alternative names for an antibody. The INN itself remains in `ANTIBODY.inn_name`; this table is primarily for brand names, development codes and synonyms used by literature and trial searches.
 
-Useful `name_type` values:
+Suggested `name_type` values include:
 
-| Value | Meaning |
-|---|---|
-| `inn` | WHO INN name. |
-| `brand` | Commercial or brand name. |
-| `development_code` | Internal or clinical development code. |
-| `synonym` | General alias. |
-| `descriptive` | Descriptive name, such as anti-target antibody. |
-
-## Antibody format, target, and genetic source
+- `brand`
+- `development_code`
+- `synonym`
+- `descriptive`
 
 ### `ANTIBODY_FORMAT`
 
-Controlled vocabulary for antibody format.
+A controlled lookup table for the primary molecular format.
 
-Examples:
+Example records include:
 
-| Format | Category |
-|---|---|
-| IgG1 monoclonal antibody | full_length_mab |
-| Fab fragment | fragment |
-| scFv | fragment |
-| bispecific IgG-like antibody | multispecific |
-| antibody-cytokine fusion | fusion |
-| antibody-drug conjugate | conjugate |
+- conventional IgG
+- Fab
+- scFv
+- bispecific IgG-like antibody
+- multispecific antibody
+- antibody fusion protein
+- antibody-drug conjugate
 
-The fields `is_multispecific` and `is_fusion` make it easier to identify complex molecules programmatically.
+The Boolean fields make broad filtering straightforward without requiring the format name to be parsed repeatedly.
 
-### `ANTIBODY_FORMAT_ASSIGNMENT`
+### `TARGET` and `ANTIBODY_TARGET`
 
-Links an antibody to one or more formats.
+`TARGET` stores normalized biochemical targets, optionally annotated using gene symbols and UniProt identifiers. `ANTIBODY_TARGET` provides the many-to-many link between antibodies and targets.
 
-This is useful because an antibody can have layered structural descriptions, for example:
+`target_role` can distinguish targets in multispecific molecules, for example `primary`, `arm_A`, `arm_B` or `fusion_partner`.
 
-- bispecific
-- Fc-containing
-- IgG-like
-- fusion protein
+---
 
-Each assignment can store evidence text from the WHO INN list or a curated source.
+# 2. Molecular structure and sequence architecture
 
-### `BIOCHEMICAL_TARGET`
+## `ANTIBODY_SEQUENCE`
 
-Stores normalized target entities.
+Stores each distinct physical sequence belonging to an antibody. Heavy, light and non-canonical sequences are represented independently rather than forcing a therapeutic into a single heavy/light pair.
 
-Examples:
+Important fields include:
 
-| Target | Gene symbol |
-|---|---|
-| tumour necrosis factor alpha | TNF |
-| interleukin-6 receptor | IL6R |
-| HER2 receptor | ERBB2 |
-| programmed cell death protein 1 | PDCD1 |
+- `sequence_label` - e.g. `H1`, `H2`, `L1`, `L2`, `scFv_A`.
+- `chain_type` - heavy, light, scFv, linker, fusion partner, payload or other.
+- `sequence_group` - groups identical or related sequence copies where useful.
+- `copy_count` - number of identical physical copies represented by the row.
+- `amino_acid_sequence` - full extracted amino-acid sequence.
+- `isotype` - e.g. IgG1, IgG4, kappa or lambda where applicable.
+- `numbering_scheme` - e.g. IMGT.
 
-This table supports optional annotation using gene symbols and UniProt IDs.
+This table stores the sequence itself; it does **not** assume how that sequence pairs with other chains.
 
-### `ANTIBODY_TARGET`
+## `BINDING_UNIT`
 
-Links antibodies to biochemical targets.
+Represents a functional antibody arm or binding component. Examples include:
 
-This table supports multi-target and multispecific antibodies.
+- a conventional Fab arm;
+- arm A of a bispecific antibody;
+- arm B of a bispecific antibody;
+- an scFv component;
+- an additional binding unit in a trivalent construct.
 
-Useful `target_role` values:
+`copy_count` permits identical repeated binding units to be represented without duplicating their structural definition.
 
-| Value | Meaning |
-|---|---|
-| `primary` | Main intended target. |
-| `arm_1` | First binding arm of a multispecific. |
-| `arm_2` | Second binding arm of a multispecific. |
-| `fusion_partner_target` | Target associated with a fused protein domain. |
-| `unknown` | Target known but role unclear. |
+The optional `target_id` associates a particular binding unit with the target that it recognizes.
 
-### `GENETIC_SOURCE`
+## `BINDING_UNIT_SEQUENCE`
 
-Controlled vocabulary describing the genetic origin or engineering source.
+This bridge table is the central feature used to represent complex antibody architecture.
 
-Examples:
+It implements a many-to-many relationship between binding units and physical sequences:
 
-| Source name | Species | Engineering type |
+- one binding unit can contain multiple sequences, e.g. `HC1 + LC1`;
+- one sequence can participate in multiple binding units, e.g. a common light chain used by two different heavy-chain arms.
+
+Example for a heterodimeric bispecific:
+
+| Binding unit | Sequence | Sequence role |
 |---|---|---|
-| human | Homo sapiens | human |
-| humanized | mixed | humanized |
-| chimeric | mixed | chimeric |
-| murine | Mus musculus | animal |
-| rat | Rattus norvegicus | animal |
+| Arm A | H1 | heavy |
+| Arm A | L1 | light |
+| Arm B | H2 | heavy |
+| Arm B | L2 | light |
 
-### `ANTIBODY_GENETIC_SOURCE`
+For a common-light-chain bispecific, `L1` could instead be linked to both Arm A and Arm B. The same approach extends to multivalent and multispecific constructs without changing the schema.
 
-Links an antibody to one or more genetic source records.
+`stoichiometry` records the number of copies used within the unit, while `orientation` and `notes` provide space for non-canonical arrangements.
 
-This is useful for molecules with multiple components, engineered regions, or ambiguous source descriptions.
+## `SEQUENCE_DOMAIN`
 
-## Structural and molecular architecture
+Stores domains or defined sub-regions of a physical sequence.
 
-### `STRUCTURAL_FEATURE`
+Examples include:
 
-Stores parsed structural information from WHO INN text or other sources.
+- VH
+- VL
+- CH1
+- hinge
+- CH2
+- CH3
+- CL
+- linker
+- non-immunoglobulin fusion domain
 
-This table is intentionally flexible because structural descriptions can vary widely.
+WHO-provided IMGT coordinate boundaries can be stored using `start_residue`, `end_residue`, `numbering_scheme` and `imgt_annotation`. The corresponding amino-acid segment can also be stored directly.
 
-Example `feature_type` values:
+This allows both variable and constant-region information to remain explicitly connected to the physical chain from which it was derived.
 
-| Feature type | Example value |
-|---|---|
-| `isotype` | IgG1 |
-| `light_chain_type` | kappa |
-| `fc_modification` | LALA mutation |
-| `glycoengineering` | afucosylated |
-| `conjugation` | cytotoxic payload |
-| `domain_architecture` | VH-linker-VL |
-| `structural_note` | Free-text parsed WHO INN structural description |
+## `SEQUENCE_IDENTITY_MATCH`
 
-### `ANTIBODY_COMPONENT`
+Optional derived table for sequence-comparison results. It records pairwise identity between sequences or defined comparison regions and can support the structural-identity searches used in Thera-SAbDab-like workflows.
 
-Represents a structural or functional part of an antibody.
+---
 
-This table is important for multispecifics, fragments, fusion proteins, and antibody-derived constructs.
+# 3. Manufacturers and therapeutic use
 
-Examples:
+## `MANUFACTURER` and `ANTIBODY_MANUFACTURER`
 
-| Component type | Example |
-|---|---|
-| `binding_arm` | HER2-binding Fab arm |
-| `scFv` | CD3-binding scFv |
-| `fc_region` | Fc component |
-| `fusion_partner` | cytokine fusion domain |
-| `payload` | protein payload or attached biologic component |
+Stores companies independently from antibody records and links them using a many-to-many association. This supports originators, current manufacturers, licensees and historical company relationships.
 
-The optional `target_id` field links a component to the target it binds or affects.
+Useful `manufacturer_role` values include:
 
-### `CHAIN`
+- `originator`
+- `manufacturer`
+- `marketer`
+- `licensee`
 
-Stores chains belonging to a component.
+`is_current`, `start_date` and `end_date` preserve historical changes.
 
-Examples:
+## `CONDITION` and `ANTIBODY_USAGE`
 
-| Chain type | Chain label | Meaning |
-|---|---|---|
-| `heavy` | H1 | First heavy chain. |
-| `light` | L1 | First light chain. |
-| `heavy` | H2 | Second heavy chain in a bispecific. |
-| `linker` | linker_1 | Peptide linker. |
-| `fusion_partner` | cytokine | Fused cytokine or other protein sequence. |
+`CONDITION` provides a normalized list of therapeutic indications, optionally linked to an ontology identifier. `ANTIBODY_USAGE` records the status of an antibody for a condition and region.
 
-Useful fields:
+Example status values include:
 
-| Field | Purpose |
-|---|---|
-| `chain_type` | Heavy, light, linker, fusion partner, payload, other. |
-| `chain_label` | Human-readable label such as H1, H2, L1, L2, scFv_A. |
-| `chain_role` | Functional role of the chain. |
-| `isotype` | IgG1, IgG4, kappa, lambda, etc. |
+- approved
+- in use
+- investigational
+- discontinued
+- withdrawn
+- not approved
 
-### `CHAIN_SEQUENCE`
+This avoids assigning a single global clinical status to an antibody when its status differs between diseases or jurisdictions.
 
-Stores amino acid sequences.
+---
 
-A chain can have multiple associated sequence records, such as:
+# 4. Clinical trials and immunogenicity
 
-- full-length chain sequence
-- variable domain sequence
-- constant region sequence
-- CDR sequence
-- partial sequence
-- inferred sequence
+## `CLINICAL_TRIAL`
 
-Useful `sequence_type` values:
+Stores individual scraped or curated clinical-trial records. Each trial belongs to an antibody and can link back to its registry page through `reference_id`.
 
-| Value | Meaning |
-|---|---|
-| `full_length` | Complete chain sequence. |
-| `variable_domain` | VH or VL domain sequence. |
-| `constant_region` | CH, CL, or Fc sequence. |
-| `cdr` | Complementarity-determining region sequence. |
-| `fragment` | Partial sequence. |
-| `inferred` | Computationally inferred sequence. |
+Typical fields include registry, registry ID, phase, trial status, sponsor and trial dates.
 
-### `CHAIN_DOMAIN`
+## `CLINICAL_TRIAL_CONDITION`
 
-Stores named domains within chains.
+Many trials investigate more than one condition. This bridge table connects trials to the normalized `CONDITION` table without storing comma-separated condition lists.
 
-Examples:
+## `TRIAL_RESULT`
 
-| Domain type | Meaning |
-|---|---|
-| `VH` | Heavy-chain variable domain. |
-| `VL` | Light-chain variable domain. |
-| `CH1` | Heavy-chain constant domain 1. |
-| `CH2` | Heavy-chain constant domain 2. |
-| `CH3` | Heavy-chain constant domain 3. |
-| `CL` | Light-chain constant domain. |
-| `scFv` | Single-chain variable fragment. |
-| `linker` | Peptide linker. |
+A flexible result table used for multiple kinds of trial output. The `result_category` field determines the interpretation of each record.
 
-This table enables variable domains to be connected to chain sequences and antibody components.
+Recommended categories include:
 
-## IMGT-compatible nomenclature and annotation layer
+- `immunogenicity`
+- `safety`
+- `efficacy`
+- `pharmacokinetics`
+- `pharmacodynamics`
+- `qualitative`
+- `other`
 
-The database can support IMGT-based nomenclature without making IMGT the only primary key.
+For ADA data, example records might be:
 
-Recommended identity strategy:
+| result_category | metric_name | value_numeric | units |
+|---|---|---:|---|
+| immunogenicity | ADA incidence | 7.4 | % |
+| immunogenicity | neutralising ADA incidence | 2.1 | % |
 
-| Identity level | Recommended storage |
-|---|---|
-| Internal row identity | `ANTIBODY.antibody_id` |
-| Public regulatory identity | `ANTIBODY.inn_name` |
-| External IMGT identifier | `ANTIBODY_IDENTIFIER` |
-| Generated molecular identity | `IMGT_MOLECULAR_ANNOTATION.imgt_molecular_key` |
-| Chain-level annotation | `IMGT_CHAIN_ANNOTATION` |
-| Domain-level annotation | `IMGT_DOMAIN_ANNOTATION` |
+Where no quantitative value is available, `value_text` and `interpretation` preserve statements such as "ADA detected", "not reported" or "no clinically meaningful impact observed".
 
-### `IMGT_MOLECULAR_ANNOTATION`
+Using one generic result table keeps the first implementation compact while still supporting heterogeneous clinical evidence.
 
-Stores molecule-level IMGT-derived annotations.
+---
 
-Useful fields:
+# 5. Literature, patents and external sources
 
-| Field | Purpose |
-|---|---|
-| `imgt_molecular_key` | Generated IMGT-aware molecular identifier. |
-| `imgt_annotation_status` | Annotation completeness status. |
-| `imgt_annotation_source` | Tool or source used for IMGT annotation. |
-| `notes` | Curator notes. |
+## `REFERENCE`
 
-Example statuses:
+A common repository for external source records. `reference_type` distinguishes the type of source.
 
-| Status | Meaning |
-|---|---|
-| `not_attempted` | No annotation attempted. |
-| `partial` | Some chains or domains annotated. |
-| `complete` | Annotation complete. |
-| `ambiguous` | More than one plausible annotation. |
-| `failed` | Annotation failed. |
+Suggested values include:
 
-Example generated molecular key:
+- `who_inn`
+- `literature`
+- `patent`
+- `clinical_trial`
+- `regulatory`
+- `external_database`
+
+Examples of `database_name` include PubMed, NCBI, ClinicalTrials.gov, Espacenet, Google Patents and IMGT/mAb-DB.
+
+`external_id` stores identifiers such as PMID, DOI, patent number or trial ID. `source_locator` can contain a WHO page number, section, figure or other location within a source.
+
+## `ANTIBODY_REFERENCE`
+
+Links external references to one or more antibodies. A publication or patent may concern multiple therapeutics, so a many-to-many link is preferable to embedding an `antibody_id` directly in `REFERENCE`.
+
+`relationship_type` can describe why the source is relevant, for example `primary_publication`, `mechanism`, `clinical`, `patent_family`, or `mentions`.
+
+---
+
+# 6. Evidence, automated ingestion and manual review
+
+## `INGESTION_RUN`
+
+Stores metadata about each automated pipeline execution. This allows a curator to determine which parser, scraper, prompt or model produced a candidate value.
+
+Useful fields include:
+
+- pipeline stage;
+- tool and tool version;
+- prompt version;
+- model name;
+- start and finish timestamps.
+
+## `EVIDENCE`
+
+Acts as the bridge between automatically extracted information and curated database values.
+
+For each candidate or populated value it can record:
+
+- the antibody;
+- the source reference;
+- the ingestion run;
+- the destination table and field;
+- the extracted value;
+- the supporting source text;
+- extraction confidence;
+- review status;
+- curator notes.
+
+Recommended review states are `pending`, `accepted`, `rejected`, `needs_check` and `superseded`.
+
+This design permits automated WHO parsing and web enrichment without losing the evidence needed for manual verification.
+
+## `CHANGE_LOG`
+
+Records changes to curated database values. It stores the old and new values together with the pipeline run and supporting evidence responsible for the change.
+
+This provides a field-level audit trail for repeated automated updates.
+
+---
+
+# Key relationships
+
+The principal relationships are:
 
 ```text
-IMGTKEY:full_igg:humanized:ERBB2:IGHV3-66:IGHJ4:IGHG1:IGKV1-39:IGKJ1:IGKC:a83f91c2
+ANTIBODY
+  ├── ANTIBODY_NAME
+  ├── ANTIBODY_FORMAT
+  ├── TARGET(s)
+  ├── BINDING_UNIT(s)
+  │      └── BINDING_UNIT_SEQUENCE ── ANTIBODY_SEQUENCE(s)
+  │                                      └── SEQUENCE_DOMAIN(s)
+  ├── MANUFACTURER(s)
+  ├── CONDITION / USAGE records
+  ├── CLINICAL_TRIAL(s)
+  │      └── TRIAL_RESULT(s)
+  ├── REFERENCE(s)
+  │      ├── WHO INN
+  │      ├── literature
+  │      ├── patents
+  │      └── external databases
+  ├── EVIDENCE
+  └── CHANGE_LOG
 ```
 
-### `IMGT_CHAIN_ANNOTATION`
+---
 
-Stores IMGT-style gene and allele calls for each chain.
+# Recommended database constraints
 
-Main fields:
+The SQLAlchemy/SQLite implementation should enforce at least the following constraints:
 
-| Field | Purpose |
-|---|---|
-| `chain_id` | Links annotation to a chain. |
-| `imgt_chain_label` | IMGT-compatible chain label. |
-| `v_gene`, `d_gene`, `j_gene`, `c_gene` | Gene calls where available. |
-| `allele_calls` | Optional detailed allele calls. |
-| `numbering_scheme` | Usually IMGT, but can store alternatives. |
-| `annotation_confidence` | Confidence or status of annotation. |
+```sql
+UNIQUE (ANTIBODY.inn_name)
+UNIQUE (ANTIBODY_FORMAT.format_name)
+UNIQUE (TARGET.target_name, TARGET.gene_symbol)
+UNIQUE (MANUFACTURER.manufacturer_name)
+UNIQUE (CLINICAL_TRIAL.registry, CLINICAL_TRIAL.registry_trial_id)
+UNIQUE (REFERENCE.reference_type, REFERENCE.database_name, REFERENCE.external_id)
+```
 
-### `IMGT_DOMAIN_ANNOTATION`
+Additional composite uniqueness constraints should prevent duplicate link records, for example:
 
-Stores IMGT-style domain-level sequence annotation.
+```sql
+UNIQUE (antibody_id, target_id, target_role)
+UNIQUE (binding_unit_id, sequence_id, sequence_role)
+UNIQUE (antibody_id, manufacturer_id, manufacturer_role)
+UNIQUE (antibody_id, reference_id, relationship_type)
+```
 
-This table can store CDR and framework regions:
+Foreign-key enforcement should be enabled in SQLite using:
 
-- CDR1
-- CDR2
-- CDR3
-- FR1
-- FR2
-- FR3
-- FR4
+```sql
+PRAGMA foreign_keys = ON;
+```
 
-It links to `CHAIN_DOMAIN`, so CDR/framework annotation remains connected to the actual chain/domain structure.
+---
 
-## Sequence identity and similarity
+# Example: representing a bispecific antibody
 
-### `SEQUENCE_IDENTITY_MATCH`
+A hypothetical bispecific antibody has two different Fab arms:
 
-Stores structural or sequence identity relationships between antibodies.
+- Arm A = H1 + L1, targeting antigen A
+- Arm B = H2 + L2, targeting antigen B
 
-Main fields:
+The database representation is:
 
-| Field | Purpose |
-|---|---|
-| `antibody_id` | Query antibody. |
-| `matched_antibody_id` | Matched antibody. |
-| `comparison_region` | Region compared, such as VH, VL, Fv, full heavy, full light. |
-| `identity_percentage` | Numeric sequence identity percentage. |
-| `identity_bin` | Useful grouping, such as 99 or 98_to_50. |
-| `method` | Alignment method or pipeline used. |
-| `evidence_text` | Notes or supporting details. |
+```text
+ANTIBODY
+  └── Examplemab
 
-Recommended `identity_bin` values:
+BINDING_UNIT
+  ├── Arm A → antigen A
+  └── Arm B → antigen B
 
-| Value | Meaning |
-|---|---|
-| `99` | Identity greater than or equal to 99%. |
-| `98_to_50` | Identity between 50% and 98%. |
-| `below_50` | Identity below 50%. |
-| `unknown` | Identity not calculated or unclear. |
+ANTIBODY_SEQUENCE
+  ├── H1
+  ├── L1
+  ├── H2
+  └── L2
 
-## Manufacturing and usage
+BINDING_UNIT_SEQUENCE
+  ├── Arm A ↔ H1 (heavy)
+  ├── Arm A ↔ L1 (light)
+  ├── Arm B ↔ H2 (heavy)
+  └── Arm B ↔ L2 (light)
+```
 
-### `MANUFACTURER`
+If the molecule instead uses a common light chain, the architecture does not change: `L1` is linked to both Arm A and Arm B. Likewise, a trivalent molecule can contain three binding-unit records, while repeated identical arms can be represented using `copy_count` and `stoichiometry`.
 
-Stores manufacturer or company records.
+---
 
-Examples:
-
-- Roche
-- Genentech
-- AbbVie
-- Regeneron
-- AstraZeneca
-
-### `ANTIBODY_MANUFACTURER`
-
-Links antibodies to manufacturers.
-
-This table supports multiple companies and historical changes.
-
-Useful `manufacturer_role` values:
-
-| Value | Meaning |
-|---|---|
-| `originator` | Original developer. |
-| `manufacturer` | Current manufacturer. |
-| `marketer` | Marketing authorization holder. |
-| `licensee` | Licensed producer. |
-| `unknown` | Role not known. |
-
-The `is_current` flag helps distinguish current and historical manufacturers.
-
-### `CONDITION`
-
-Stores disease or condition names.
-
-Optional ontology IDs can link to resources such as MONDO, DOID, or MeSH.
-
-### `USAGE_STATUS`
-
-Controlled vocabulary for antibody usage status.
-
-Examples:
-
-| Status |
-|---|
-| approved |
-| in_use |
-| discontinued |
-| withdrawn |
-| investigational |
-| clinical_trial |
-| not_approved |
-| unknown |
-
-### `ANTIBODY_USAGE`
-
-Links antibodies to conditions and usage status.
-
-This table exists because usage is usually condition-specific and region-specific.
-
-Example:
-
-| Antibody | Condition | Status | Region |
-|---|---|---|---|
-| adalimumab | rheumatoid arthritis | approved | US |
-| adalimumab | Crohn disease | approved | EU |
-| examplemab | asthma | discontinued | US |
-
-## Clinical trial data
-
-### `CLINICAL_TRIAL`
-
-Stores one row per scraped or curated trial.
-
-Sources may include:
-
-- ClinicalTrials.gov
-- EU Clinical Trials Register
-- company registries
-- trial publications
-- regulatory documents
-
-Main fields:
-
-| Field | Purpose |
-|---|---|
-| `registry` | Trial registry source. |
-| `registry_trial_id` | NCT number or other registry ID. |
-| `trial_title` | Trial title. |
-| `phase` | Trial phase. |
-| `trial_status` | Recruiting, completed, terminated, withdrawn, etc. |
-| `sponsor` | Sponsor or responsible party. |
-| `source_url` | Link to trial record. |
-
-### `CLINICAL_TRIAL_CONDITION`
-
-Links clinical trials to one or more conditions.
-
-A single trial can include multiple indications.
-
-### `TRIAL_RESULT`
-
-General parent table for trial results.
-
-Useful `result_category` values:
-
-| Category |
-|---|
-| immunogenicity |
-| safety |
-| efficacy |
-| pharmacokinetics |
-| pharmacodynamics |
-| qualitative |
-| other |
-
-Specialized trial result tables link to this table.
-
-### `TRIAL_ADA_RESULT`
-
-Stores anti-drug antibody and immunogenicity information from trial results.
-
-This table supports both quantitative and qualitative reporting.
-
-Examples:
-
-| Data type | Storage |
-|---|---|
-| ADA incidence of 12.4% | `ada_value_numeric = 12.4`, `units = percent` |
-| ADA detected | `ada_value_text = detected` |
-| No clinically meaningful ADA response | `ada_value_text` and `interpretation` |
-| Not reported | `ada_value_text = not reported` |
-
-### `TRIAL_SAFETY_EVENT`
-
-Stores adverse events, side effects, and symptoms.
-
-Examples:
-
-| event_name | event_type |
-|---|---|
-| injection-site reaction | adverse_event |
-| headache | symptom |
-| cytokine release syndrome | serious_adverse_event |
-
-Both numeric and textual frequency fields are included because clinical trial reporting is inconsistent.
-
-### `TRIAL_QUALITATIVE_RESULT`
-
-Stores trial findings that do not fit cleanly into ADA or safety tables.
-
-Examples:
-
-| Topic | Qualitative text |
-|---|---|
-| tolerability | Generally well tolerated. |
-| immunogenicity interpretation | No apparent relationship between ADA and efficacy. |
-| symptom summary | Most common symptoms were fever and headache. |
-
-## Literature repository
-
-### `LITERATURE_SOURCE`
-
-Stores literature source repositories.
-
-Examples:
-
-| Source name | Source type |
-|---|---|
-| PubMed | literature_database |
-| NCBI Bookshelf | literature_database |
-| Europe PMC | literature_database |
-| publisher website | publisher |
-| company publication page | company_source |
-
-### `LITERATURE_REFERENCE`
-
-Stores literature links relevant to an antibody.
-
-Main fields:
-
-| Field | Purpose |
-|---|---|
-| `title` | Publication title. |
-| `authors` | Author string. |
-| `journal` | Journal name. |
-| `publication_year` | Year of publication. |
-| `doi` | DOI. |
-| `pmid` | PubMed ID. |
-| `url` | Hyperlink to publication. |
-| `abstract` | Optional abstract text. |
-| `relevance_reason` | Why the publication was selected. |
-| `relevance_score` | Optional ranking score from search or LLM. |
-
-## Provenance, evidence, review, and auditing
-
-### `DATA_SOURCE`
-
-Stores source-level provenance.
-
-Examples:
-
-| source_type | Example |
-|---|---|
-| WHO_INN_PDF | WHO proposed INN list |
-| clinical_trial_registry | ClinicalTrials.gov |
-| literature_database | PubMed |
-| regulatory_label | FDA or EMA label |
-| scraper_output | internal scraper output |
-| llm_extraction | LLM structured extraction result |
-
-The `raw_payload_path` field can point to saved JSON, HTML, text, or LLM output stored under `data/intermediate/`.
-
-### `INGESTION_RUN`
-
-Stores one row per pipeline run.
-
-Examples:
-
-| run_type | pipeline_stage |
-|---|---|
-| WHO_INN_PARSE | pdf_parsing |
-| LLM_DF_EXTRACTION | llm_pdf_extraction |
-| WEB_ENRICHMENT | web_scraping |
-| MANUAL_REVIEW | curation |
-
-Important fields:
-
-| Field | Purpose |
-|---|---|
-| `tool_name` | Parser, scraper, workflow task, or LLM client. |
-| `tool_version` | Package version or Git commit. |
-| `prompt_version` | Version of the prompt template. |
-| `model_name` | LLM model used. |
-| `started_at`, `finished_at` | Run timing metadata. |
-
-### `FIELD_EVIDENCE`
-
-Stores extracted evidence before or alongside final curated values.
-
-This table is especially important for LLM-assisted workflows.
-
-For each extracted claim, it can store:
-
-| Field | Purpose |
-|---|---|
-| `table_name` | Destination table supported by the evidence. |
-| `record_id` | Destination record, if known. |
-| `field_name` | Field being supported. |
-| `extracted_value` | Parsed candidate value. |
-| `evidence_text` | Supporting quote or snippet. |
-| `confidence_score` | LLM or scraper confidence. |
-| `review_status` | pending, accepted, rejected, needs_check. |
-| `reviewer_note` | Curator comments. |
-
-Recommended review statuses:
-
-| Status | Meaning |
-|---|---|
-| `pending` | Not yet reviewed. |
-| `accepted` | Curator accepted value. |
-| `rejected` | Curator rejected value. |
-| `needs_check` | Requires additional checking. |
-| `superseded` | Replaced by newer evidence. |
-
-### `CHANGE_LOG`
-
-Stores field-level changes to curated database values.
-
-This table answers:
-
-- What changed
-- When did it change
-- Which run caused the change
-- Which source supported the change
-- What was the old value
-- What is the new value
-
-## Potential ingestion workflow
+# Suggested automated data flow
 
 ```text
 WHO INN PDF
-  -> PDFParsingModule
-  -> structured rows or DataFrame
-  -> LLMApiModule PDF extraction calls
-  -> validated JSON
-  -> FIELD_EVIDENCE
-  -> curated database tables
-  -> CHANGE_LOG
+    ↓
+PDF parsing / OCR pipeline
+    ↓
+LLM-assisted structured extraction
+    ↓
+ANTIBODY + names + targets + sequences + domains + binding units
+
+Web search / scraping
+    ↓
+REFERENCE records
+    ↓
+Clinical trials / trial results / literature / patents
+    ↓
+EVIDENCE
+    ↓
+Manual review
+    ↓
+Accepted database updates
+    ↓
+CHANGE_LOG
 ```
 
-For web enrichment:
+---
 
-```text
-Existing antibody DB entry
-  -> search and scrape
-  -> LLM extraction from retrieved evidence
-  -> FIELD_EVIDENCE
-  -> manual review
-  -> curated database update
-  -> CHANGE_LOG
-```
+# Relationship to the current prototype
 
-## Suggested implementation phases
-
-### Phase 1: WHO INN core database
-
-Implement:
-
-- `ANTIBODY`
-- `ANTIBODY_IDENTIFIER`
-- `ANTIBODY_NAME`
-- `ANTIBODY_FORMAT`
-- `ANTIBODY_FORMAT_ASSIGNMENT`
-- `BIOCHEMICAL_TARGET`
-- `ANTIBODY_TARGET`
-- `GENETIC_SOURCE`
-- `ANTIBODY_GENETIC_SOURCE`
-- `STRUCTURAL_FEATURE`
-- `DATA_SOURCE`
-- `INGESTION_RUN`
-- `FIELD_EVIDENCE`
-- `CHANGE_LOG`
-
-### Phase 2: Sequence and IMGT annotation
-
-Add:
-
-- `ANTIBODY_COMPONENT`
-- `CHAIN`
-- `CHAIN_SEQUENCE`
-- `CHAIN_DOMAIN`
-- `IMGT_MOLECULAR_ANNOTATION`
-- `IMGT_CHAIN_ANNOTATION`
-- `IMGT_DOMAIN_ANNOTATION`
-- `SEQUENCE_IDENTITY_MATCH`
-
-### Phase 3: Manufacturing, usage, and clinical trials
-
-Add:
-
-- `MANUFACTURER`
-- `ANTIBODY_MANUFACTURER`
-- `CONDITION`
-- `USAGE_STATUS`
-- `ANTIBODY_USAGE`
-- `CLINICAL_TRIAL`
-- `CLINICAL_TRIAL_CONDITION`
-- `TRIAL_RESULT`
-- `TRIAL_ADA_RESULT`
-- `TRIAL_SAFETY_EVENT`
-- `TRIAL_QUALITATIVE_RESULT`
-
-### Phase 4: Literature repository
-
-Add:
-
-- `LITERATURE_SOURCE`
-- `LITERATURE_REFERENCE`
-UNIQUE (status_name)
-UNIQUE (registry, registry_trial_id)
-UNIQUE (doi)
-UNIQUE (pmid)
-```
+The full schema described here is the proposed architecture for the completed curation system. It was not fully implemented during the project. A simpler SQLite database was prepared for the lightweight Python application to store information already produced by the parsing workflow. The proposed schema provides the path from that prototype to a more complete relational knowledgebase without requiring the extraction pipeline itself to be redesigned.
